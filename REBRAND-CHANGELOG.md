@@ -187,3 +187,17 @@ Added an Angular service worker so the app loads and reads **offline** (built fo
 Needs the .NET SDK (blocked here: `dot.net` 403) to add a `LibraryType`, a metadata column, and a
 generated+tested EF migration; a blind hand-written migration would risk a broken DB. The full,
 verified-path implementation plan is in `docs/phase3-maritime-library.md`.
+
+---
+
+## Phase 3 · Commit 3 — Fix CI "Build UI" (npm peer-deps)
+
+The Feature 1 `@angular/service-worker` dependency surfaced a strict peer conflict in CI:
+`@angular/service-worker@21.2.17` exact-peers `@angular/core@21.2.17`, but the lockfile pins core at
+`21.2.8`. CI installs without `--legacy-peer-deps` (which `build.sh`/Docker already use), so `npm ci`
+errored and `ng` was never installed → **Build UI** failed.
+
+- Added `UI/Web/.npmrc` with `legacy-peer-deps=true` so every install (CI included) resolves like the rest
+  of the project. Verified locally: a clean strict `npm ci` now exits 0.
+
+> Backend CI ("Build and Test PR") is **green** — the rebrand's C# compiles and its tests pass.
