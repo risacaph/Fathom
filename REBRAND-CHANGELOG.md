@@ -86,3 +86,19 @@ Recolored the brand accent from Kavita green (`#4ac694`) to the Fathom palette:
 > removed (we don't rehost them) — drop in your own imagery later if desired.
 > Internal identifiers deliberately left as upstream (tracking fork): `Configuration.StatsApiUrl` /
 > `KavitaPlusApiUrl` (now dead code), `DefaultOidcClientId = "kavita"`, and the `kavita.db` / `kavita.log` filenames.
+
+---
+
+## Phase 2 · Commit 5 — Frontend brand strings
+
+- `index.html` `<title>` → Fathom; `site.webmanifest` `name`/`short_name` → Fathom.
+- `_services/kavita-title.strategy.ts` — page-title fallback and ` (Kavita)` suffix → Fathom (class name/filename kept as upstream).
+- `nav-header.component.html` navbar wordmark and `splash-container.component.html` login heading → Fathom.
+
+## Phase 2 · Commit 6 — i18n source strings (`en.json`)
+
+- Replaced **99** standalone `Kavita` → `Fathom` in the English source strings; **preserved 46** `Kavita+`
+  labels (the dormant feature, per veneer-only). JSON validated.
+- The other ~30 locale files under `assets/langs/` were **left untouched** to keep the diff merge-friendly;
+  they'll show `Kavita` until re-translated (English is the default and primary audience language). Say the
+  word and I'll run the same safe transform across all locales.
