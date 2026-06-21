@@ -39,9 +39,9 @@
 
   <!-- Set the Product and Version info for our own projects -->
   <PropertyGroup>
-    <Product>Kavita</Product>
-    <Company>kareadita.github.io</Company>
-    <Copyright>Copyright 2020-$([System.DateTime]::Now.ToString('yyyy')) kavitareader.com (GNU General Public v3)</Copyright>
+    <Product>Fathom</Product>
+    <Company>fathomreader.com</Company>
+    <Copyright>Copyright 2020-$([System.DateTime]::Now.ToString('yyyy')) Kavita contributors (majora2007); Fathom modifications (fathomreader.com). GNU General Public License v3</Copyright>
 
     <AssemblyConfiguration>$(Configuration)-dev</AssemblyConfiguration>
 

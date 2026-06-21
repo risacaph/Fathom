@@ -55,7 +55,7 @@ public class OpdsService(
 
     public async Task<Feed> GetCatalogue(OpdsCatalogueRequest request, CancellationToken ct = default)
     {
-        var feed = CreateFeed("Kavita", string.Empty, request.ApiKey, request.Prefix);
+        var feed = CreateFeed("Fathom", string.Empty, request.ApiKey, request.Prefix);
         SetFeedId(feed, "root");
 
         // Get the user's customized dashboard

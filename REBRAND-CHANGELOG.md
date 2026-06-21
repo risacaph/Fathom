@@ -72,3 +72,17 @@ Recolored the brand accent from Kavita green (`#4ac694`) to the Fathom palette:
 
 > The app's neutral dark-gray surfaces (`--bs-body-bg`, colorscape defaults) were left as upstream;
 > a full navy re-tint of backgrounds is an optional design follow-up.
+
+---
+
+## Phase 2 · Commit 4 — Backend & email brand strings
+
+- `Kavita.Server/Startup.cs` — Swagger Title/Description → Fathom; License URL → canonical GPL-3.0 (`gnu.org`); startup log line → `"Fathom - v…"`.
+- OPDS — `Feed.cs` author Name/Uri → Fathom / `fathomreader.com`; `OpenSearchDescription.cs` Developer → `fathomreader.com`; `OpdsService.cs` root feed title → Fathom.
+- Assembly metadata — `Kavita.Server.csproj` & `Kavita.Common.csproj` `Product` → Fathom, `Company` → `fathomreader.com`. **The `Copyright` line now credits both "Kavita contributors (majora2007)" and Fathom — upstream attribution preserved, never replaced.**
+- Email templates — `EmailTemplates/base.html` + 8 `config/templates/*.html`: replaced the author-CDN logo image with a text wordmark, rebranded visible text (`Kavita` → `Fathom`, kept `Kavita+`), and removed/repointed author Discord/Reddit/Wiki/GitHub/OpenCollective links.
+
+> The email hero/social icons previously hot-linked `www.kavitareader.com/img/email/*`; those `<img>`s were
+> removed (we don't rehost them) — drop in your own imagery later if desired.
+> Internal identifiers deliberately left as upstream (tracking fork): `Configuration.StatsApiUrl` /
+> `KavitaPlusApiUrl` (now dead code), `DefaultOidcClientId = "kavita"`, and the `kavita.db` / `kavita.log` filenames.

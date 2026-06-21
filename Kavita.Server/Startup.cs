@@ -148,12 +148,12 @@ public class Startup
             c.SwaggerDoc("v1", new OpenApiInfo
             {
                 Version = BuildInfo.Version.ToString(),
-                Title = $"Kavita",
-                Description = $"Kavita provides a set of APIs authenticated via an Auth Key passed in the `x-api-key` header. Generate an Auth Key under User Settings → Manage Auth Keys, paste it into the Authorize panel, and all Try It requests will include it. Assume all fields of a payload are required unless marked optional. Built against v{BuildInfo.Version}",
+                Title = $"Fathom",
+                Description = $"Fathom provides a set of APIs authenticated via an Auth Key passed in the `x-api-key` header. Generate an Auth Key under User Settings → Manage Auth Keys, paste it into the Authorize panel, and all Try It requests will include it. Assume all fields of a payload are required unless marked optional. Built against v{BuildInfo.Version}",
                 License = new OpenApiLicense
                 {
                     Name = "GPL-3.0",
-                    Url = new Uri("https://github.com/Kareadita/Kavita/blob/develop/LICENSE")
+                    Url = new Uri("https://www.gnu.org/licenses/gpl-3.0.html")
                 },
             });
 
@@ -395,11 +395,11 @@ public class Startup
         {
             try
             {
-                logger.LogInformation("Kavita - v{Version}", BuildInfo.Version);
+                logger.LogInformation("Fathom - v{Version}", BuildInfo.Version);
             }
             catch (Exception)
             {
-                Console.WriteLine($"Kavita - v{BuildInfo.Version}");
+                Console.WriteLine($"Fathom - v{BuildInfo.Version}");
             }
 
             _ = Task.Run(async () =>
