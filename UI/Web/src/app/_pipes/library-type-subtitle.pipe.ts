@@ -25,6 +25,8 @@ export class LibraryTypeSubtitlePipe implements PipeTransform {
         return translate('library-type-subtitle-pipe.comicVine');
       case LibraryType.Regulations:
         return translate('library-type-subtitle-pipe.regulations');
+      case LibraryType.Research:
+        return translate('library-type-subtitle-pipe.research');
 
     }
   }

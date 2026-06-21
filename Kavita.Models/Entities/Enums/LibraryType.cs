@@ -40,4 +40,9 @@ public enum LibraryType
     /// </summary>
     [Description("Maritime Regulations")]
     Regulations = 6,
+    /// <summary>
+    /// Academic research papers / theses (PDF/EPUB). Parses and reads like a Book library.
+    /// </summary>
+    [Description("Research Papers")]
+    Research = 7,
 }

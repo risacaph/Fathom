@@ -221,3 +221,19 @@ stored as an int), so it's safe without a migration.
 > column without a migration would **pass CI** (tests use `EnsureCreated`) while **breaking production** (which
 > runs migrations at startup) — so it must be done with the SDK. Steps remain in `docs/phase3-maritime-library.md`.
 > Backend C# here is compile-checked by CI; please also runtime smoke-test: create a Regulations library, scan a PDF/EPUB, open it.
+
+---
+
+## Phase 3 · Commit 5 — "Research Papers" library type + academic roadmap
+
+For the academic use case (hosting college & doctoral research papers), added a **Research Papers** library
+type (`LibraryType.Research = 7`) — a book-like PDF/EPUB container, same proven pattern as Regulations, with
+**no schema change**.
+
+- Backend: enum + every switch site (the 3 `_ => throw` switches, scanner, naming, Kavita+ exclusion), mirroring Book.
+- Frontend: enum + `allLibraryTypes` (selectable), label/subtitle pipes, side-nav icon (`fa-graduation-cap`),
+  `entity-title` naming, en.json labels. **UI build verified green.**
+- Added `docs/academic-features.md` — prioritized plan for the high-value research features that need .NET:
+  full-text search inside PDFs (FTS5 + PdfPig), academic metadata (DOI / authors / abstract / venue / year /
+  keywords + migration), citation export (BibTeX / RIS / APA / MLA), and OCR; plus frontend-buildable items
+  (study pack, data-saver, "Cite" button).

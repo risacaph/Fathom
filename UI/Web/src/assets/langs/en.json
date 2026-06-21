@@ -813,7 +813,8 @@
         "comicVine": "Comic",
         "image": "Image",
         "lightNovel": "Light Novel",
-        "regulations": "Maritime Regulations"
+        "regulations": "Maritime Regulations",
+        "research": "Research Papers"
     },
 
     "library-type-subtitle-pipe": {
@@ -823,7 +824,8 @@
         "comicVine": "Strict comic implementation based on Comic Vine metadata with integration for specialized tooling.",
         "image": "Loose image files with limited support. Must largely follow wiki documentation.",
         "lightNovel": "Book library with special handling optimized for light novels",
-        "regulations": "Maritime regulatory / reference documents (PDF, EPUB) — IMO circulars, SOLAS, MARPOL. Reads like a book."
+        "regulations": "Maritime regulatory / reference documents (PDF, EPUB) — IMO circulars, SOLAS, MARPOL. Reads like a book.",
+        "research": "Academic research papers and theses (PDF, EPUB) for college and doctoral work. Reads like a book."
     },
 
     "age-rating-pipe": {

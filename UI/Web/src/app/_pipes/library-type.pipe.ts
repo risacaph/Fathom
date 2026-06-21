@@ -28,6 +28,8 @@ export class LibraryTypePipe implements PipeTransform {
         return this.translocoService.translate('library-type-pipe.lightNovel');
       case LibraryType.Regulations:
         return this.translocoService.translate('library-type-pipe.regulations');
+      case LibraryType.Research:
+        return this.translocoService.translate('library-type-pipe.research');
       default:
         return '';
     }

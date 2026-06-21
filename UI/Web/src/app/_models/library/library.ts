@@ -13,10 +13,14 @@ export enum LibraryType {
     /**
      * Maritime Regulations (PDF/EPUB) — behaves like Book
      */
-    Regulations = 6
+    Regulations = 6,
+    /**
+     * Academic research papers / theses (PDF/EPUB) — behaves like Book
+     */
+    Research = 7
 }
 
-export const allLibraryTypes = [LibraryType.Manga, LibraryType.ComicVine, LibraryType.Comic, LibraryType.Book, LibraryType.LightNovel, LibraryType.Images, LibraryType.Regulations];
+export const allLibraryTypes = [LibraryType.Manga, LibraryType.ComicVine, LibraryType.Comic, LibraryType.Book, LibraryType.LightNovel, LibraryType.Images, LibraryType.Regulations, LibraryType.Research];
 export const allKavitaPlusMetadataApplicableTypes = [LibraryType.Manga, LibraryType.LightNovel, LibraryType.ComicVine, LibraryType.Comic];
 export const allKavitaPlusScrobbleEligibleTypes = [LibraryType.Manga, LibraryType.LightNovel];
 
