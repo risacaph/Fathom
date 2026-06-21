@@ -118,3 +118,30 @@ Recolored the brand accent from Kavita green (`#4ac694`) to the Fathom palette:
 - Docker image → `fathomreader/fathom` in `docker-build.sh` and the three release workflows. The workflows'
   `repository_owner == 'Kareadita'` push-gate was left in place, so CI publishing stays disabled on the fork
   until you wire up your own registry + secrets.
+
+---
+
+## Verification
+- **Angular UI builds clean**: `npm install --legacy-peer-deps && npm run build` → exit 0 (only pre-existing
+  Bootstrap SCSS deprecation warnings). The built `dist/browser/index.html` shows `<title>Fathom</title>`,
+  navy `theme-color` `#0B1F3A`, and the Fathom manifest + regenerated favicon/logo.
+- **Backend (C#) NOT compiled** — no .NET SDK in this environment. All backend edits are string/guard-only and
+  syntactically safe, but run `dotnet build Kavita.sln` (or `./build.sh`) on a machine with the .NET 10 SDK to
+  confirm before release.
+
+## Known residuals (deliberate tracking-fork choices)
+1. **Kavita+ is present but dormant** (veneer-only): scrobbling/external-metadata services, ~37 `kavita-plus`
+   UI components, DB tables, and `Kavita+` labels remain. The buy/promo/donation funnel is neutralized and
+   `plus.kavitareader.com` is never called. Full removal = optional Phase 3.
+2. **Internal identifiers kept as upstream:** `Kavita.*` namespaces/projects/assemblies, the `Kavita` server
+   binary + `/kavita` container paths, `kavita.db` / `kavita.log`, npm package `kavita-webui`, and the OIDC
+   default client id `kavita`. Invisible to end users; renaming them would break upstream merges.
+3. **Wiki "Help" links** (`_models/wiki.ts` ~25, plus a few in `en.json`) still point at `wiki.kavitareader.com`
+   — they document the same features and there's no replacement yet. Repoint when you have your own docs.
+4. **~30 non-English locale files** still say `Kavita` (English source is done; run the transform across all
+   locales on request).
+5. **`CoverDbService`** still fetches person/publisher cover art from `www.kavitareader.com/CoversDB` (a feature,
+   not telemetry) — left functional; disable or self-host later if you prefer.
+6. **3 code comments** cite upstream issue URLs (`github.com/Kareadita/Kavita/issues/...`) — kept as honest provenance.
+7. **Unreferenced art** now safe to swap/remove: `Logo/{jetbrains,resharper,rider,dottrace,sentry}.svg`,
+   `Logo/hosting-sponsor.png`, `UI/Web/src/assets/images/{logo.ai,kavita-book-cropped.png}`.
