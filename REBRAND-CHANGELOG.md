@@ -59,3 +59,16 @@ generator or deleting it).
 
 > Left untouched (swap when you have final art): `UI/Web/src/assets/images/{logo.ai,kavita-book-cropped.png}`
 > (binary source art), and the JetBrains/Sentry tooling SVGs in `Logo/` (OSS-tooling acknowledgments).
+
+---
+
+## Phase 2 · Commit 3 — Theme palette (deep navy / brass gold / signal teal)
+
+Recolored the brand accent from Kavita green (`#4ac694`) to the Fathom palette:
+- `theme/themes/dark.scss` — `--primary-color` ramp → signal teal (`#1AC7BC` / `#15A49B` / `#107E77` / `#0A5853`); added `--brand-navy` / `--brand-teal` / `--brand-brass` tokens; `--theme-color` → deep navy `#0B1F3A`; `--audit-log-metadata-color` → teal.
+- `theme/_variables.scss` — Bootstrap `primary` fallback → teal.
+- `app/shared/circular-loader/circular-loader.component.ts` — default outer stroke → teal.
+- `assets/icons/browserconfig.xml`, `index.html` (`msapplication-TileColor`, `theme-color`), `site.webmanifest` (`theme_color` / `background_color`) → deep navy.
+
+> The app's neutral dark-gray surfaces (`--bs-body-bg`, colorscape defaults) were left as upstream;
+> a full navy re-tint of backgrounds is an optional design follow-up.
