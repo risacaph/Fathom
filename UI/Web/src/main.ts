@@ -12,6 +12,7 @@ import {bootstrapApplication, BrowserModule, Title} from '@angular/platform-brow
 import {jwtInterceptor} from './app/_interceptors/jwt.interceptor';
 import {errorInterceptor} from './app/_interceptors/error.interceptor';
 import {provideHttpClient, withFetch, withInterceptors} from '@angular/common/http';
+import {provideServiceWorker} from '@angular/service-worker';
 import {provideTransloco, TranslocoConfig, TranslocoService} from "@jsverse/transloco";
 import {environment} from "./environments/environment";
 import {AccountService} from "./app/_services/account.service";
@@ -199,6 +200,13 @@ bootstrapApplication(AppComponent, {
         provideHttpClient(withInterceptors([jwtInterceptor, errorInterceptor, clientInfoInterceptor]), withFetch()),
         provideAppInitializer(() => bootstrapUser()),
         provideZoneChangeDetection(),
+        // Fathom: offline-first PWA. The service worker caches the app shell, assets, and
+        // previously-fetched API data/images so the app loads and reads offline (e.g. at sea).
+        // Active in production builds only; dev builds emit the worker but do not register it.
+        provideServiceWorker('ngsw-worker.js', {
+          enabled: environment.production,
+          registrationStrategy: 'registerWhenStable:30000'
+        }),
         {
           provide: NgbModalConfig,
           useFactory: () => Object.assign(new NgbModalConfig(), DefaultModalOptions) satisfies Partial<NgbModalConfig>

@@ -160,3 +160,17 @@ Recolored the brand accent from Kavita green (`#4ac694`) to the Fathom palette:
 6. **3 code comments** cite upstream issue URLs (`github.com/Kareadita/Kavita/issues/...`) — kept as honest provenance.
 7. **Unreferenced art** now safe to swap/remove: `Logo/{jetbrains,resharper,rider,dottrace,sentry}.svg`,
    `Logo/hosting-sponsor.png`, `UI/Web/src/assets/images/{logo.ai,kavita-book-cropped.png}`.
+
+---
+
+## Phase 3 · Commit 1 — Offline-first PWA (service worker)
+
+Added an Angular service worker so the app loads and reads **offline** (built for at-sea / no-connectivity use). Upstream shipped **no** service worker at all.
+
+- Added `@angular/service-worker` (^21.2.8) and `ngsw-config.json`.
+- `angular.json` build target: `"serviceWorker": "ngsw-config.json"`.
+- `main.ts`: `provideServiceWorker('ngsw-worker.js', { enabled: environment.production, registrationStrategy: 'registerWhenStable:30000' })` — **active in production builds only**; dev builds emit but don't register it.
+- Caching: app shell prefetched; `/assets/**` (langs, fonts, icons, pdf-viewer) lazy-cached; cover & reader **images** cache-first (`performance`, 60d); other `GET /api/**` network-first with offline fallback (`freshness`, 14d).
+- Verified: `npm run build` emits `dist/browser/ngsw-worker.js` + `ngsw.json`.
+
+> This caches the app shell plus whatever you viewed while online. True "download-for-offline" (pre-fetching unread content for a voyage) is a larger follow-up.
