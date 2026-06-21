@@ -165,7 +165,7 @@ public static class Seed
                 new() {
                     Key = ServerSettingKey.IpAddresses, Value = Configuration.DefaultIpAddresses
                 }, // Not used from DB, but DB is sync with appSettings.json
-                new() {Key = ServerSettingKey.AllowStatCollection, Value = "true"},
+                new() {Key = ServerSettingKey.AllowStatCollection, Value = "false"},
                 new() {Key = ServerSettingKey.EnableOpds, Value = "true"},
                 new() {Key = ServerSettingKey.BaseUrl, Value = "/"},
                 new() {Key = ServerSettingKey.InstallId, Value = HashUtil.AnonymousToken()},

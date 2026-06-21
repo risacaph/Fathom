@@ -9,7 +9,7 @@ public static class FlurlGithubExtensions
     public static IFlurlRequest WithGithubHeaders(this string url)
     {
         return url
-            .WithHeader("User-Agent", "Kavita")
+            .WithHeader("User-Agent", "Fathom")
             .WithHeader("Accept", "application/vnd.github.v3+json");
     }
 
