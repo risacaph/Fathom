@@ -49,7 +49,7 @@
         "restart-required": "Changing Provider or advanced settings requires a manual restart of Fathom to take effect.",
         "auto-save-required": "You've changed critical settings, manually save to persist them",
         "provider-title": "Provider",
-        "provider-tooltip": "Provider settings require you to manually click Save. Fathom must be configured as a confidential client and needs a redirect URL. See the <a href='https://wiki.kavitareader.com/guides/admin-settings/open-id-connect/' target='_blank' rel='noreferrer noopener'>wiki</a> for more details.",
+        "provider-tooltip": "Provider settings require you to manually click Save. Fathom must be configured as a confidential client and needs a redirect URL. See the <a href='https://wiki.fathomreader.com/guides/admin-settings/open-id-connect/' target='_blank' rel='noreferrer noopener'>wiki</a> for more details.",
         "behavior-title": "Behavior",
         "other-field-required": "{{validation.other-field-required}}",
         "other-field-invalid": "{{validation.other-field-invalid}}",
@@ -904,7 +904,7 @@
             "title": "Don't fall behind!",
             "subtitle": "It seems your install is more than {{count}} versions behind!",
             "description-1": "Please consider upgrading so that you're running the latest version of Fathom.",
-            "description-2": "Take a look at our <a href='https://wiki.kavitareader.com/guides/updating/' target='_blank' rel='noreferrer noopener'>wiki</a> for instructions on how to update.",
+            "description-2": "Take a look at our <a href='https://wiki.fathomreader.com/guides/updating/' target='_blank' rel='noreferrer noopener'>wiki</a> for instructions on how to update.",
             "description-3": "If there is a specific reason you haven't updated yet we would love to know what is keeping you on an outdated version! Stop by our discord and let us know what is blocking your upgrade path."
         },
         "new-version": {
@@ -1053,7 +1053,7 @@
     "kavita-plus-registration-error-code-pipe": {
         "registration-failed": "License activation failed. Verify your license key and email are correct.",
         "already-registered": "This license is registered to another server. Use 'Reset license' first.",
-        "subscription-inactive": "Your subscription is not active. Renew at kavitareader.com.",
+        "subscription-inactive": "Your subscription is not active. Renew at fathomreader.com.",
         "internal-error": "An internal error occurred. Please contact Kavita+ support."
     },
 

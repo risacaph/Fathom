@@ -121,6 +121,21 @@ Recolored the brand accent from Kavita green (`#4ac694`) to the Fathom palette:
 
 ---
 
+## Phase 2 · Commit 8 — Fix leftovers (all locales + doc links)
+
+- **All locales rebranded** — ran the safe `Kavita` → `Fathom` transform (preserving `Kavita+`) across the
+  28 non-English locale files: **1,640 strings**. JSON validated. Combined with `en.json`, every locale now reads Fathom.
+- **Doc/Help links repointed** — `wiki.kavitareader.com` → `wiki.fathomreader.com` in `_models/wiki.ts`
+  (26 links) and **48** doc URLs across 26 locale strings. UI source now has **0** `kavitareader.com` references.
+
+> ⚠️ The Help/Wiki links now point at `wiki.fathomreader.com`, which has no docs yet — they'll 404 until you
+> publish docs there or set up a redirect to the upstream Kavita wiki. Revert this commit if you'd rather keep
+> functional upstream doc links for now. (Resolves residuals #3 and #4 below.)
+> Still intentionally unchanged: dormant `Kavita+` labels (veneer-only), `CoverDbService`'s cover-art CDN
+> (`www.kavitareader.com/CoversDB`, a feature, backend), and 3 code comments citing upstream issue URLs.
+
+---
+
 ## Verification
 - **Angular UI builds clean**: `npm install --legacy-peer-deps && npm run build` → exit 0 (only pre-existing
   Bootstrap SCSS deprecation warnings). The built `dist/browser/index.html` shows `<title>Fathom</title>`,

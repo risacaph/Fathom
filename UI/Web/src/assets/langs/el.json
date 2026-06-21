@@ -79,7 +79,7 @@
         "scrobbling-tab": "{{tabs.scrobbling-tab}}",
         "smart-filters-tab": "{{tabs.smart-filters-tab}}",
         "share-series-reviews-label": "Μοιράστε τις κριτικές της σειράς",
-        "share-series-reviews-tooltip": "Να συμπεριλάβει το Kavita τις κριτικές σας σε άλλους χρήστες",
+        "share-series-reviews-tooltip": "Να συμπεριλάβει το Fathom τις κριτικές σας σε άλλους χρήστες",
         "reset": "{{common.reset}}",
         "save": "{{common.save}}"
     },
@@ -268,7 +268,7 @@
     },
     "library-settings-modal": {
         "close": "{{common.close}}",
-        "allow-scrobbling-tooltip": "Θα πρέπει το Kavita να κάνει scrobble γεγονότα ανάγνωσης, καταστάσεις ανάγνωσης αργότερα, τις αξιολογήσεις και τις κριτικές σε ρυθμισμένους παρόχους. Αυτό θα συμβεί μόνο εάν ο διακομιστής έχει ενεργή συνδρομή Kavita+.",
+        "allow-scrobbling-tooltip": "Θα πρέπει το Fathom να κάνει scrobble γεγονότα ανάγνωσης, καταστάσεις ανάγνωσης αργότερα, τις αξιολογήσεις και τις κριτικές σε ρυθμισμένους παρόχους. Αυτό θα συμβεί μόνο εάν ο διακομιστής έχει ενεργή συνδρομή Kavita+.",
         "reset": "{{common.reset}}",
         "cancel": "{{common.cancel}}",
         "save": "{{common.save}}",

@@ -26,7 +26,7 @@
         "saving": "Kaydediliyor…",
         "update": "Güncelle",
         "account-detail-title": "Hesap ayrıntıları",
-        "invalid-email-warning": "Doğru olmayan bir e-posta, Kavita'nın bazı işlevlerini engelleyecektir",
+        "invalid-email-warning": "Doğru olmayan bir e-posta, Fathom'nın bazı işlevlerini engelleyecektir",
         "notice": "Uyarı!",
         "identity-provider": "Kimlik sağlayıcı",
         "libraries-label": "{{common.libraries}}",
@@ -34,7 +34,7 @@
         "warning-read-only": "Salt okunur hesapların izinleri sınırlıdır",
         "out-of-sync": "Bu kullanıcı OIDC aracılığıyla oluşturulmuştur. SyncUsers ayarı etkinleştirilirse, bu hesapta yapılan tüm değişiklikler üzerine yazılabilir.",
         "oidc-managed": "Bu kullanıcı OIDC aracılığıyla yönetilmektedir. Herhangi bir değişiklik talebinde bulunmak için lütfen OIDC yöneticinize başvurun.",
-        "identity-provider-tooltip": "Kavita kullanıcıları hiçbir zaman OIDC hesaplarıyla senkronize edilmez."
+        "identity-provider-tooltip": "Fathom kullanıcıları hiçbir zaman OIDC hesaplarıyla senkronize edilmez."
     },
     "user-scrobble-history": {
         "title": "Arşiv geçmişi",
@@ -106,7 +106,7 @@
         "page-layout-mode-label": "Sayfa düzeni Modu",
         "page-layout-mode-tooltip": "Seri Detayı sayfasında öğeleri kart veya liste görünümü olarak gösterin.",
         "locale-label": "Yerel",
-        "locale-tooltip": "Kavita'nın kullanması gereken dil",
+        "locale-tooltip": "Fathom'nın kullanması gereken dil",
         "blur-unread-summaries-label": "Okunmamış özetleri bulanıklaştır",
         "blur-unread-summaries-tooltip": "Okuma ilerlemesi olmayan ciltler veya bölümlerdeki özet metni bulanıklaştırır (spoiler oluşmasını önlemek için)",
         "prompt-on-download-label": "İndirirken Sor",
@@ -150,7 +150,7 @@
         "preview-default-admin": "Önce bir tema seçin veya manuel olarak yükleyin",
         "active-theme": "Aktif",
         "upload-continued": "bir css dosyası",
-        "description": "Kavita birçok renkte mevcuttur, ihtiyaçlarınıza uygun bir renk şeması bulun veya kendiniz bir tane oluşturun ve paylaşın. Temalar hesabınıza veya tüm hesaplara uygulanabilir."
+        "description": "Fathom birçok renkte mevcuttur, ihtiyaçlarınıza uygun bir renk şeması bulun veya kendiniz bir tane oluşturun ve paylaşın. Temalar hesabınıza veya tüm hesaplara uygulanabilir."
     },
     "theme": {
         "theme-dark": "Karanlık",
@@ -1453,16 +1453,16 @@
         "invalid-uri": "{{validation.invalid-uri}}",
         "no-restriction": "{{restriction-selector.no-restriction}}",
         "reset-label": "Kimlikleri sıfırla",
-        "reset-tooltip": "Tüm kullanıcıların harici kimliklerini sıfırlayın, bunu Kavita ve kimlik sağlayıcınız arasındaki bağlantıları sıfırlamak için kullanın",
+        "reset-tooltip": "Tüm kullanıcıların harici kimliklerini sıfırlayın, bunu Fathom ve kimlik sağlayıcınız arasındaki bağlantıları sıfırlamak için kullanın",
         "reset-confirm": "Tüm kullanıcıların harici kimliklerini sıfırlamak istediğinize emin misiniz?",
         "reset-success": "Tüm kullanıcılar için harici kimlikler sıfırlandı, bağlantı kurmak için yeniden kimlik doğrulaması yapın",
         "save-success": "OIDC ayarlarınız başarıyla güncellendi",
         "notice": "Bildirim",
-        "restart-required": "Sağlayıcıyı veya gelişmiş ayarları değiştirmek için Kavita'nın manuel olarak yeniden başlatılması gerekir.",
+        "restart-required": "Sağlayıcıyı veya gelişmiş ayarları değiştirmek için Fathom'nın manuel olarak yeniden başlatılması gerekir.",
         "auto-save-required": "Kritik ayarları değiştirdiniz, değişiklikler kalıcı olsun diye otomatik kaydet özelliğini kullanın",
         "tls-required": "OIDC sağlayıcısı tls (https) kullanmalıdır",
         "manual-save-label": "Sağlayıcı ayarlarını değiştirmek için manuel olarak kaydetmeniz gerekir",
-        "provider-tooltip": "Sağlayıcı ayarları için manuel olarak Kaydet'i tıklamanız gerekir. Kavita, gizli bir istemci olarak yapılandırılmalıdır ve bir yönlendirme URL'si gerektirir. Daha fazla bilgi için <a href='https://wiki.kavitareader.com/guides/admin-settings/open-id-connect/' target='_blank' rel='noreferrer noopener'>wiki</a> sayfasına bakın.",
+        "provider-tooltip": "Sağlayıcı ayarları için manuel olarak Kaydet'i tıklamanız gerekir. Fathom, gizli bir istemci olarak yapılandırılmalıdır ve bir yönlendirme URL'si gerektirir. Daha fazla bilgi için <a href='https://wiki.fathomreader.com/guides/admin-settings/open-id-connect/' target='_blank' rel='noreferrer noopener'>wiki</a> sayfasına bakın.",
         "authority-tooltip": "OIDC sağlayıcınızın URL'sine .well-known/openid-configuration yolunu eklemeyin",
         "client-id-label": "Müşteri Kimliği",
         "client-id-tooltip": "OIDC sağlayıcınızda ayarlanan ClientID herhangi bir şey olabilir",
@@ -1470,7 +1470,7 @@
         "secret-tooltip": "OIDC sağlayıcınız tarafından oluşturulan gizli bilgi, ayarlandıktan sonra gösterilmeyecektir",
         "provision-accounts-label": "Karşılık hesapları",
         "provision-accounts-tooltip": "OIDC üzerinden giriş yapıldığında mevcut bir hesapla eşleştirilememesi durumunda otomatik olarak yeni bir hesap oluşturulur",
-        "require-verified-email-tooltip": "Yeni bir hesap oluştururken veya mevcut bir hesapla eşleştirirken e-posta doğrulaması gerekir. Yeni oluşturulan bir hesabın doğrulanmış bir e-postası varsa, Kavita tarafında otomatik olarak doğrulanır.",
+        "require-verified-email-tooltip": "Yeni bir hesap oluştururken veya mevcut bir hesapla eşleştirirken e-posta doğrulaması gerekir. Yeni oluşturulan bir hesabın doğrulanmış bir e-postası varsa, Fathom tarafında otomatik olarak doğrulanır.",
         "sync-user-settings-label": "Kullanıcı ayarlarını OIDC rolleriyle senkronize edin",
         "sync-user-settings-tooltip": "OIDC aracılığıyla oluşturulan kullanıcılar, roller, kütüphane erişimi ve yaş derecelendirmesi dahil olmak üzere kimlik sağlayıcı tarafından tamamen yönetilecektir. Bu seçenek devre dışı bırakılırsa, kullanıcılar hesap oluşturulduktan sonra hiçbir içeriğe erişemeyecektir. Daha fazla ayrıntı için belgelere bakın.",
         "auto-login-tooltip": "Giriş ekranı açıldığında otomatik olarak OIDC sağlayıcısına yönlendirilir",
@@ -1481,9 +1481,9 @@
         "default-age-restriction-tooltip": "Yeni kullanıcılara gösterilen maksimum yaş derecelendirmesi",
         "advanced-tooltip": "Bu seçenekleri yalnızca etkilerini anlıyorsanız değiştirin.",
         "roles-prefix-label": "Roller öneki",
-        "roles-prefix-tooltip": "Kavita sadece bu önekle başlayan rolleri dikkate alacaktır.",
+        "roles-prefix-tooltip": "Fathom sadece bu önekle başlayan rolleri dikkate alacaktır.",
         "roles-claim-label": "Rol talepleri",
-        "roles-claim-tooltip": "Kavita'nın rolleri çıkarmak için kullanacağı talep. Varsayılanı kullanmak için boş bırakın.",
+        "roles-claim-tooltip": "Fathom'nın rolleri çıkarmak için kullanacağı talep. Varsayılanı kullanmak için boş bırakın.",
         "custom-scopes-label": "Özel kapsamlar",
         "custom-scopes-tooltip": "Giriş sırasında OIDC sağlayıcınızdan talep edeceğiniz ek kapsamlar. Birden fazla kapsamı virgülle ayırın. Yanlış değerler girişi engelleyebilir."
     },
@@ -1593,7 +1593,7 @@
         "downloading-status": "İndiriliyor…"
     },
     "identity-provider-pipe": {
-        "kavita": "Kavita",
+        "kavita": "Fathom",
         "oidc": "OpenID Bağlantısı"
     },
     "manage-auth-keys": {
@@ -2065,7 +2065,7 @@
         "no-data": "Zaman dilimi için okuma etkinliği yok"
     },
     "cbl-conflict-reason-pipe": {
-        "all-series-missing": "Hesabınızda listedeki tüm serilere erişim yok veya Kavita'nın listede yer alan hiçbir içeriği bulunmuyor.",
+        "all-series-missing": "Hesabınızda listedeki tüm serilere erişim yok veya Fathom'nın listede yer alan hiçbir içeriği bulunmuyor.",
         "success": "{{series}} cilt {{volume}} bölüm {{chapter}} başarıyla eşleştirildi."
     },
     "page-chapter-label-pipe": {
@@ -2119,7 +2119,7 @@
     "version-update-modal": {
         "close": "{{common.close}}",
         "new-version": {
-            "title": "Kavita güncellendi!",
+            "title": "Fathom güncellendi!",
             "refresh": "Tazele"
         },
         "update-notification": {

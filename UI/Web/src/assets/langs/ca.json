@@ -33,7 +33,7 @@
         "success-toast": "S'han actualitzat les preferències d'ús",
         "global-settings-title": "Paràmetres globals",
         "locale-label": "Configuració local",
-        "locale-tooltip": "La llengua que ha d'usar el Kavita",
+        "locale-tooltip": "La llengua que ha d'usar el Fathom",
         "prompt-on-download-label": "Pregunta en baixar",
         "disable-animations-label": "Desactiva les animacions"
     },
@@ -462,7 +462,7 @@
     "version-update-modal": {
         "close": "{{common.close}}",
         "new-version": {
-            "title": "S'ha actualitzat el Kavita.",
+            "title": "S'ha actualitzat el Fathom.",
             "refresh": "Actualitza"
         }
     }
