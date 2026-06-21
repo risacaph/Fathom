@@ -42,3 +42,20 @@ and other internal identifiers are intentionally left as upstream to minimize me
 > Per the **veneer-only** decision, the Kavita+ scrobbling/metadata feature code remains in place but
 > dormant — it needs a license and the upstream `plus.kavitareader.com` API, which Fathom never calls.
 > The visible buy/upsell funnel is neutralized above; deeper removal is deferred to an optional Phase 3.
+
+---
+
+## Phase 2 · Commit 2 — Visual assets (placeholder marks)
+
+Generated clean, antialiased **placeholder** marks (deep-navy rounded square, signal-teal "F",
+brass depth line) — swap in your real logo any time by replacing these files (and re-running the
+generator or deleting it).
+
+- Added `scripts/gen-placeholder-icons.mjs` — dependency-free Node PNG/ICO generator (built-in
+  `zlib` only), since the rebrand environment has no rasterizer (`sharp`/ImageMagick).
+- Regenerated PNG/ICO icons: `UI/Web/src/assets/icons/{favicon-16x16,favicon-32x32,apple-touch-icon,android-chrome-192x192,android-chrome-256x256,mstile-150x150}.png`, `favicon.ico`, and the root `favicon.ico` (used by `Kavita.Server.csproj` `ApplicationIcon`).
+- Regenerated `UI/Web/src/assets/images/{logo-32,logo-64,logo}.png`.
+- Replaced vector logos: `UI/Web/src/assets/images/logo.svg`; added `Logo/fathom.svg`; removed `Logo/kavita.svg`.
+
+> Left untouched (swap when you have final art): `UI/Web/src/assets/images/{logo.ai,kavita-book-cropped.png}`
+> (binary source art), and the JetBrains/Sentry tooling SVGs in `Logo/` (OSS-tooling acknowledgments).
