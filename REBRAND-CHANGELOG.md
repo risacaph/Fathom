@@ -237,3 +237,18 @@ type (`LibraryType.Research = 7`) — a book-like PDF/EPUB container, same prove
   full-text search inside PDFs (FTS5 + PdfPig), academic metadata (DOI / authors / abstract / venue / year /
   keywords + migration), citation export (BibTeX / RIS / APA / MLA), and OCR; plus frontend-buildable items
   (study pack, data-saver, "Cite" button).
+
+---
+
+## Phase 3 · Commit 6 — Citation export ("Cite") — online-library capability
+
+Client-side citation export for research papers: a **"Cite"** button on the series-detail action bar that
+generates **APA / MLA / BibTeX** from existing metadata (title, writers→authors, release year, publisher,
+web link) and copies to clipboard.
+
+- New `_services/citation.service.ts` — pure APA/MLA/BibTeX formatter.
+- New standalone `series-detail/_components/cite-button/cite-button.component.ts` — button + modal (3 formats + copy).
+- Wired into `series-detail` next to the Download button. **UI build verified green.**
+
+> Best-effort from existing fields; a richer server-side version (DOI / venue / proper author name formatting)
+> is specced in `docs/academic-features.md` for when the academic-metadata schema lands (needs .NET).
