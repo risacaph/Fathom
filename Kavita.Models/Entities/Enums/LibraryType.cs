@@ -35,4 +35,9 @@ public enum LibraryType
     /// </summary>
     [Description("Comic")]
     ComicVine = 5,
+    /// <summary>
+    /// Maritime regulations / reference documents (PDF/EPUB). Parses and reads like a Book library.
+    /// </summary>
+    [Description("Maritime Regulations")]
+    Regulations = 6,
 }

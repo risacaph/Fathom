@@ -413,6 +413,7 @@ public class ScrobblingService : IScrobblingService
             LibraryType.Image => false,
             LibraryType.LightNovel => LightNovelProviders.Contains(provider),
             LibraryType.ComicVine => ComicProviders.Contains(provider),
+            LibraryType.Regulations => false,
             _ => throw new ArgumentOutOfRangeException(nameof(libraryType), libraryType, null)
         };
     }

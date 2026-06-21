@@ -201,3 +201,23 @@ errored and `ng` was never installed → **Build UI** failed.
   of the project. Verified locally: a clean strict `npm ci` now exits 0.
 
 > Backend CI ("Build and Test PR") is **green** — the rebrand's C# compiles and its tests pass.
+
+---
+
+## Phase 3 · Commit 4 — Maritime "Regulations" library type (Feature 2, part 1)
+
+Implemented the **Regulations** library type (`LibraryType = 6`) for maritime regs / reference docs. It
+behaves exactly like a **Book** library (PDF/EPUB parsing + reading) — **no DB schema change** (the enum is
+stored as an int), so it's safe without a migration.
+
+- Backend: added the enum value and handled it everywhere `Book` is — including all **3 crash-critical
+  `_ => throw` switches** (`ScrobblingService`, `ReaderService`, `PlusMediaFormatExtensions`), the scanner
+  (`Parser` ×3, `PdfParser` ×3), `EntityNamingService`, and excluded it from Kavita+ external-metadata eligibility.
+- Frontend: enum + `allLibraryTypes` (makes it selectable), label + subtitle pipes, side-nav icon (`fa-anchor`),
+  `entity-title` chapter naming, and `en.json` labels. **UI build verified green locally.**
+
+> **IMO document-number field (Feature 2, part 2) is intentionally NOT included.** It needs a new DB column via
+> a generated + tested EF migration, and .NET is unreachable here (`dot.net` → 403). Crucially, adding the
+> column without a migration would **pass CI** (tests use `EnsureCreated`) while **breaking production** (which
+> runs migrations at startup) — so it must be done with the SDK. Steps remain in `docs/phase3-maritime-library.md`.
+> Backend C# here is compile-checked by CI; please also runtime smoke-test: create a Regulations library, scan a PDF/EPUB, open it.
