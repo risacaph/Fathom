@@ -1,8 +1,11 @@
-﻿How to Install
-1. Unzip the archive to a directory that is writable. If on windows, do not place in Program Files.
-2. (Linux only) Chmod and Chown so Kavita can write to the directory you placed in.
-3. Run Kavita executable.
-4. Open localhost:5000 and setup your account and libraries in the UI.
+How to Install (Fathom)
+1. Unzip the archive to a directory that is writable. On Windows, do not place it in Program Files.
+2. (Linux only) chmod/chown so Fathom can write to the directory you placed it in.
+3. Run the Fathom server executable.
+4. Open localhost:5000 and set up your account and libraries in the UI.
 
 How to Update
-1. Copy everything but the config/ directory over. Restart Kavita.
+1. Copy everything but the config/ directory over the old install. Restart Fathom.
+
+Fathom is a fork of Kavita (https://github.com/Kareadita/Kavita), licensed under GPL-3.0.
+See README.md for full attribution.

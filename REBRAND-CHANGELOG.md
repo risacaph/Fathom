@@ -102,3 +102,19 @@ Recolored the brand accent from Kavita green (`#4ac694`) to the Fathom palette:
 - The other ~30 locale files under `assets/langs/` were **left untouched** to keep the diff merge-friendly;
   they'll show `Kavita` until re-translated (English is the default and primary audience language). Say the
   word and I'll run the same safe transform across all locales.
+
+---
+
+## Phase 2 · Commit 7 — Docs & Docker / CI
+
+- `README.md` — full rewrite: Fathom branding + tagline, feature list (no commercial copy), Docker setup
+  pointing at `fathomreader/fathom`, an **Attribution / NOTICE** section (fork of Kavita by majora2007,
+  GPL-3.0, summary of changes, "does not claim original authorship"), and a License section crediting both
+  projects. Removed all Donate / Kavita+ / Backers / Sponsors / PikaPods / OpenCollective / stats / Discord /
+  Weblate content.
+- `INSTALL.txt`, `SECURITY.md` — rebranded; security reports go to this repo's GitHub Security Advisories.
+- `CONTRIBUTING.md` — added a fork note and repointed repo URLs to the fork (kept the real `Kavita.*` project
+  names and dev commands, which are unchanged in a tracking fork).
+- Docker image → `fathomreader/fathom` in `docker-build.sh` and the three release workflows. The workflows'
+  `repository_owner == 'Kareadita'` push-gate was left in place, so CI publishing stays disabled on the fork
+  until you wire up your own registry + secrets.
