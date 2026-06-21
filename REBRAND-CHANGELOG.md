@@ -174,3 +174,16 @@ Added an Angular service worker so the app loads and reads **offline** (built fo
 - Verified: `npm run build` emits `dist/browser/ngsw-worker.js` + `ngsw.json`.
 
 > This caches the app shell plus whatever you viewed while online. True "download-for-offline" (pre-fetching unread content for a voyage) is a larger follow-up.
+
+---
+
+## Phase 3 · Commit 2 — Polish residuals + Feature 2 plan
+
+**Polish:**
+- Removed 8 unreferenced upstream assets (0 code references): `Logo/{hosting-sponsor.png,jetbrains.svg,resharper.svg,rider.svg,dottrace.svg,sentry.svg}` and `UI/Web/src/assets/images/{logo.ai,kavita-book-cropped.png}`. `Logo/` now holds only `fathom.svg`.
+- Rebranded the GitHub issue/discussion templates (`bug_report.yml`, `ideas.yml`, `config.yml`) to Fathom and repointed the discussions link to the fork. Workflows intentionally keep their real `Kavita.*` project paths and `Kareadita` owner-gates (which disable publishing on the fork).
+
+**Feature 2 — maritime "Regulations" library type + IMO document number: DEFERRED (not implemented).**
+Needs the .NET SDK (blocked here: `dot.net` 403) to add a `LibraryType`, a metadata column, and a
+generated+tested EF migration; a blind hand-written migration would risk a broken DB. The full,
+verified-path implementation plan is in `docs/phase3-maritime-library.md`.

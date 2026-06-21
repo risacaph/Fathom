@@ -1,5 +1,5 @@
 name: Bug Report
-description: Help us make Kavita better for everyone by submitting issues you run into while using the program.
+description: Help us make Fathom better for everyone by submitting issues you run into while using the program.
 title: "Put a short summary of what went wrong here"
 labels: ["needs-triage"]
 body:
@@ -25,7 +25,7 @@ body:
   - type: dropdown
     id: version
     attributes:
-      label: Kavita Version Number - If you don't see your version number listed, please update Kavita and see if your issue still persists.
+      label: Fathom Version Number - If you don't see your version number listed, please update Fathom and see if your issue still persists.
       multiple: false
       options:
         - 0.9.0 - Stable
@@ -35,7 +35,7 @@ body:
   - type: dropdown
     id: reverse-proxy
     attributes:
-      label: Are you accessing kavita through a reverse proxy? If yes, confirm that the issue persists with a direct connection
+      label: Are you accessing Fathom through a reverse proxy? If yes, confirm that the issue persists with a direct connection
       multiple: false
       options:
         - "Yes"
@@ -45,7 +45,7 @@ body:
   - type: dropdown
     id: OS
     attributes:
-      label: What operating system is Kavita being hosted from?
+      label: What operating system is Fathom being hosted from?
       multiple: false
       options:
         - Docker (LSIO Container)
@@ -103,4 +103,4 @@ body:
     attributes:
       label: Additional Notes
       description: Any other information about the issue not covered in this form?
-      placeholder: e.g. Running Kavita on a Raspberry Pi, updating from X version, using LSIO container, etc
+      placeholder: e.g. Running Fathom on a Raspberry Pi, updating from X version, using LSIO container, etc
