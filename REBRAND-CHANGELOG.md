@@ -252,3 +252,14 @@ web link) and copies to clipboard.
 
 > Best-effort from existing fields; a richer server-side version (DOI / venue / proper author name formatting)
 > is specced in `docs/academic-features.md` for when the academic-metadata schema lands (needs .NET).
+
+---
+
+## Phase 3 · Commit 7 — SessionStart hook (web-session toolchain)
+
+- Added `.claude/hooks/session-start.sh` + `.claude/settings.json` so Claude-on-the-web sessions auto-install
+  the **.NET 10 SDK** (best-effort — needs the env network policy to allow Microsoft's .NET CDN) and the Angular
+  UI deps. Idempotent, web-only, and warns-and-continues if the .NET CDN is blocked (so session start never breaks).
+- `.gitignore`: selectively un-ignore `.claude/settings.json` + `.claude/hooks/` (kept the rest of `.claude/` local).
+- Purpose: make a network-permissive session turnkey so the backend roadmap (full-text search, academic metadata,
+  IMO field) can be built + CI-verified with real `dotnet build` / EF migrations.
