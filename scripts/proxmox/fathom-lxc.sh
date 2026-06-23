@@ -34,7 +34,7 @@ set -Eeuo pipefail
 # ---------------------------------------------------------------------------
 # Configuration (override any of these via environment variables)
 # ---------------------------------------------------------------------------
-REPO_URL="${REPO_URL:-https://github.com/risacaph/Kavita}"   # source repo (build-from-source)
+REPO_URL="${REPO_URL:-https://github.com/risacaph/Fathom}"   # source repo (build-from-source)
 BRANCH="${BRANCH:-develop}"                                  # branch/tag to build
 FATHOM_TARBALL_URL="${FATHOM_TARBALL_URL:-}"                 # set to skip building
 PORT="${PORT:-5000}"                                         # web UI port
@@ -78,7 +78,7 @@ read -r -d '' INSTALL_PAYLOAD <<'PAYLOAD' || true
 set -Eeuo pipefail
 export DEBIAN_FRONTEND=noninteractive
 
-REPO_URL="${REPO_URL:-https://github.com/risacaph/Kavita}"
+REPO_URL="${REPO_URL:-https://github.com/risacaph/Fathom}"
 BRANCH="${BRANCH:-develop}"
 PORT="${PORT:-5000}"
 FATHOM_TARBALL_URL="${FATHOM_TARBALL_URL:-}"

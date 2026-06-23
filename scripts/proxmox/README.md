@@ -60,7 +60,7 @@ INSTALL_HERE=1 bash scripts/proxmox/fathom-lxc.sh
 | `UNPRIVILEGED` | `1` | Create an unprivileged container |
 | `PASSWORD` | random | Container root password (printed at the end) |
 | `PORT` | `5000` | Fathom web UI port |
-| `REPO_URL` | `https://github.com/risacaph/Kavita` | Source repo (build mode) |
+| `REPO_URL` | `https://github.com/risacaph/Fathom` | Source repo (build mode) |
 | `BRANCH` | `develop` | Branch/tag to build |
 | `FATHOM_TARBALL_URL` | — | Prebuilt tarball URL (skips building) |
 | `SLIM` | `yes` | Remove the build toolchain after a source build |
