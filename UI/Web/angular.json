@@ -30,6 +30,7 @@
           "options": {
             "outputPath": "dist",
             "index": "src/index.html",
+            "serviceWorker": "ngsw-config.json",
             "browser": "src/main.ts",
             "polyfills": [
                 "@angular/localize/init",

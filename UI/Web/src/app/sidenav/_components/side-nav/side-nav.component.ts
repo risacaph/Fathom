@@ -189,6 +189,10 @@ export class SideNavComponent {
         return 'fa-book-open';
       case LibraryType.Images:
         return 'fa-images';
+      case LibraryType.Regulations:
+        return 'fa-anchor';
+      case LibraryType.Research:
+        return 'fa-graduation-cap';
     }
   }
 

@@ -132,7 +132,7 @@ jobs:
                 context: .
                 platforms: linux/amd64,linux/arm/v7,linux/arm64
                 push: true
-                tags: jvmilazz0/kavita:canary, jvmilazz0/kavita:canary-${{ steps.parse-version.outputs.VERSION }}, ghcr.io/kareadita/kavita:canary, ghcr.io/kareadita/kavita:canary-${{ steps.parse-version.outputs.VERSION }}
+                tags: fathomreader/fathom:canary, fathomreader/fathom:canary-${{ steps.parse-version.outputs.VERSION }}, ghcr.io/risacaph/fathom:canary, ghcr.io/risacaph/fathom:canary-${{ steps.parse-version.outputs.VERSION }}
 
           - name: Image digest
             run: echo ${{ steps.docker_build.outputs.digest }}

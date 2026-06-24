@@ -1041,6 +1041,8 @@ public class ReaderService(IUnitOfWork unitOfWork, ILogger<ReaderService> logger
                 return "Issue" + (includeSpace ? " " : string.Empty);
             case LibraryType.Book:
             case LibraryType.LightNovel:
+            case LibraryType.Regulations:
+            case LibraryType.Research:
                 return "Book" + (includeSpace ? " " : string.Empty);
             default:
                 throw new ArgumentOutOfRangeException(nameof(libraryType), libraryType, null);

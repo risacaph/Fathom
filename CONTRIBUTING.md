@@ -1,6 +1,10 @@
 # How to Contribute #
 
-We're always looking for people to help make Kavita even better, there are a number of ways to contribute.
+> **Fathom is a fork of [Kavita](https://github.com/Kareadita/Kavita).** The codebase still uses the
+> upstream `Kavita.*` project and namespace names; the development guidance below is largely inherited
+> from upstream and references the original project structure.
+
+We're always looking for people to help make Fathom even better, there are a number of ways to contribute.
 
 ## Contribute to the Wiki ##
 
@@ -59,7 +63,7 @@ Run build.sh and pass the Runtime Identifier for your OS or just build.sh for al
 ## Contributing Code
 
 ### General Guidelines
-- If you're working on a requested feature, please comment on the [Github Issue](https://github.com/Kareadita/Kavita/issues "Github Issues") so work is not duplicated
+- If you're working on a requested feature, please comment on the [Github Issue](https://github.com/risacaph/Kavita/issues "Github Issues") so work is not duplicated
 - If you want to add something without an existing issue, please talk to us first or open an issue
 - Rebase from Kavita's `develop` branch, don't merge
 - Make meaningful commits, or squash them

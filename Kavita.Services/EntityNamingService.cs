@@ -65,7 +65,7 @@ public partial class EntityNamingService : IEntityNamingService
 
         var baseTitle = libraryType switch
         {
-            LibraryType.Book => string.Format(bookLabel, title).Trim(),
+            LibraryType.Book or LibraryType.Regulations or LibraryType.Research => string.Format(bookLabel, title).Trim(),
             LibraryType.LightNovel => string.Format(bookLabel, range).Trim(),
             LibraryType.Comic or LibraryType.ComicVine => string.Format(issueLabel, hashMark, range).Trim(),
             LibraryType.Manga or LibraryType.Image => string.Format(chapterLabel, range).Trim(),
@@ -91,7 +91,7 @@ public partial class EntityNamingService : IEntityNamingService
         volumeLabel ??= DefaultVolumeLabel;
         ValidateFormatLabel(volumeLabel, nameof(volumeLabel));
 
-        if (libraryType is LibraryType.Book or LibraryType.LightNovel)
+        if (libraryType is LibraryType.Book or LibraryType.LightNovel or LibraryType.Regulations or LibraryType.Research)
         {
             return FormatBookVolumeName(volume);
         }

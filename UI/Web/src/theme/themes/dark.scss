@@ -40,10 +40,14 @@
   --elevation-layer9-dark-solid: #373737;
 
   /* Base colors */
-  --primary-color: #4ac694;
-  --primary-color-dark-shade: #3B9E76;
-  --primary-color-darker-shade: #338A67;
-  --primary-color-darkest-shade: #25624A;
+  /* Fathom palette: signal teal (primary action), deep navy (brand), brass gold (accent) */
+  --brand-navy: #0B1F3A;
+  --brand-teal: #1AC7BC;
+  --brand-brass: #C8A24B;
+  --primary-color: #1AC7BC;
+  --primary-color-dark-shade: #15A49B;
+  --primary-color-darker-shade: #107E77;
+  --primary-color-darkest-shade: #0A5853;
   --error-color: #BD362F;
   --error-accent-color: #ea0d02;
   --warning-color: #dd9f50;
@@ -88,7 +92,7 @@
   --colorscape-complementary-default-color: rgb(51, 51, 51);
 
   /* Meta and Globals */
-  --theme-color: #000000;
+  --theme-color: #0B1F3A;
   --color-scheme: dark;
   --tile-color: var(--primary-color);
   --nav-offset: 3.75rem;
@@ -544,7 +548,7 @@
   --activity-card-client-device-badge-bg-color: #3b82f6;
 
   /** KavitaPlus Audit Log **/
-  --audit-log-metadata-color: #4AC694;
+  --audit-log-metadata-color: #1AC7BC;
   --audit-log-scrobble-color: #FAC858;
   --audit-log-match-color: #5470C6; // Maybe #a5bbff is a better color (color contrast)
   --audit-log-sync-color: #73C0DE;

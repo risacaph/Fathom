@@ -32,24 +32,24 @@
 
     "authority-validation-result-pipe": {
         "success": "Authority is valid",
-        "invalid-authority": "Kavita can load the OIDC configuration, but the issuer does not match",
-        "failure": "Kavita cannot load the OIDC configuration",
-        "not-applicable": "Kavita cannot validate the authority because it is not configured",
+        "invalid-authority": "Fathom can load the OIDC configuration, but the issuer does not match",
+        "failure": "Fathom cannot load the OIDC configuration",
+        "not-applicable": "Fathom cannot validate the authority because it is not configured",
         "missing-https": "{{manage-oidc-connect.tls-required}}"
     },
 
     "manage-oidc-connect": {
         "save": "{{common.save}}",
         "reset-label": "Reset ids",
-        "reset-tooltip": "Reset external ids from all users, use this to reset links between users in Kavita and your identity provider",
+        "reset-tooltip": "Reset external ids from all users, use this to reset links between users in Fathom and your identity provider",
         "reset-confirm": "Are you certain you want to reset external ids from all users?",
         "reset-success": "External ids reset for all users, re-authenticate to link",
         "save-success": "Successfully updated your OIDC settings",
         "notice": "Notice",
-        "restart-required": "Changing Provider or advanced settings requires a manual restart of Kavita to take effect.",
+        "restart-required": "Changing Provider or advanced settings requires a manual restart of Fathom to take effect.",
         "auto-save-required": "You've changed critical settings, manually save to persist them",
         "provider-title": "Provider",
-        "provider-tooltip": "Provider settings require you to manually click Save. Kavita must be configured as a confidential client and needs a redirect URL. See the <a href='https://wiki.kavitareader.com/guides/admin-settings/open-id-connect/' target='_blank' rel='noreferrer noopener'>wiki</a> for more details.",
+        "provider-tooltip": "Provider settings require you to manually click Save. Fathom must be configured as a confidential client and needs a redirect URL. See the <a href='https://wiki.fathomreader.com/guides/admin-settings/open-id-connect/' target='_blank' rel='noreferrer noopener'>wiki</a> for more details.",
         "behavior-title": "Behavior",
         "other-field-required": "{{validation.other-field-required}}",
         "other-field-invalid": "{{validation.other-field-invalid}}",
@@ -67,7 +67,7 @@
         "provision-accounts-label": "Provision accounts",
         "provision-accounts-tooltip": "Auto-create a new account when logging in via OIDC if it can't be matched to an existing one",
         "require-verified-email-label": "Require verified emails",
-        "require-verified-email-tooltip": "Requires email verification when creating a new account or matching with an existing one. If a newly created account has a verified email, it will be automatically verified on Kavita's side.",
+        "require-verified-email-tooltip": "Requires email verification when creating a new account or matching with an existing one. If a newly created account has a verified email, it will be automatically verified on Fathom's side.",
         "sync-user-settings-label": "Sync user settings with OIDC roles",
         "sync-user-settings-tooltip": "Users created via OIDC will be fully managed by the identity provider, including roles, library access, and age rating. If this option is disabled, users will not have access to any content after account creation. Refer to the documentation for more details.",
         "auto-login-label": "Auto login",
@@ -90,9 +90,9 @@
         "advanced-title": "Advanced settings",
         "advanced-tooltip": "Only modify these options if you understand their impact.",
         "roles-prefix-label": "Roles prefix",
-        "roles-prefix-tooltip": "Kavita will only consider roles that start with this prefix.",
+        "roles-prefix-tooltip": "Fathom will only consider roles that start with this prefix.",
         "roles-claim-label": "Roles claim",
-        "roles-claim-tooltip": "The claim Kavita will use to extract roles. Leave blank to use the default.",
+        "roles-claim-tooltip": "The claim Fathom will use to extract roles. Leave blank to use the default.",
         "custom-scopes-label": "Custom scopes",
         "custom-scopes-tooltip": "Additional scopes to request from your OIDC provider during login. Separate multiple scopes with commas. Incorrect values may prevent login."
     },
@@ -133,7 +133,7 @@
     },
 
     "identity-provider-pipe": {
-        "kavita": "Kavita",
+        "kavita": "Fathom",
         "oidc": "OpenID Connect"
     },
 
@@ -153,7 +153,7 @@
         "username": "{{common.username}}",
         "required": "{{validation.required-field}}",
         "email": "{{common.email}}",
-        "invalid-email-warning": "A non-valid email will block some functionalities of Kavita",
+        "invalid-email-warning": "A non-valid email will block some functionalities of Fathom",
         "warning-read-only": "Read Only accounts have limited permissions",
         "cancel": "{{common.cancel}}",
         "saving": "Saving…",
@@ -163,7 +163,7 @@
         "out-of-sync": "This user was created via OIDC. If the SyncUsers setting is enabled, any changes made to this account may be overwritten.",
         "oidc-managed": "This user is managed via OIDC. Please contact your OIDC administrator to request any changes.",
         "identity-provider": "Identity provider",
-        "identity-provider-tooltip": "Kavita users are never synced with OIDC accounts.",
+        "identity-provider-tooltip": "Fathom users are never synced with OIDC accounts.",
         "libraries-label": "{{common.libraries}}",
         "roles-label": "{{common.roles}}"
     },
@@ -271,7 +271,7 @@
         "page-layout-mode-label": "Page Layout Mode",
         "page-layout-mode-tooltip": "Show items as cards or list view on Series Detail page.",
         "locale-label": "Locale",
-        "locale-tooltip": "The language Kavita should use",
+        "locale-tooltip": "The language Fathom should use",
         "blur-unread-summaries-label": "Blur Unread Summaries",
         "blur-unread-summaries-tooltip": "Blurs summary text on volumes or chapters that have no read progress (to avoid spoilers)",
         "prompt-on-download-label": "Prompt on Download",
@@ -279,7 +279,7 @@
         "disable-animations-label": "Disable Animations",
         "disable-animations-tooltip": "Turns off animations in the site. Useful for e-ink readers.",
         "collapse-series-relationships-label": "Collapse Series Relationships",
-        "collapse-series-relationships-tooltip": "Should Kavita show Series that have no relationships or is the parent/prequel",
+        "collapse-series-relationships-tooltip": "Should Fathom show Series that have no relationships or is the parent/prequel",
         "highlight-bar-label": "Annotations highlight colors",
         "highlight-bar-tooltip": "These colors are shared between all books",
         "colorscape-label": "Use ColorScape",
@@ -291,9 +291,9 @@
 
         "kavitaplus-settings-title": "Kavita+",
         "anilist-scrobbling-label": "AniList Scrobbling",
-        "anilist-scrobbling-tooltip": "Allow Kavita to Scrobble (one-way sync) reading progress and ratings to AniList",
+        "anilist-scrobbling-tooltip": "Allow Fathom to Scrobble (one-way sync) reading progress and ratings to AniList",
         "want-to-read-sync-label": "Want To Read Sync",
-        "want-to-read-sync-tooltip": "Allow Kavita to add items to your Want to Read list based on AniList and MAL series in Pending read list",
+        "want-to-read-sync-tooltip": "Allow Fathom to add items to your Want to Read list based on AniList and MAL series in Pending read list",
 
         "share-series-reviews-label": "Share Series Reviews",
         "share-series-reviews-tooltip": "Allow your reviews to be visible to other users on this server",
@@ -314,7 +314,7 @@
         "embed-progress-indicator-label": "Embed Progress Indicator",
         "embed-progress-indicator-tooltip": "Embed Progress Indicator in Title",
         "include-continue-from-label": "Include Continue From Entry",
-        "include-continue-from-tooltip": "Insert a \"Continue From X\" entry in OPDS fields to avoid finding your last reading point (Emulates Kavita's Continue button)",
+        "include-continue-from-tooltip": "Insert a \"Continue From X\" entry in OPDS fields to avoid finding your last reading point (Emulates Fathom's Continue button)",
 
         "clients-opds-alert": "OPDS is not enabled on this server. This will not affect Mihon users.",
         "clients-opds-description": "All 3rd Party clients will either use the OPDS Auth key or the Connection Url below. These are like passwords, keep it private.",
@@ -352,7 +352,7 @@
     },
 
     "theme-manager": {
-        "description": "Kavita comes in many colors, find a color scheme that meets your needs or build one yourself and share it. Themes may be applied for your account or applied to all accounts.",
+        "description": "Fathom comes in many colors, find a color scheme that meets your needs or build one yourself and share it. Themes may be applied for your account or applied to all accounts.",
         "set-default": "Set Default",
         "default-theme": "Default",
         "download": "{{changelog.download}}",
@@ -381,7 +381,7 @@
     },
 
     "font-manager": {
-        "description": "Kavita's epub reader comes with a few build-in fonts, add your own fonts here. Upload a file, or use a google fonts url. See the <a href='{{wikiLink}}' target='_blank' rel='noreferrer noopener'>wiki</a> for more information.",
+        "description": "Fathom's epub reader comes with a few build-in fonts, add your own fonts here. Upload a file, or use a google fonts url. See the <a href='{{wikiLink}}' target='_blank' rel='noreferrer noopener'>wiki</a> for more information.",
         "add": "{{common.add}}",
         "drag-n-drop": "{{cover-image-chooser.drag-n-drop}}",
         "upload": "{{cover-image-chooser.upload}}",
@@ -421,7 +421,7 @@
 
     "manage-devices": {
         "title": "Device Manager",
-        "description": "This section is for you to setup email devices that cannot connect to Kavita and instead have an email address that accepts files.",
+        "description": "This section is for you to setup email devices that cannot connect to Fathom and instead have an email address that accepts files.",
         "platform-label": "Platform",
         "email-label": "Email",
         "name-label": "Name",
@@ -529,7 +529,7 @@
         "generate": "Generate",
         "generic-instructions": "Fill out information about different External Services you have to allow Kavita+ to interact with them.",
         "instructions": "First time users should click on \"{{scrobbling-providers.generate}}\" below to allow Kavita+ to talk with {{service}}. Once you authorize the program, copy and paste the token in the input below. You can regenerate your token at any time.",
-        "mal-instructions": "Kavita uses a MAL Client Id for authentication. Create a new Client for Kavita and once approved, supply the client Id and your username.",
+        "mal-instructions": "Fathom uses a MAL Client Id for authentication. Create a new Client for Fathom and once approved, supply the client Id and your username.",
         "scrobbling-applicable-label": "Scrobbling Applicable",
         "token-input-label": "{{service}} Token Goes Here",
         "mal-token-input-label": "MAL Client Id",
@@ -541,7 +541,7 @@
         "anilist-used-for": "AniList is used for scrobbling (syncing data) and want to read syncing.",
         "mal-used-for": "MyAnimeList is used for Smart Collections and want to read syncing.",
         "anilist-first-header": "AniList token saved",
-        "anilist-first-description": "Your AniList token is now setup. This token lasts for a year and Kavita will inform you before it expires to refresh it here. With this, Kavita will generate scrobble (sync) events from your reading history, want to read, and ratings. You can start this now or later. If you have any series that you do not want to be scrobbled select later and place a Scrobble Hold on them. You only need to run this task once. Afterwards, Kavita will handle the syncing for you.<br/> If you select 'Later', you can find the button on Scrobbling page.",
+        "anilist-first-description": "Your AniList token is now setup. This token lasts for a year and Fathom will inform you before it expires to refresh it here. With this, Fathom will generate scrobble (sync) events from your reading history, want to read, and ratings. You can start this now or later. If you have any series that you do not want to be scrobbled select later and place a Scrobble Hold on them. You only need to run this task once. Afterwards, Fathom will handle the syncing for you.<br/> If you select 'Later', you can find the button on Scrobbling page.",
         "anilist-first-later": "Later",
         "anilist-first-now": "Now"
 
@@ -668,14 +668,14 @@
     },
 
     "cbl-conflict-reason-pipe": {
-        "all-series-missing": "Your account is missing access to all series in the list or Kavita does not have anything present in the list.",
-        "chapter-missing": "{{series}}: Chapter {{chapter}} is missing from Kavita. This item will be skipped.",
+        "all-series-missing": "Your account is missing access to all series in the list or Fathom does not have anything present in the list.",
+        "chapter-missing": "{{series}}: Chapter {{chapter}} is missing from Fathom. This item will be skipped.",
         "empty-file": "The cbl file is empty, nothing to be done.",
         "name-conflict": "A reading list ({{readingListName}}) already exists on your account that matches the cbl file.",
         "series-collision": "The series, {{seriesLink}}, collides with another series of the same name in another library.",
-        "series-missing": "The series, {{series}}, is missing from Kavita or your account does not have permission. All items with this series will be skipped from import.",
-        "volume-missing": "{{series}}: Volume {{volume}} is missing from Kavita or your account does not have permission. All items with this volume number will be skipped.",
-        "all-chapter-missing": "All chapters cannot be matched to Chapters in Kavita.",
+        "series-missing": "The series, {{series}}, is missing from Fathom or your account does not have permission. All items with this series will be skipped from import.",
+        "volume-missing": "{{series}}: Volume {{volume}} is missing from Fathom or your account does not have permission. All items with this volume number will be skipped.",
+        "all-chapter-missing": "All chapters cannot be matched to Chapters in Fathom.",
         "invalid-file": "The file is corrupted or not matching the expected tags/spec.",
         "success": "{{series}} volume {{volume}} chapter {{chapter}} mapped successfully."
     },
@@ -812,7 +812,9 @@
         "manga": "Manga",
         "comicVine": "Comic",
         "image": "Image",
-        "lightNovel": "Light Novel"
+        "lightNovel": "Light Novel",
+        "regulations": "Maritime Regulations",
+        "research": "Research Papers"
     },
 
     "library-type-subtitle-pipe": {
@@ -821,7 +823,9 @@
         "manga": "Japanese comics with volume grouping support. Also handles some loose image configurations.",
         "comicVine": "Strict comic implementation based on Comic Vine metadata with integration for specialized tooling.",
         "image": "Loose image files with limited support. Must largely follow wiki documentation.",
-        "lightNovel": "Book library with special handling optimized for light novels"
+        "lightNovel": "Book library with special handling optimized for light novels",
+        "regulations": "Maritime regulatory / reference documents (PDF, EPUB) — IMO circulars, SOLAS, MARPOL. Reads like a book.",
+        "research": "Academic research papers and theses (PDF, EPUB) for college and doctoral work. Reads like a book."
     },
 
     "age-rating-pipe": {
@@ -845,7 +849,7 @@
 
     "reset-password": {
         "title": "Password Reset",
-        "description": "Enter the email of your account. Kavita will send you an email if a valid one is on file, otherwise ask the admin to reset your password.",
+        "description": "Enter the email of your account. Fathom will send you an email if a valid one is on file, otherwise ask the admin to reset your password.",
         "email-label": "{{common.email}}",
         "required-field": "{{validation.required-field}}",
         "valid-email": "{{validation.valid-email}}",
@@ -903,13 +907,13 @@
         "out-of-date": {
             "title": "Don't fall behind!",
             "subtitle": "It seems your install is more than {{count}} versions behind!",
-            "description-1": "Please consider upgrading so that you're running the latest version of Kavita.",
-            "description-2": "Take a look at our <a href='https://wiki.kavitareader.com/guides/updating/' target='_blank' rel='noreferrer noopener'>wiki</a> for instructions on how to update.",
+            "description-1": "Please consider upgrading so that you're running the latest version of Fathom.",
+            "description-2": "Take a look at our <a href='https://wiki.fathomreader.com/guides/updating/' target='_blank' rel='noreferrer noopener'>wiki</a> for instructions on how to update.",
             "description-3": "If there is a specific reason you haven't updated yet we would love to know what is keeping you on an outdated version! Stop by our discord and let us know what is blocking your upgrade path."
         },
         "new-version": {
-            "title": "Kavita was updated!",
-            "description": "A new version of Kavita is available. Refresh to update.",
+            "title": "Fathom was updated!",
+            "description": "A new version of Fathom is available. Refresh to update.",
             "refresh": "Refresh"
         },
         "update-notification": {
@@ -953,7 +957,7 @@
         "activate-license-label": "License Key",
         "activate-email-label": "{{common.email}}",
         "activate-discordId-label": "Discord User ID",
-        "activate-discordId-tooltip": "Link your Discord Account with Kavita+. This grants you access to hidden channels to help shape Kavita.",
+        "activate-discordId-tooltip": "Link your Discord Account with Kavita+. This grants you access to hidden channels to help shape Fathom.",
         "discord-validation": "This is not a valid Discord User Id. Your user id is not your discord username.",
         "email-help": "This is the email registered with Stripe",
         "license-help": "For your security, the stored key is encrypted on disk, re-enter it to update.",
@@ -1053,7 +1057,7 @@
     "kavita-plus-registration-error-code-pipe": {
         "registration-failed": "License activation failed. Verify your license key and email are correct.",
         "already-registered": "This license is registered to another server. Use 'Reset license' first.",
-        "subscription-inactive": "Your subscription is not active. Renew at kavitareader.com.",
+        "subscription-inactive": "Your subscription is not active. Renew at fathomreader.com.",
         "internal-error": "An internal error occurred. Please contact Kavita+ support."
     },
 
@@ -1119,7 +1123,7 @@
 
     "kavita-plus-upsell": {
         "title": "Unlock Kavita+",
-        "description": "A premium subscription that unlocks metadata, scrobbling, and recommendations for every user on this Kavita instance.",
+        "description": "A premium subscription that unlocks metadata, scrobbling, and recommendations for every user on this Fathom instance.",
         "wiki-link-label": "Read the wiki",
         "faq-btn-label": "FAQ",
         "hero-headline-label": "Metadata, scrobbling, and recommendations.",
@@ -1139,7 +1143,7 @@
         "benefit-1-title-label": "Auto-sync reading progress",
         "benefit-1-body-label": "Push progress to AniList, MangaBaka, Hardcover and more - no manual tracking.",
         "benefit-2-title-label": "Ratings & reviews",
-        "benefit-2-body-label": "Pull ratings and reviews from AniList, MyAnimeList, and ComicBookRoundup straight into Kavita.",
+        "benefit-2-body-label": "Pull ratings and reviews from AniList, MyAnimeList, and ComicBookRoundup straight into Fathom.",
         "benefit-3-title-label": "Rich metadata, no tagging",
         "benefit-3-body-label": "Automatic metadata for Manga, Books, and Comics. Cover art, summaries, genres, and people.",
         "benefit-4-title-label": "Import & sync MAL Stacks",
@@ -1149,8 +1153,8 @@
         "benefit-6-title-label": "Server-wide unlock",
         "benefit-6-body-label": "One subscription, node-locked to your server. Every user on this instance benefits.",
         "faq-section-title-label": "FAQ",
-        "faq-1-question-label": "Is Kavita+ separate from Kavita?",
-        "faq-1-answer-label": "Yes. Kavita stays free and open-source. Kavita+ adds premium services - uninstalling Kavita does not cancel your subscription.",
+        "faq-1-question-label": "Is Kavita+ separate from Fathom?",
+        "faq-1-answer-label": "Yes. Fathom stays free and open-source. Kavita+ adds premium services - uninstalling Fathom does not cancel your subscription.",
         "faq-2-question-label": "What if I have multiple servers?",
         "faq-2-answer-label": "Each Kavita+ license is node-locked to a single server. Contact support to migrate.",
         "faq-3-question-label": "How do I cancel?",
@@ -1199,7 +1203,7 @@
         "connect-button": "Connect",
         "connected-label": "Discord Connected",
         "connecting-title": "Connecting",
-        "connecting-subtitle": "Kavita is linking your discord in the background, stand by..."
+        "connecting-subtitle": "Fathom is linking your discord in the background, stand by..."
     },
 
     "expired-license-info-card": {
@@ -1216,7 +1220,7 @@
         "next-charge-label": "Next Charge",
         "member-since-label": "Member Since",
         "months-subscribed-label": "{{count}} months subscribed",
-        "version-label": "Kavita Version",
+        "version-label": "Fathom Version",
         "supported-label": "Supported",
         "unsupported-label": "Unsupported",
         "version-sub-label": "on v{{version}}",
@@ -1238,7 +1242,7 @@
 
     "manage-matched-metadata": {
         "title": "Matched Metadata",
-        "description": "All applicable Series that can be matched with External Metadata reside here. Kavita will prefetch or refresh series metadata, 50 series per 24 hours daily.",
+        "description": "All applicable Series that can be matched with External Metadata reside here. Fathom will prefetch or refresh series metadata, 50 series per 24 hours daily.",
         "status-header": "Status",
         "series-name-header": "Series",
         "library-name-header": "Library",
@@ -1257,7 +1261,7 @@
     },
 
     "manage-user-tokens": {
-        "description": "Users that have scrobbling tokens may need renewing occasionally. Kavita will automatically email them if email is setup and they have a valid email.",
+        "description": "Users that have scrobbling tokens may need renewing occasionally. Fathom will automatically email them if email is setup and they have a valid email.",
         "username-header": "Username",
         "anilist-header": "AniList",
         "mal-header": "MAL",
@@ -1270,16 +1274,16 @@
         "k+-warning": "The settings below are shared with those found on the K+ page. You may change them in either location",
         "export-settings": "Export",
         "export-tooltip": "Export your blacklist and whitelist, age rating, and field mappings",
-        "export-file-name": "Kavita Metadata Settings Export.json",
+        "export-file-name": "Fathom Metadata Settings Export.json",
         "import-settings": "Import",
         "import-tooltip": "Import your or someone else's settings",
         "description": "Kavita+ has the ability to download and write some limited metadata to the Database. This page allows for you to toggle what is in scope.",
         "enabled-label": "Enable Metadata Download",
-        "enabled-tooltip": "Allow Kavita to download metadata and write to it's database.",
+        "enabled-tooltip": "Allow Fathom to download metadata and write to it's database.",
         "summary-label": "Summary",
         "summary-tooltip": "Allow Summary to be written when the field is unlocked.",
         "localized-name-label": "Localized Series Name",
-        "localized-name-tooltip": "Allow Localized Name to be written when the field is unlocked. Kavita will attempt to make the best guess.",
+        "localized-name-tooltip": "Allow Localized Name to be written when the field is unlocked. Fathom will attempt to make the best guess.",
         "derive-publication-status-label": "Publication Status",
         "derive-publication-status-tooltip": "Allow Publication Status to be derived from Total Chapter/Volume counts.",
         "enable-relations-label": "Relationships",
@@ -1287,7 +1291,7 @@
         "enable-people-label": "People",
         "enable-people-tooltip": "Allow People (Characters, Writers, etc) to be <b>added</b>. All people include images.",
         "enable-cover-image-label": "Cover Image",
-        "enable-cover-image-tooltip": "Allow Kavita to write the cover image for the Series",
+        "enable-cover-image-tooltip": "Allow Fathom to write the cover image for the Series",
         "enable-start-date-label": "Start Date",
         "enable-start-date-tooltip": "Allow Start Date of Series to be written to the Series",
 
@@ -1326,7 +1330,7 @@
         "first-last-name-tooltip": "Ensure People's names are written First then Last",
         "person-roles-label": "{{common.roles}}",
         "overrides-label": "Overrides",
-        "overrides-description": "Allow Kavita to write over locked fields.",
+        "overrides-description": "Allow Fathom to write over locked fields.",
         "chapter-header": "Chapter Fields",
         "series-header": "Series Fields",
         "people-header": "People",
@@ -1456,7 +1460,7 @@
     "confirm-email-change": {
         "title": "Validate Email Change",
         "non-confirm-description": "Please wait while your email update is validated.",
-        "confirm-description": "Your email has been validated and is now changed within Kavita. You will be redirected to login.",
+        "confirm-description": "Your email has been validated and is now changed within Fathom. You will be redirected to login.",
         "success": "Success!"
     },
 
@@ -1474,7 +1478,7 @@
         "description": "Complete the form to register an admin account",
         "username-label": "{{common.username}}",
         "email-label": "{{common.email}}",
-        "email-tooltip": "Email does not need to be a real address, but provides access to forgot password. It is not sent outside the server unless Kavita emails you.",
+        "email-tooltip": "Email does not need to be a real address, but provides access to forgot password. It is not sent outside the server unless Fathom emails you.",
         "password-label": "{{common.password}}",
         "required-field": "{{validation.required-field}}",
         "valid-email": "{{validation.valid-email}}",
@@ -1550,7 +1554,7 @@
     },
 
     "kavitaplus-activity": {
-        "description": "Reading activity Kavita has synced to external services on your behalf - progress, ratings, and reading status."
+        "description": "Reading activity Fathom has synced to external services on your behalf - progress, ratings, and reading status."
     },
 
     "manage-kavitaplus-activity": {
@@ -1735,7 +1739,7 @@
 
     "match-series-modal": {
         "title-prefix": "Match",
-        "in-kavita": "In Kavita",
+        "in-kavita": "In Fathom",
         "description": "Pick a match to rewire Kavita+ metadata and regenerate scrobble events.",
         "dont-match-hint": "Use \"Do not match\" to opt this series out entirely.",
         "try": "Try",
@@ -1743,7 +1747,7 @@
         "searching-alt": "Searching…",
         "clear": "Clear search",
         "dont-match-label": "Do not match",
-        "dont-match-tooltip": "Stop Kavita from auto-matching or scrobbling this series",
+        "dont-match-tooltip": "Stop Fathom from auto-matching or scrobbling this series",
         "match-count": "{{ count }} matches",
         "apply-match": "Apply match",
         "close": "{{common.close}}",
@@ -1929,19 +1933,19 @@
         "help-us-part-1": "Help us out by following ",
         "help-us-part-2": "our guide",
         "help-us-part-3": "to naming and organizing your media.",
-        "naming-conventions-part-1": "Kavita has ",
+        "naming-conventions-part-1": "Fathom has ",
         "naming-conventions-part-2": "folder requirements.",
         "naming-conventions-part-3": "Check this link to ensure you are following, else files may not show up in scan.",
         "cover-description": "Custom library image icons are optional",
-        "cover-description-extra": "Library image should not be large. Aim for a small file, 32x32 pixels in size. Kavita does not perform validation on size.",
+        "cover-description-extra": "Library image should not be large. Aim for a small file, 32x32 pixels in size. Fathom does not perform validation on size.",
         "manage-collection-label": "Manage Collections",
-        "manage-collection-tooltip": "Should Kavita create Collections from SeriesGroup tags found within ComicInfo.xml/opf files",
+        "manage-collection-tooltip": "Should Fathom create Collections from SeriesGroup tags found within ComicInfo.xml/opf files",
         "manage-reading-list-label": "Manage Reading Lists",
-        "manage-reading-list-tooltip": "Should Kavita create Reading Lists from StoryArc/StoryArcNumber and AlternativeSeries/AlternativeCount tags found within ComicInfo.xml/opf files",
+        "manage-reading-list-tooltip": "Should Fathom create Reading Lists from StoryArc/StoryArcNumber and AlternativeSeries/AlternativeCount tags found within ComicInfo.xml/opf files",
         "allow-scrobbling-label": "Allow Scrobbling",
-        "allow-scrobbling-tooltip": "Should Kavita scrobble reading events, want to read status, ratings, and reviews to configured providers. This will only occur if the server has an active Kavita+ Subscription.",
+        "allow-scrobbling-tooltip": "Should Fathom scrobble reading events, want to read status, ratings, and reviews to configured providers. This will only occur if the server has an active Kavita+ Subscription.",
         "allow-metadata-matching-label": "Allow Metadata Matching",
-        "allow-metadata-matching-tooltip": "Should Kavita download metadata for Series within this Library. This will only occur if the server has an active Kavita+ Subscription.",
+        "allow-metadata-matching-tooltip": "Should Fathom download metadata for Series within this Library. This will only occur if the server has an active Kavita+ Subscription.",
         "folder-watching-label": "Folder Watching",
         "folder-watching-tooltip": "Override Server folder watching for this library. If off, folder watching won't run on the folders this library contains. If libraries share folders, then folders may still be ran against. Will always wait 10 minutes before triggering scan.",
         "include-in-dashboard-label": "Include in Dashboard",
@@ -1949,9 +1953,9 @@
         "include-in-search-label": "Include in Search",
         "include-in-search-tooltip": "Should series and any derived information (genres, people, files) from the library be included in search results.",
         "enable-metadata-label": "Enable Metadata (ComicInfo/Epub/PDF)",
-        "enable-metadata-tooltip": "Allow Kavita to read metadata files which override filename parsing.",
+        "enable-metadata-tooltip": "Allow Fathom to read metadata files which override filename parsing.",
         "remove-prefix-for-sortname-label": "Remove common prefixes for Sort Name",
-        "remove-prefix-for-sortname-tooltip": "Kavita will remove common prefixes like 'The', 'A', 'An' from titles for sort name. Does not override set metadata.",
+        "remove-prefix-for-sortname-tooltip": "Fathom will remove common prefixes like 'The', 'A', 'An' from titles for sort name. Does not override set metadata.",
         "inherit-web-links-label": "Inherit web links from first chapter",
         "inherit-web-links-tooltip": "Should series inherit web links from their first chapter",
         "default-language-label": "Default language",
@@ -1964,11 +1968,11 @@
         "save": "{{common.save}}",
         "required-field": "{{validation.required-field}}",
         "file-type-group-label": "File Types",
-        "file-type-group-tooltip": "What types of files should Kavita scan for. For example, Archive will include all cb*, zip, rar, etc files.",
+        "file-type-group-tooltip": "What types of files should Fathom scan for. For example, Archive will include all cb*, zip, rar, etc files.",
         "exclude-patterns-label": "Exclude Patterns",
-        "exclude-patterns-tooltip": "Configure a set of patterns (Glob syntax) that Kavita will match when scanning directories and exclude from Scanner results.",
+        "exclude-patterns-tooltip": "Configure a set of patterns (Glob syntax) that Fathom will match when scanning directories and exclude from Scanner results.",
         "help": "{{common.help}}",
-        "files-at-root-warning": "One or more folders contains files at the root. Kavita does not support this."
+        "files-at-root-warning": "One or more folders contains files at the root. Fathom does not support this."
     },
 
     "file-type-group-pipe": {
@@ -2094,7 +2098,7 @@
         "words-label": "{{edit-chapter-modal.words-label}}",
         "added-label": "Added",
         "updated-label": "Updated",
-        "kavita-id-label": "Kavita ID",
+        "kavita-id-label": "Fathom ID",
         "sort-order-label": "{{edit-chapter-modal.sort-order-label}}",
         "language-label": "Language",
         "is-special-label": "Special",
@@ -2198,7 +2202,7 @@
     },
 
     "email-history": {
-        "description": "Here you can find all emails sent from Kavita and to which user.",
+        "description": "Here you can find all emails sent from Fathom and to which user.",
         "template-header": "Template",
         "date-header": "Send Date",
         "user-header": "Sent To",
@@ -2221,8 +2225,8 @@
     },
 
     "manage-email-settings": {
-        "description": "In order to use some functions of Kavita like Send To Device an email provider must be setup. Other features like Forgot Password require admin intervention without Email setup.",
-        "setting-description": "You must fill out both Host Name and SMTP settings to use email-based functionality within Kavita.",
+        "description": "In order to use some functions of Fathom like Send To Device an email provider must be setup. Other features like Forgot Password require admin intervention without Email setup.",
+        "setting-description": "You must fill out both Host Name and SMTP settings to use email-based functionality within Fathom.",
         "test-warning": "You must have valid settings before hitting Test.",
         "send-to-warning": "If you want Send to Device to work you must setup your email settings",
         "email-url-label": "Email Service URL",
@@ -2248,7 +2252,7 @@
         "size-limit-label": "Size Limit",
         "size-limit-tooltip": "How many bytes can the Email Server handle for attachments",
         "customized-templates-label": "Customized Templates",
-        "customized-templates-tooltip": "Should Kavita use config/templates directory for templates rather than default? You are responsible to keep up to date with template changes.",
+        "customized-templates-tooltip": "Should Fathom use config/templates directory for templates rather than default? You are responsible to keep up to date with template changes.",
         "gmail-label": "Gmail",
         "outlook-label": "Outlook",
 
@@ -2298,7 +2302,7 @@
         "encode-as-warning": "You cannot convert back to PNG once you've gone to WebP/AVIF. You would need to refresh covers on your libraries to regenerate all covers. Bookmarks and favicons cannot be converted.",
         "media-warning": "You must trigger the media conversion task in Tasks Tab after Saving.",
         "encode-as-label": "Save Media As",
-        "encode-as-tooltip": "All media Kavita manages (covers, bookmarks, favicons) will be encoded as this type.",
+        "encode-as-tooltip": "All media Fathom manages (covers, bookmarks, favicons) will be encoded as this type.",
         "bookmark-dir-label": "Bookmarks Directory",
         "bookmark-dir-tooltip": "Location where bookmarks will be stored. Bookmarks are source files and can be large. Choose a location with adequate storage. Directory is managed; other files within directory will be deleted. If Docker, mount an additional volume and use that.",
         "change": "Change",
@@ -2349,9 +2353,9 @@
         "system-settings-title": "System",
         "customization-settings-title": "Customization",
         "notice": "Notice:",
-        "restart-required": "Changing Port, Base Url, Cache Size or IPs requires a manual restart of Kavita to take effect.",
+        "restart-required": "Changing Port, Base Url, Cache Size or IPs requires a manual restart of Fathom to take effect.",
         "base-url-label": "Base Url",
-        "base-url-tooltip": "Use this if you want to host Kavita on a base url ie) yourdomain.com/kavita. Not supported on Docker using non-root user.",
+        "base-url-tooltip": "Use this if you want to host Fathom on a base url ie) yourdomain.com/kavita. Not supported on Docker using non-root user.",
         "ip-address-label": "IP Addresses",
         "ip-address-tooltip": "Comma separated list of Ip addresses the server listens on. This is fixed if you are running on Docker. Requires restart to take effect.",
         "port-label": "Port",
@@ -2369,14 +2373,14 @@
         "on-deck-last-chapter-add-label": "On Deck Last Chapter Add (days)",
         "on-deck-last-chapter-add-tooltip": "The number of days since last chapter was added to include something On Deck.",
         "allow-stats-label": "Allow Anonymous Usage Collection",
-        "allow-stats-tooltip-part-1": "Send anonymous usage data to Kavita's servers. This includes information on certain features used, number of files, OS version, Kavita install version, CPU, and memory. We will use this information to prioritize features, bug fixes, and performance tuning. Requires restart to take effect. See the ",
+        "allow-stats-tooltip-part-1": "Send anonymous usage data to Fathom's servers. This includes information on certain features used, number of files, OS version, Fathom install version, CPU, and memory. We will use this information to prioritize features, bug fixes, and performance tuning. Requires restart to take effect. See the ",
         "allow-stats-tooltip-part-2": "for what is collected.",
         "send-data": "Send Data",
         "opds-label": "OPDS",
         "opds-tooltip": "OPDS support will allow all users to use OPDS to read and download content from the server.",
         "enable-opds": "Enable OPDS",
         "folder-watching-label": "Folder Watching",
-        "folder-watching-tooltip": "Allows Kavita to monitor Library Folders to detect changes and invoke scanning on those changes. This allows content to be updated without manually invoking scans or waiting for nightly scans. Will always wait 10 minutes before triggering scan.",
+        "folder-watching-tooltip": "Allows Fathom to monitor Library Folders to detect changes and invoke scanning on those changes. This allows content to be updated without manually invoking scans or waiting for nightly scans. Will always wait 10 minutes before triggering scan.",
         "enable-folder-watching": "Enable Folder Watching",
         "host-name-label": "{{manage-email-settings.host-name-label}}",
         "host-name-tooltip": "{{manage-email-settings.host-name-tooltip}}",
@@ -2418,13 +2422,13 @@
     "manage-tasks-settings": {
         "title": "Recurring Tasks",
         "library-scan-label": "Library Scan",
-        "library-scan-tooltip": "How often Kavita will scan and refresh metadata around library files.",
-        "library-database-backup-label": "Kavita Backup",
-        "library-database-backup-tooltip": "How often Kavita will backup the database and other related files.",
+        "library-scan-tooltip": "How often Fathom will scan and refresh metadata around library files.",
+        "library-database-backup-label": "Fathom Backup",
+        "library-database-backup-tooltip": "How often Fathom will backup the database and other related files.",
         "cleanup-label": "Cleanup",
-        "cleanup-tooltip": "How often Kavita will run cleanup tasks. This can be heavy and should be performed at midnight in most cases.",
+        "cleanup-tooltip": "How often Fathom will run cleanup tasks. This can be heavy and should be performed at midnight in most cases.",
         "cbl-sync-label": "Reading List Sync",
-        "cbl-sync-tooltip": "How often Kavita will check for new updates to CBL Reading Lists. Defaults to daily at 4am.",
+        "cbl-sync-tooltip": "How often Fathom will check for new updates to CBL Reading Lists. Defaults to daily at 4am.",
         "adhoc-tasks-title": "Ad-hoc Tasks",
         "job-title-header": "Job Title",
         "description-header": "Description",
@@ -2530,7 +2534,7 @@
         "select-all": "{{common.select-all}}",
         "filter-label": "{{common.filter}}",
         "last-sync-title": "Last Sync:",
-        "last-sync-tooltip": "Kavita syncs daily against upstream collection provider.",
+        "last-sync-tooltip": "Fathom syncs daily against upstream collection provider.",
         "source-url-title": "Source Url:",
         "total-series-title": "Total Series:",
         "missing-series-title": "Missing Series:"
@@ -2609,11 +2613,11 @@
         "not-setup": "Provider not set-up, connect to get started",
         "sync-options": "Sync options",
         "reviews-sync-label": "Sync reviews",
-        "reviews-sync-tooltip": "Kavita will scrobble reviews for matched series & chapters",
+        "reviews-sync-tooltip": "Fathom will scrobble reviews for matched series & chapters",
         "progress-sync-label": "Sync Progress",
-        "progress-sync-tooltip": "Kavita scrobbles series progress when chapters complete, or chapter progress on page changes",
+        "progress-sync-tooltip": "Fathom scrobbles series progress when chapters complete, or chapter progress on page changes",
         "rating-sync-label": "Sync Ratings",
-        "rating-sync-tooltip": "Kavita scrobbles ratings for matched series & chapters",
+        "rating-sync-tooltip": "Fathom scrobbles ratings for matched series & chapters",
         "want-to-read-sync-label": "Sync Want To Read list",
         "want-to-read-sync-tooltip": "Keep your want to read list in sync. Does not change read statuses",
         "reviews-target-label": "Review target",
@@ -2639,7 +2643,7 @@
         "dropped-series-rule-excluded-publication-aria": "Excluded publication statuses for dropped series rule",
         "backfill-events": "{{manage-user-scrobble-provider-modal.generate-scrobble-events}}",
         "anilist-warning": "AniList sync may be slower during busy periods. MangaBaka offers a larger library and consistently faster syncing.",
-        "loading-background": "Kavita is loading your connection in the background, stand by..."
+        "loading-background": "Fathom is loading your connection in the background, stand by..."
     },
 
     "manage-user-scrobble-provider-modal": {
@@ -2777,7 +2781,7 @@
 
     "import-cbl-modal": {
         "title": "CBL Importer",
-        "description": "On this screen you can build remap rules to automatically map series or issues to Kavita entities. Remap rules will apply to this and future lists.",
+        "description": "On this screen you can build remap rules to automatically map series or issues to Fathom entities. Remap rules will apply to this and future lists.",
         "close": "{{common.close}}",
         "matched-count": "{{count}} matched",
         "issues-count": "{{count}} issues",
@@ -2839,7 +2843,7 @@
         "new-rule-title": "New Remap Rule",
         "cbl-series-name-label": "CBL Series Name",
         "cbl-series-name-placeholder": "Enter CBL series name...",
-        "kavita-series-label": "Kavita Series",
+        "kavita-series-label": "Fathom Series",
         "save": "{{common.save}}",
         "cancel": "{{common.cancel}}",
         "my-rules-header": "My Rules",
@@ -2865,14 +2869,14 @@
         "cbl-volume-placeholder": "e.g. 2016",
         "cbl-number-label": "CBL Issue #",
         "cbl-number-placeholder": "e.g. 1",
-        "kavita-chapter-label": "Kavita Chapter (optional)",
+        "kavita-chapter-label": "Fathom Chapter (optional)",
         "series-level": "Series-level",
         "edit": "{{common.edit}}"
     },
 
     "browse-cbl-repo-modal": {
         "title": "CBL Repo Browser",
-        "rate-limit-warning": "Kavita is coming close to hitting Rate Limit for GitHub! You have {{remaining}} calls left.",
+        "rate-limit-warning": "Fathom is coming close to hitting Rate Limit for GitHub! You have {{remaining}} calls left.",
         "rate-limit-resets": "Rate Limit resets {{time}}",
         "breadcrumb-alt-label": "Breadcrumbs",
         "root-alt-label": "Root folder",
@@ -3160,7 +3164,7 @@
     "import-mal-collection-modal": {
         "close": "{{common.close}}",
         "title": "MAL Interest Stack Import",
-        "description": "Import your MAL Interest Stacks and create Collections within Kavita that sync",
+        "description": "Import your MAL Interest Stacks and create Collections within Fathom that sync",
         "series-count": "{{common.series-count}}",
         "restack-count": "{{num}} Restacks",
         "no-data": "{{common.no-data}}",
@@ -3200,7 +3204,7 @@
         "replace": "Replace",
 
         "resolution-label": "Conflict resolution",
-        "resolution-tooltip": "Decide how Kavita should handle conflicts",
+        "resolution-tooltip": "Decide how Fathom should handle conflicts",
         "manual": "Manual",
         "keep": "Keep",
         "to-pick": "Choose resolution",
@@ -3212,7 +3216,7 @@
         "close": "{{common.close}}",
         "title": "CBL Import",
         "help-label": "{{common.help}}",
-        "import-description": "To get started, import a .cbl file. Kavita will perform multiple checks before importing. Some steps will block moving forward due to issues with the file.",
+        "import-description": "To get started, import a .cbl file. Fathom will perform multiple checks before importing. Some steps will block moving forward due to issues with the file.",
         "validate-description": "All files have been validated to see if there are any operations to do on the list. Any lists that have failed will not move to the next step. Fix the CBL files and retry.",
         "validate-warning": "There are issues with the CBL that will prevent an import. Correct these issues then try again.",
         "validate-no-issue-description": "No issues found with CBL, press next.",
@@ -3578,7 +3582,7 @@
 
     "file-breakdown-stats": {
         "format-title": "Format",
-        "format-tooltip": "Not Classified means Kavita has not scanned some files. This occurs on old files existing prior to v0.7. You may need to run a forced scan via Library settings modal.",
+        "format-tooltip": "Not Classified means Fathom has not scanned some files. This occurs on old files existing prior to v0.7. You may need to run a forced scan via Library settings modal.",
         "visualisation-label": "Visualisation",
         "data-table-label": "Data Table",
         "extension-header": "Extension",
@@ -3972,7 +3976,7 @@
 
     "customize-dashboard-modal": {
         "title-smart-filters": "{{tabs.smart-filters-tab}}",
-        "description": "You can customize different aspects of Kavita by reordering, toggling visibility, and binding smart filters/external sources to your home page or side nav."
+        "description": "You can customize different aspects of Fathom by reordering, toggling visibility, and binding smart filters/external sources to your home page or side nav."
     },
 
     "customize-dashboard-streams": {
@@ -4202,7 +4206,7 @@
         "import-complete": "Import complete",
         "failed-to-validate": "Failed to validate file",
         "failed-to-import": "Failed to import {{name}}",
-        "no-pages": "There are no pages. Kavita was not able to read this archive.",
+        "no-pages": "There are no pages. Fathom was not able to read this archive.",
         "scan-queued": "Scan queued for {{name}}",
         "server-settings-updated": "Server settings updated",
         "reset-ip-address": "IP Addresses Reset",
@@ -4245,8 +4249,8 @@
         "email-not-sent": "Email on file is not a valid email and can not be sent. A link has been dumped in logs. The admin can provide this link to complete flow.",
         "k+-license-saved": "License Key saved, but it is not valid. Click check to revalidate the subscription. First time registration may take a min to propagate.",
         "k+-error": "There was an error when activating your license. Please try again.",
-        "k+-delete-key": "This will only delete Kavita's license key and allow a buy link to show. <b>This will not cancel your subscription!</b> Use Manage to cancel your subscription first.",
-        "k+-reset-key": "This will invalidate a previous registration using your license and allow you to re-register a Kavita instance.",
+        "k+-delete-key": "This will only delete Fathom's license key and allow a buy link to show. <b>This will not cancel your subscription!</b> Use Manage to cancel your subscription first.",
+        "k+-reset-key": "This will invalidate a previous registration using your license and allow you to re-register a Fathom instance.",
         "k+-reset-key-success": "Your license has been un-registered. Use Edit button to re-register your instance and re-activate Kavita+",
         "library-deleted": "Library {{name}} has been removed",
         "copied-to-clipboard": "Copied to clipboard",
@@ -4318,7 +4322,7 @@
         "scrobble-gen-init": "Enqueued a job to generate scrobble events from past reading history and ratings, syncing them with connected services.",
         "series-bound-to-reading-profile": "Series bound to {{amount}} Reading Profiles",
         "library-bound-to-reading-profile": "Library bound to {{amount}} Reading Profiles",
-        "external-match-rate-error": "Kavita ran out of rate looking up {{seriesName}}. Try again in 5 minutes.",
+        "external-match-rate-error": "Fathom ran out of rate looking up {{seriesName}}. Try again in 5 minutes.",
         "confirm-delete-bookmark": "Are you sure you want to delete this Bookmark?",
         "confirm-delete-annotation": "Are you sure you want to delete this Annotation?",
         "confirm-delete-font": "Removing this font will delete it from the disk. You can grab it from temp directory before removal.",

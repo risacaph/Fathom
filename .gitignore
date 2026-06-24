@@ -534,7 +534,9 @@ UI/Web/.vscode/settings.json
 /Kavita.Services.Tests/Test Data/ArchiveService/CoverImages/output/*
 UI/Web/.angular/
 BenchmarkDotNet.Artifacts
-.claude/
+.claude/*
+!.claude/settings.json
+!.claude/hooks/
 Kavita.Server/config/*backup.zip
 CLAUDE.md
 

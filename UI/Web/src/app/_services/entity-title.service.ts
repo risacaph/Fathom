@@ -59,6 +59,8 @@ export class EntityTitleService {
     switch(libraryType) {
       case LibraryType.Book:
       case LibraryType.LightNovel:
+      case LibraryType.Regulations:
+      case LibraryType.Research:
         return this.translocoService.translate('entity-title.book-title' + pluralKeyPart);
       case LibraryType.Comic:
       case LibraryType.ComicVine:

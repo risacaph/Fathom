@@ -36,6 +36,6 @@ public sealed record OpenSearchDescription
     /// <summary>
     /// Contains the human-readable name or identifier of the creator or maintainer of the description document.
     /// </summary>
-    public string Developer { get; set; } = "kavitareader.com";
+    public string Developer { get; set; } = "fathomreader.com";
 
 }

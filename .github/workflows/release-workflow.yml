@@ -141,7 +141,7 @@ jobs:
             type=raw,value=latest
             type=raw,value=${{ steps.parse-version.outputs.VERSION }}
           images: |
-            name=jvmilazz0/kavita,enable=${{ github.repository_owner == 'Kareadita' }}
+            name=fathomreader/fathom,enable=${{ github.repository_owner == 'Kareadita' }}
             name=ghcr.io/${{ github.repository }}
 
       - name: Build and push stable
@@ -162,7 +162,7 @@ jobs:
             type=raw,value=nightly
             type=raw,value=nightly-${{ steps.parse-version.outputs.VERSION }}
           images: |
-            name=jvmilazz0/kavita,enable=${{ github.repository_owner == 'Kareadita' }}
+            name=fathomreader/fathom,enable=${{ github.repository_owner == 'Kareadita' }}
             name=ghcr.io/${{ github.repository }}
 
       - name: Build and push nightly

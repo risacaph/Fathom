@@ -46,6 +46,10 @@ public class StatsService : IStatsService
     private readonly string _apiUrl;
     private const string ApiKey = "MsnvA2DfQqxSK5jh"; // It's not important this is public, just a way to keep bots from hitting the API willy-nilly
 
+    // Fathom fork: anonymous usage reporting to the upstream stats server is disabled.
+    // Kept as a static readonly (not const) so guarded code stays reachable for the compiler.
+    private static readonly bool StatReportingEnabled = false;
+
     public StatsService(ILogger<StatsService> logger, IUnitOfWork unitOfWork, DataContext context,
         ILicenseService licenseService, UserManager<AppUser> userManager, IEmailService emailService,
         ICacheService cacheService, IHostEnvironment environment)
@@ -70,6 +74,8 @@ public class StatsService : IStatsService
     /// <param name="ct"></param>
     public async Task Send(CancellationToken ct = default)
     {
+        if (!StatReportingEnabled) return;
+
         var allowStatCollection = (await _unitOfWork.SettingsRepository.GetSettingsDtoAsync(ct)).AllowStatCollection;
         if (!allowStatCollection)
         {
@@ -95,6 +101,8 @@ public class StatsService : IStatsService
 
     private async Task SendDataToStatsServer(ServerInfoV3Dto data, CancellationToken ct = default)
     {
+        if (!StatReportingEnabled) return;
+
         var responseContent = string.Empty;
 
         try
@@ -149,6 +157,8 @@ public class StatsService : IStatsService
 
     public async Task SendCancellation(CancellationToken ct = default)
     {
+        if (!StatReportingEnabled) return;
+
         _logger.LogInformation("Informing KavitaStats that this instance is no longer sending stats");
         var installId = (await _unitOfWork.SettingsRepository.GetSettingsDtoAsync(ct)).InstallId;
 

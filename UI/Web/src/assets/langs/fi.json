@@ -1,7 +1,7 @@
 {
     "user-preferences": {
-        "locale-tooltip": "Kieli, jota Kavitan tulee käyttää",
-        "share-series-reviews-tooltip": "Pitäisikö Kavita sisällyttää arvostelusi sarjoista muille käyttäjille",
+        "locale-tooltip": "Kieli, jota Fathomn tulee käyttää",
+        "share-series-reviews-tooltip": "Pitäisikö Fathom sisällyttää arvostelusi sarjoista muille käyttäjille",
         "title": "Käyttäjän hallintapaneeli",
         "pref-description": "Nämä ovat laajamittaisia asetuksia, jotka on sidottu tiliisi.",
         "account-tab": "{{tabs.account-tab}}",
@@ -20,7 +20,7 @@
         "prompt-on-download-tooltip": "Näytä kehote, kun lataus ylittää {{size}} Mt",
         "disable-animations-label": "Poista animaatiot käytöstä",
         "collapse-series-relationships-label": "Kutista sarjojen suhteet",
-        "collapse-series-relationships-tooltip": "Pitäisikö Kavita näyttää sarjoja, joilla ei ole suhteita tai jotka ovat vanhempi/esiosa",
+        "collapse-series-relationships-tooltip": "Pitäisikö Fathom näyttää sarjoja, joilla ei ole suhteita tai jotka ovat vanhempi/esiosa",
         "share-series-reviews-label": "Jaa sarjojen arvostelut",
         "disable-animations-tooltip": "Poistaa animaatiot käytöstä sivustolla. Hyödyllinen e-musteen lukijoille.",
         "stats-tab": "{{tabs.stats-tab}}",

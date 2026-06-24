@@ -26,7 +26,7 @@
         "cancel": "{{common.cancel}}",
         "saving": "Opslaan…",
         "update": "Update",
-        "invalid-email-warning": "Een ongeldig e-mailadres blokkeert bepaalde functionaliteiten van Kavita",
+        "invalid-email-warning": "Een ongeldig e-mailadres blokkeert bepaalde functionaliteiten van Fathom",
         "account-detail-title": "Accountgegevens",
         "oidc-managed": "Deze gebruiker wordt beheerd via OIDC. Neem contact op met uw OIDC-beheerder om eventuele wijzigingen aan te vragen."
     },
@@ -100,7 +100,7 @@
         "page-layout-mode-label": "Pagina-indelingsmodus",
         "page-layout-mode-tooltip": "Toon items als kaarten of lijstweergave op de pagina Reeksdetails.",
         "locale-label": "Landinstellingen",
-        "locale-tooltip": "De taal die Kavita zou moeten gebruiken",
+        "locale-tooltip": "De taal die Fathom zou moeten gebruiken",
         "blur-unread-summaries-label": "Vervaag ongelezen samenvattingen",
         "blur-unread-summaries-tooltip": "Vervaagt samenvattende tekst op volumes of hoofdstukken die geen leesvoortgang hebben (om spoilers te voorkomen)",
         "prompt-on-download-label": "Prompt bij downloaden",
@@ -108,7 +108,7 @@
         "disable-animations-label": "Animaties uitschakelen",
         "disable-animations-tooltip": "Schakelt animaties op de site uit. Handig voor e-ink-lezers.",
         "collapse-series-relationships-label": "Reeksrelaties samenvouwen",
-        "collapse-series-relationships-tooltip": "Moet Kavita reeksen laten zien die geen relaties hebben of die geen ouder / prequel is",
+        "collapse-series-relationships-tooltip": "Moet Fathom reeksen laten zien die geen relaties hebben of die geen ouder / prequel is",
         "share-series-reviews-label": "Recensies van reeksen delen",
         "share-series-reviews-tooltip": "Toestaan dat uw recensies zichtbaar zijn voor andere gebruikers op deze server",
         "clients-opds-alert": "OPDS is niet ingeschakeld op deze server. Dit heeft geen invloed op Tachiyomi-gebruikers.",
@@ -116,16 +116,16 @@
         "clients-opds-url-tooltip": "Bekijk een lijst met ondersteunde OPDS-clients: ",
         "reset": "{{common.reset}}",
         "save": "{{common.save}}",
-        "anilist-scrobbling-tooltip": "Laat Kavita om naar AniList uw leesvoortgang en recensies te Scrobblen (eenrichtingssynchronisatie)",
+        "anilist-scrobbling-tooltip": "Laat Fathom om naar AniList uw leesvoortgang en recensies te Scrobblen (eenrichtingssynchronisatie)",
         "kavitaplus-settings-title": "Kavita+",
         "anilist-scrobbling-label": "AniList scrobbelen",
         "want-to-read-sync-label": "Willen Lezen Sync",
         "clients-opds-url-label": "OPDS URL",
-        "want-to-read-sync-tooltip": "Sta Kavita toe om items toe te voegen aan uw lijst 'Wil ik lezen' op basis van AniList- en MAL-reeksen in de lijst 'Te lezen'",
+        "want-to-read-sync-tooltip": "Sta Fathom toe om items toe te voegen aan uw lijst 'Wil ik lezen' op basis van AniList- en MAL-reeksen in de lijst 'Te lezen'",
         "share-annotations-tooltip": "Toestaan dat uw aantekeningen zichtbaar zijn voor andere gebruikers op deze server",
         "social-libraries-tooltip": "Bibliotheken waarop sociale functies moeten worden ingeschakeld. Geen selectie schakelt sociale functies overal in. Schakel specifieke functies uit als u ze nergens wilt gebruiken.",
         "social-share-profile-tooltip": "Het delen van informatie over uw leesactiviteit met andere serverleden toestaan",
-        "include-continue-from-tooltip": "Voeg een 'Doorgaan vanaf X'-vermelding toe in OPDS-velden om het zoeken naar uw laatste leespunt te vermijden (simuleert Kavita's knop Doorgaan)",
+        "include-continue-from-tooltip": "Voeg een 'Doorgaan vanaf X'-vermelding toe in OPDS-velden om het zoeken naar uw laatste leespunt te vermijden (simuleert Fathom's knop Doorgaan)",
         "social-include-unknowns-tooltip": "Sociale functies inschakelen voor reeksen en hoofdstukken met een onbekende leeftijdsclassificatie"
     },
     "user-holds": {
@@ -174,7 +174,7 @@
     },
     "manage-devices": {
         "title": "Apparaat beheerder",
-        "description": "Deze sectie is bedoeld voor het instellen van apparaten die geen verbinding kunnen maken met Kavita via een webbrowser en in plaats daarvan een e-mailadres hebben dat bestanden accepteert.",
+        "description": "Deze sectie is bedoeld voor het instellen van apparaten die geen verbinding kunnen maken met Fathom via een webbrowser en in plaats daarvan een e-mailadres hebben dat bestanden accepteert.",
         "platform-label": "Platform",
         "email-label": "E-mail",
         "add": "{{common.add}}",
@@ -250,7 +250,7 @@
         "token-valid": "Token geldig",
         "mal-username-input-label": "MAL Gebruikersnaam",
         "mal-used-for": "MyAnimeList wordt gebruikt voor Smart Collections en synchronisatie van Wil ik lezen.",
-        "anilist-first-description": "Uw AniList-token is nu ingesteld. Dit token is een jaar geldig en Kavita zal u informeren voordat het verloopt om het hier te vernieuwen. Hiermee zal Kavita scrobble (synchronisatie) gebeurtenissen genereren van uw leesgeschiedenis, 'wil lezen-lijst' en beoordelingen. U kunt hiermee nu beginnen of later. Als u een serie heeft die u niet wilt laten scrobblen, kies dan 'Later' en plaats een Scrobble-hold op die serie. U hoeft deze taak slechts één keer uit te voeren. Daarna zal Kavita de synchronisatie voor u afhandelen.<br/> Als u 'Later' selecteert, kunt u de knop vinden op de Scrobbling-pagina."
+        "anilist-first-description": "Uw AniList-token is nu ingesteld. Dit token is een jaar geldig en Fathom zal u informeren voordat het verloopt om het hier te vernieuwen. Hiermee zal Fathom scrobble (synchronisatie) gebeurtenissen genereren van uw leesgeschiedenis, 'wil lezen-lijst' en beoordelingen. U kunt hiermee nu beginnen of later. Als u een serie heeft die u niet wilt laten scrobblen, kies dan 'Later' en plaats een Scrobble-hold op die serie. U hoeft deze taak slechts één keer uit te voeren. Daarna zal Fathom de synchronisatie voor u afhandelen.<br/> Als u 'Later' selecteert, kunt u de knop vinden op de Scrobbling-pagina."
     },
     "typeahead": {
         "locked-field": "Veld is vergrendeld",
@@ -319,14 +319,14 @@
         "failure": "Mislukt"
     },
     "cbl-conflict-reason-pipe": {
-        "all-series-missing": "Uw account heeft geen toegang tot alle reeksen in de lijst of Kavita heeft niets in de lijst.",
-        "chapter-missing": "{{series}}: Hoofdstuk {{chapter}} ontbreekt in Kavita. Dit item wordt overgeslagen.",
+        "all-series-missing": "Uw account heeft geen toegang tot alle reeksen in de lijst of Fathom heeft niets in de lijst.",
+        "chapter-missing": "{{series}}: Hoofdstuk {{chapter}} ontbreekt in Fathom. Dit item wordt overgeslagen.",
         "empty-file": "Het cbl-bestand is leeg, niets om te doen.",
         "name-conflict": "Er bestaat al een leeslijst ({{readingListName}}) in uw account die overeenkomt met het cbl-bestand.",
         "series-collision": "De reeks {{seriesLink}} conflicteert met een andere reeks met dezelfde naam in een andere bibliotheek.",
-        "series-missing": "De reeks {{series}} ontbreekt in Kavita of uw account heeft geen toestemming. Alle items met deze reeks worden overgeslagen bij het importeren.",
-        "volume-missing": "{{series}}: Volume {{volume}} ontbreekt in Kavita of uw account heeft geen toestemming. Alle items met dit volumenummer worden overgeslagen.",
-        "all-chapter-missing": "Alle hoofdstukken kunnen niet worden gekoppeld aan hoofdstukken in Kavita.",
+        "series-missing": "De reeks {{series}} ontbreekt in Fathom of uw account heeft geen toestemming. Alle items met deze reeks worden overgeslagen bij het importeren.",
+        "volume-missing": "{{series}}: Volume {{volume}} ontbreekt in Fathom of uw account heeft geen toestemming. Alle items met dit volumenummer worden overgeslagen.",
+        "all-chapter-missing": "Alle hoofdstukken kunnen niet worden gekoppeld aan hoofdstukken in Fathom.",
         "invalid-file": "Het bestand is beschadigd of komt niet overeen met de verwachte tags/specificaties.",
         "success": "{{series}} volume {{volume}} hoofdstuk {{chapter}} succesvol in kaart gebracht."
     },
@@ -424,7 +424,7 @@
     },
     "reset-password": {
         "title": "Wachtwoord reset",
-        "description": "Voer het e-mailadres van je account in. Als er een geldig e-mailadres is geregistreerd, stuurt Kavita je een e-mail. Neem anders contact op met de beheerder om je wachtwoord te resetten.",
+        "description": "Voer het e-mailadres van je account in. Als er een geldig e-mailadres is geregistreerd, stuurt Fathom je een e-mail. Neem anders contact op met de beheerder om je wachtwoord te resetten.",
         "email-label": "{{common.email}}",
         "required-field": "{{validation.required-field}}",
         "valid-email": "{{validation.valid-email}}",
@@ -457,7 +457,7 @@
     "invite-user": {
         "title": "Gebruiker uitnodigen",
         "close": "{{common.close}}",
-        "description": "Nodig een gebruiker uit voor uw server. Voer hun e-mailadres in en we sturen ze een e-mail om een account aan te maken. Als u onze e-mailservice niet wilt gebruiken, kunt u <a href=\"https://wiki.kavitareader.com/guides/admin-settings/email\" rel=\"noopener noreferrer\" target=\"_blank\">uw eigen hosten</a> e-mailservice of gebruik een nep-e-mail (gebruiker vergeten werkt niet). Er wordt hoe dan ook een link gepresenteerd die kan worden gebruikt om het account handmatig in te stellen.",
+        "description": "Nodig een gebruiker uit voor uw server. Voer hun e-mailadres in en we sturen ze een e-mail om een account aan te maken. Als u onze e-mailservice niet wilt gebruiken, kunt u <a href=\"https://wiki.fathomreader.com/guides/admin-settings/email\" rel=\"noopener noreferrer\" target=\"_blank\">uw eigen hosten</a> e-mailservice of gebruik een nep-e-mail (gebruiker vergeten werkt niet). Er wordt hoe dan ook een link gepresenteerd die kan worden gebruikt om het account handmatig in te stellen.",
         "email": "{{common.email}}",
         "required-field": "{{common.required-field}}",
         "setup-user-title": "Gebruiker uitgenodigd",
@@ -509,7 +509,7 @@
         "expiration-label": "Vervaldatum",
         "reset-label": "Resetten",
         "delete-label": "Licentie verwijderen",
-        "k+-unlocked-description": "Welkom bij Kavita+! Kavita zal scrobble-evenementen genereren op basis van uw voortgang, beoordelingen en 'Wil ik lezen'-lijst zodra u uw Scrobbling-providers onder uw account registreert. Neem de tijd om ervoor te zorgen dat u scrobbling-houders instelt voor alle reeksen die u niet wilt scrobblen."
+        "k+-unlocked-description": "Welkom bij Kavita+! Fathom zal scrobble-evenementen genereren op basis van uw voortgang, beoordelingen en 'Wil ik lezen'-lijst zodra u uw Scrobbling-providers onder uw account registreert. Neem de tijd om ervoor te zorgen dat u scrobbling-houders instelt voor alle reeksen die u niet wilt scrobblen."
     },
     "book-line-overlay": {
         "copy": "Kopiëren",
@@ -550,7 +550,7 @@
     "confirm-email-change": {
         "title": "Valideer e-mailadres wijzigen",
         "non-confirm-description": "Even geduld terwijl uw e-mailupdate wordt gevalideerd.",
-        "confirm-description": "Uw e-mailadres is gevalideerd en is nu gewijzigd binnen Kavita. U wordt doorgestuurd om in te loggen.",
+        "confirm-description": "Uw e-mailadres is gevalideerd en is nu gewijzigd binnen Fathom. U wordt doorgestuurd om in te loggen.",
         "success": "Succes!"
     },
     "confirm-reset-password": {
@@ -663,17 +663,17 @@
         "help-us-part-1": "Help ons door te volgen ",
         "help-us-part-2": "onze gids",
         "help-us-part-3": "om uw media een naam te geven en te organiseren.",
-        "naming-conventions-part-1": "Kavita heeft ",
+        "naming-conventions-part-1": "Fathom heeft ",
         "naming-conventions-part-2": "map vereisten.",
         "naming-conventions-part-3": "Controleer deze link om er zeker van te zijn dat u deze volgt, anders verschijnen de bestanden niet in de scan.",
         "cover-description": "Pictogrammen voor aangepaste bibliotheekafbeeldingen zijn optioneel",
-        "cover-description-extra": "Bibliotheekafbeelding mag niet groot zijn. Streef naar een klein bestand, 32x32 pixels groot. Kavita voert geen validatie uit op maat.",
+        "cover-description-extra": "Bibliotheekafbeelding mag niet groot zijn. Streef naar een klein bestand, 32x32 pixels groot. Fathom voert geen validatie uit op maat.",
         "manage-collection-label": "Collecties beheren",
-        "manage-collection-tooltip": "Moet Kavita collecties maken van SeriesGroup-tags gevonden in ComicInfo.xml/opf-bestanden",
+        "manage-collection-tooltip": "Moet Fathom collecties maken van SeriesGroup-tags gevonden in ComicInfo.xml/opf-bestanden",
         "manage-reading-list-label": "Leeslijsten beheren",
-        "manage-reading-list-tooltip": "Moet Kavita leeslijsten maken van StoryArc/StoryArcNumber en AlternativeSeries/AlternativeCount-tags gevonden in ComicInfo.xml/opf-bestanden",
+        "manage-reading-list-tooltip": "Moet Fathom leeslijsten maken van StoryArc/StoryArcNumber en AlternativeSeries/AlternativeCount-tags gevonden in ComicInfo.xml/opf-bestanden",
         "allow-scrobbling-label": "Scrobbelen toestaan",
-        "allow-scrobbling-tooltip": "Mocht Kavita leesgebeurtenissen scrobblen, status, beoordelingen en recensies willen lezen voor geconfigureerde providers. Dit gebeurt alleen als de server een actief Kavita+ abonnement heeft.",
+        "allow-scrobbling-tooltip": "Mocht Fathom leesgebeurtenissen scrobblen, status, beoordelingen en recensies willen lezen voor geconfigureerde providers. Dit gebeurt alleen als de server een actief Kavita+ abonnement heeft.",
         "folder-watching-label": "Mappen bekijken",
         "folder-watching-tooltip": "Negeer het bewaken van servermappen voor deze bibliotheek. Indien uitgeschakeld, wordt mapbewaking niet uitgevoerd op de mappen die deze bibliotheek bevat. Als bibliotheken mappen delen, kunnen mappen nog steeds worden aangevallen.",
         "include-in-dashboard-label": "Opnemen in dashboard",
@@ -835,7 +835,7 @@
         "filter-label": "{{common.filter}}"
     },
     "manage-email-settings": {
-        "description": "Kavita komt standaard met een e-mailservice om taken mogelijk te maken, zoals het uitnodigen van gebruikers, verzoeken om wachtwoord opnieuw in te stellen, enz. E-mails die via onze service worden verzonden, worden onmiddellijk verwijderd. U kunt uw eigen e-mailservice gebruiken door de {{link}}  service in te stellen. Stel de URL van de e-mailservice in en gebruik de testknop om te controleren of deze werkt. U kunt deze instellingen op elk moment terugzetten naar de standaardinstellingen. Er is geen manier om e-mails voor authenticatie uit te schakelen, hoewel u niet verplicht bent om een geldig e-mailadres voor gebruikers te gebruiken. Bevestigingslinks worden altijd opgeslagen in logboeken en gepresenteerd in de gebruikersinterface. Registratie-/bevestigings-e-mails worden niet verzonden als u Kavita niet opent via een openbaar bereikbare URL of tenzij de functie Hostnaam is geconfigureerd.",
+        "description": "Fathom komt standaard met een e-mailservice om taken mogelijk te maken, zoals het uitnodigen van gebruikers, verzoeken om wachtwoord opnieuw in te stellen, enz. E-mails die via onze service worden verzonden, worden onmiddellijk verwijderd. U kunt uw eigen e-mailservice gebruiken door de {{link}}  service in te stellen. Stel de URL van de e-mailservice in en gebruik de testknop om te controleren of deze werkt. U kunt deze instellingen op elk moment terugzetten naar de standaardinstellingen. Er is geen manier om e-mails voor authenticatie uit te schakelen, hoewel u niet verplicht bent om een geldig e-mailadres voor gebruikers te gebruiken. Bevestigingslinks worden altijd opgeslagen in logboeken en gepresenteerd in de gebruikersinterface. Registratie-/bevestigings-e-mails worden niet verzonden als u Fathom niet opent via een openbaar bereikbare URL of tenzij de functie Hostnaam is geconfigureerd.",
         "send-to-warning": "Als u 'Verzenden naar apparaat' wilt gebruiken, moet u uw e-mailinstellingen configureren",
         "email-url-label": "E-mailservice-URL",
         "email-url-tooltip": "Gebruik de volledig gekwalificeerde URL van de e-mailservice. Voeg geen schuine streep aan het einde toe.",
@@ -877,7 +877,7 @@
         "encode-as-warning": "U kunt niet terug converteren naar PNG als u eenmaal naar WebP/AVIF bent gegaan. U moet omslagen in uw bibliotheken vernieuwen om alle omslagen opnieuw te genereren. Bladwijzers en favicons kunnen niet worden geconverteerd.",
         "media-warning": "U moet de mediaconversietaak activeren op het tabblad Taken.,",
         "encode-as-label": "Media opslaan als",
-        "encode-as-tooltip": "Alle media die Kavita beheert (omslagen, bladwijzers, favicons) worden als dit type gecodeerd.",
+        "encode-as-tooltip": "Alle media die Fathom beheert (omslagen, bladwijzers, favicons) worden als dit type gecodeerd.",
         "bookmark-dir-label": "Lijst met bladwijzers",
         "bookmark-dir-tooltip": "Locatie waar bladwijzers worden opgeslagen. Bladwijzers zijn bronbestanden en kunnen groot zijn. Kies een locatie met voldoende opslagruimte. Directory wordt beheerd; andere bestanden in de map worden verwijderd. Docker installatie? Koppel dan een extra volume en gebruik deze.",
         "change": "Wijziging",
@@ -910,9 +910,9 @@
     },
     "manage-settings": {
         "notice": "Opmerking:",
-        "restart-required": "Het wijzigen van de poort, basis-URL, cachegrootte of IP's vereist een handmatige herstart van Kavita om van kracht te worden.",
+        "restart-required": "Het wijzigen van de poort, basis-URL, cachegrootte of IP's vereist een handmatige herstart van Fathom om van kracht te worden.",
         "base-url-label": "Basis-URL",
-        "base-url-tooltip": "Gebruik dit als u Kavita op een basis-URL wilt hosten, bijvoorbeeld uwdomein.com/kavita. Niet ondersteund op Docker met niet-rootgebruiker.",
+        "base-url-tooltip": "Gebruik dit als u Fathom op een basis-URL wilt hosten, bijvoorbeeld uwdomein.com/kavita. Niet ondersteund op Docker met niet-rootgebruiker.",
         "ip-address-label": "IP-adressen",
         "ip-address-tooltip": "Door komma's gescheiden lijst met IP-adressen waarnaar de server luistert. Dit is opgelost als u Docker gebruikt. Vereist opnieuw opstarten om van kracht te worden.",
         "port-label": "Poort",
@@ -930,14 +930,14 @@
         "on-deck-last-chapter-add-label": "Aan Het Lezen Laatste hoofdstuk toevoegen (dagen)",
         "on-deck-last-chapter-add-tooltip": "Het aantal dagen sinds het laatste hoofdstuk is toegevoegd om iets Aan Het Lezen op te nemen.",
         "allow-stats-label": "Verzameling van anonieme gebruiksgegevens toestaan",
-        "allow-stats-tooltip-part-1": "Stuur anonieme gebruiksgegevens naar de servers van Kavita. Dit omvat informatie over bepaalde gebruikte functies, aantal bestanden, OS-versie, Kavita-installatieversie, CPU en geheugen. We zullen deze informatie gebruiken om prioriteit te geven aan functies, bugfixes en prestatieafstemming. Vereist opnieuw opstarten om van kracht te worden. Zie de ",
+        "allow-stats-tooltip-part-1": "Stuur anonieme gebruiksgegevens naar de servers van Fathom. Dit omvat informatie over bepaalde gebruikte functies, aantal bestanden, OS-versie, Fathom-installatieversie, CPU en geheugen. We zullen deze informatie gebruiken om prioriteit te geven aan functies, bugfixes en prestatieafstemming. Vereist opnieuw opstarten om van kracht te worden. Zie de ",
         "allow-stats-tooltip-part-2": "voor wat er wordt verzameld.",
         "send-data": "Verstuur data",
         "opds-label": "OPDS",
         "opds-tooltip": "Dankzij OPDS-ondersteuning kunnen alle gebruikers OPDS gebruiken om inhoud van de server te lezen en te downloaden.",
         "enable-opds": "OPDS inschakelen",
         "folder-watching-label": "Mapbewaking",
-        "folder-watching-tooltip": "Stelt Kavita in staat bibliotheekmappen te bewaken om wijzigingen te detecteren en scannen op die wijzigingen uit te voeren. Hierdoor kan inhoud worden bijgewerkt zonder handmatig scans uit te voeren of te wachten op nachtelijke scans.",
+        "folder-watching-tooltip": "Stelt Fathom in staat bibliotheekmappen te bewaken om wijzigingen te detecteren en scannen op die wijzigingen uit te voeren. Hierdoor kan inhoud worden bijgewerkt zonder handmatig scans uit te voeren of te wachten op nachtelijke scans.",
         "enable-folder-watching": "Mapbewaking inschakelen",
         "host-name-label": "{{manage-email-settings.host-name-label}}",
         "host-name-tooltip": "{{manage-email-settings.host-name-tooltip}}",
@@ -971,9 +971,9 @@
     "manage-tasks-settings": {
         "title": "Terugkerende taken",
         "library-scan-label": "Bibliotheek Scan",
-        "library-scan-tooltip": "Hoe vaak Kavita metadata van bibliotheekbestanden zal scannen en vernieuwen.",
-        "library-database-backup-label": "Kavita back-up",
-        "library-database-backup-tooltip": "Hoe vaak Kavita een back-up maakt van de database en bijbehorende bestanden.",
+        "library-scan-tooltip": "Hoe vaak Fathom metadata van bibliotheekbestanden zal scannen en vernieuwen.",
+        "library-database-backup-label": "Fathom back-up",
+        "library-database-backup-tooltip": "Hoe vaak Fathom een back-up maakt van de database en bijbehorende bestanden.",
         "adhoc-tasks-title": "Ad-hoctaken",
         "job-title-header": "Taak Titel",
         "description-header": "Beschrijving",
@@ -1037,7 +1037,7 @@
         "select-all": "{{common.select-all}}",
         "filter-label": "{{common.filter}}",
         "last-sync-title": "Laatste sync:",
-        "last-sync-tooltip": "Kavita synchroniseert dagelijks met de upstream-collectieleverancier.",
+        "last-sync-tooltip": "Fathom synchroniseert dagelijks met de upstream-collectieleverancier.",
         "source-url-title": "Bron-URL:",
         "total-series-title": "Aantal reeksen:",
         "missing-series-title": "Ontbrekende reeksen:"
@@ -1190,7 +1190,7 @@
         "close": "{{common.close}}",
         "series-count": "{{common.series-count}}",
         "title": "MAL Interest Stack importeren",
-        "description": "Importeer uw MAL Interest Stacks en maak Collecties aan binnen Kavita",
+        "description": "Importeer uw MAL Interest Stacks en maak Collecties aan binnen Fathom",
         "restack-count": "{{num}} Restacks",
         "nothing-found": "Niets gevonden"
     },
@@ -1455,7 +1455,7 @@
     },
     "customize-dashboard-modal": {
         "title-smart-filters": "Slimme filters",
-        "description": "U kunt verschillende aspecten van Kavita aanpassen door de volgorde te wijzigen, de zichtbaarheid in of uit te schakelen en slimme filters/externe bronnen aan uw startpagina of zijnavigatie te koppelen."
+        "description": "U kunt verschillende aspecten van Fathom aanpassen door de volgorde te wijzigen, de zichtbaarheid in of uit te schakelen en slimme filters/externe bronnen aan uw startpagina of zijnavigatie te koppelen."
     },
     "customize-dashboard-streams": {
         "no-data": "Alle slimme filters toegevoegd aan Dashboard of nog geen gemaakt.",
@@ -1618,7 +1618,7 @@
         "dont-match-status-label": "{{dont-match-label}}",
         "all-status-label": "Alle",
         "no-data": "{{common.no-data}}",
-        "description": "Alle toepasselijke reeksen die kunnen worden gekoppeld aan externe metadata bevinden zich hier. Kavita zal de metadata van reeksen vooraf ophalen of vernieuwen, 50 reeksen per 24 uur dagelijks.",
+        "description": "Alle toepasselijke reeksen die kunnen worden gekoppeld aan externe metadata bevinden zich hier. Fathom zal de metadata van reeksen vooraf ophalen of vernieuwen, 50 reeksen per 24 uur dagelijks.",
         "match-alt": "Overeenkomst {{seriesName}}"
     },
     "manage-user-tokens": {
@@ -1707,16 +1707,16 @@
     },
     "manage-oidc-connect": {
         "save-success": "Uw OIDC-instellingen zijn meet success bijgewerkt",
-        "restart-required": "Het veranderen van Authority of Client ID vereist een handmatige herstart van Kavita om actief te worden.",
+        "restart-required": "Het veranderen van Authority of Client ID vereist een handmatige herstart van Fathom om actief te worden.",
         "behavior-title": "Gedrag",
         "manual-save-label": "Het veranderen van provider instellingen vereist manueel bewaren",
         "client-id-label": "Client ID",
         "require-verified-email-label": "Vereist geverifieerde emails",
         "advanced-title": "Geavanceerde instellingen",
-        "reset-tooltip": "Externe ID's van alle gebruikers resetten, gebruik dit om de koppelingen tussen gebruikers in Kavita en uw identiteitsprovider te resetten",
+        "reset-tooltip": "Externe ID's van alle gebruikers resetten, gebruik dit om de koppelingen tussen gebruikers in Fathom en uw identiteitsprovider te resetten",
         "reset-confirm": "Weet u zeker dat u de externe ID's van alle gebruikers wilt resetten?",
         "auto-save-required": "U heeft kritieke instellingen gewijzigd, gebruik autom. opslaan om deze te behouden",
-        "provider-tooltip": "De instellingen van de provider vereisen dat u handmatig op Opslaan klikt. Kavita moet worden geconfigureerd als een vertrouwde cliënt en heeft een omleidings-URL nodig. Zie de <a href='https://wiki.kavitareader.com/guides/admin-settings/open-id-connect/' target='_blank' rel='noreferrer noopener'>wiki</a> voor meer details.",
+        "provider-tooltip": "De instellingen van de provider vereisen dat u handmatig op Opslaan klikt. Fathom moet worden geconfigureerd als een vertrouwde cliënt en heeft een omleidings-URL nodig. Zie de <a href='https://wiki.fathomreader.com/guides/admin-settings/open-id-connect/' target='_blank' rel='noreferrer noopener'>wiki</a> voor meer details.",
         "authority-tooltip": "De URL van uw OIDC-provider, exclusief het pad .well-known/openid-configuration",
         "client-id-tooltip": "De Client-ID die in uw OIDC-provider is ingesteld, kan van alles zijn",
         "secret-tooltip": "Het geheim zoals gegenereerd door uw OIDC-provider, wordt niet weergegeven nadat het is ingesteld",
@@ -1728,11 +1728,11 @@
         "out-of-date": {
             "title": "Blijf niet achter!",
             "subtitle": "Het lijkt erop dat je installatie meer dan {{count}} versies achterloopt!",
-            "description-1": "Overweeg een upgrade zodat je de nieuwste versie van Kavita gebruikt."
+            "description-1": "Overweeg een upgrade zodat je de nieuwste versie van Fathom gebruikt."
         },
         "new-version": {
-            "title": "Kavita is bijgewerkt!",
-            "description": "Er is een nieuwe versie van Kavita beschikbaar. Vernieuw om te updaten.",
+            "title": "Fathom is bijgewerkt!",
+            "description": "Er is een nieuwe versie van Fathom beschikbaar. Vernieuw om te updaten.",
             "refresh": "Vernieuwen"
         },
         "update-notification": {

@@ -1,6 +1,6 @@
 {
-    "name": "Kavita",
-    "short_name": "Kavita",
+    "name": "Fathom",
+    "short_name": "Fathom",
     "icons": [
         {
             "src": "/assets/icons/android-chrome-192x192.png",
@@ -14,7 +14,7 @@
         }
     ],
     "start_url": "/",
-    "theme_color": "#000000",
-    "background_color": "#000000",
+    "theme_color": "#0B1F3A",
+    "background_color": "#0B1F3A",
     "display": "standalone"
 }

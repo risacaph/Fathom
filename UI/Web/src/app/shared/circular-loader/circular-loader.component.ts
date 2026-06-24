@@ -23,7 +23,7 @@ export class CircularLoaderComponent {
   /**
    * Color of the Downloader bar
    */
-  outerStrokeColor = input<string>('#4ac694');
+  outerStrokeColor = input<string>('#1AC7BC');
   backgroundColor= input<string>('#000');
   fontSize = input<number>(36);
   /**

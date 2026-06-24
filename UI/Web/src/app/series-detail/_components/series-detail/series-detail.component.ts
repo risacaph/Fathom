@@ -67,6 +67,7 @@ import {VirtualScrollerModule} from '@iharbeck/ngx-virtual-scroller';
 import {BulkOperationsComponent} from '../../../cards/bulk-operations/bulk-operations.component';
 import {translate, TranslocoDirective} from "@jsverse/transloco";
 import {CardActionablesComponent} from "../../../_single-module/card-actionables/card-actionables.component";
+import {CiteButtonComponent} from "../cite-button/cite-button.component";
 import {PublicationStatus} from "../../../_models/metadata/publication-status";
 import {NextExpectedChapter} from "../../../_models/series-detail/next-expected-chapter";
 import {NextExpectedCardComponent} from "../../../cards/next-expected-card/next-expected-card.component";
@@ -142,7 +143,7 @@ const READING_HISTORY_PAGE_SIZE = 10;
   templateUrl: './series-detail.component.html',
   styleUrls: ['./series-detail.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CardActionablesComponent, ReactiveFormsModule, NgStyle,
+  imports: [CiteButtonComponent, CardActionablesComponent, ReactiveFormsModule, NgStyle,
     NgbTooltip, NgbDropdown, NgbDropdownToggle, NgbDropdownMenu,
     NgbDropdownItem, BulkOperationsComponent,
     NgbNav, NgbNavItem, NgbNavLink, NgbNavContent, VirtualScrollerModule, SeriesCardComponent, ExternalSeriesCardComponent, NgbNavOutlet, NgbPopover, KavitaplusTooltipComponent,

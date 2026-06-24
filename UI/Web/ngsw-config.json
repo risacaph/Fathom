@@ -1,0 +1,59 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app-shell",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/site.webmanifest",
+          "/manifest.webmanifest",
+          "/*.css",
+          "/*.js"
+        ]
+      }
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**",
+          "/media/**",
+          "/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2|ico)"
+        ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "fathom-images",
+      "urls": [
+        "/api/image/**",
+        "/api/reader/image**",
+        "/api/colorscape/**"
+      ],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 3000,
+        "maxAge": "60d",
+        "timeout": "10s"
+      }
+    },
+    {
+      "name": "fathom-api",
+      "urls": ["/api/**"],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 1000,
+        "maxAge": "14d",
+        "timeout": "8s"
+      }
+    }
+  ]
+}

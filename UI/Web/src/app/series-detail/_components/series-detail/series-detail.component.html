@@ -140,6 +140,10 @@
                 <app-download-button [entity]="seriesValue" [entityType]="DownloadEntityType.Series" [libraryId]="libraryId()" [seriesId]="seriesValue.id" />
               </div>
 
+              <div class="col-auto ms-2 btn-actions">
+                <app-cite-button [series]="seriesValue" [metadata]="seriesMetadata()" />
+              </div>
+
             </div>
           </div>
 

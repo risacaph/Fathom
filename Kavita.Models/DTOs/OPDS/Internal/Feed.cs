@@ -22,8 +22,8 @@ public sealed record Feed
     [XmlElement("author")]
     public FeedAuthor Author { get; set; } = new FeedAuthor()
     {
-        Name = "Kavita",
-        Uri = "https://www.kavitareader.com"
+        Name = "Fathom",
+        Uri = "https://fathomreader.com"
     };
 
     [XmlElement("totalResults", Namespace = "http://a9.com/-/spec/opensearch/1.1/")]

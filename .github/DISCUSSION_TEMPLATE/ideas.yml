@@ -1,20 +1,20 @@
-title: "[Kavita] Idea / Feature Submission"
+title: "[Fathom] Idea / Feature Submission"
 labels:
   - "Idea Submission"
 body:
   - type: markdown
     attributes:
       value: |
-        ## Idea Submission for Kavita 💡
+        ## Idea Submission for Fathom 💡
 
-        Please fill out the details below, and let's make Kavita even better together!
+        Please fill out the details below, and let's make Fathom even better together!
         
   - type: textarea
     id: idea-description
     attributes:
       label: Idea Description
       value: |
-        Go into as much detail as possible to explain why your idea should be added to Kavita. Try to present some use cases and examples of how it would help other users. The more detail you have the better. 
+        Go into as much detail as possible to explain why your idea should be added to Fathom. Try to present some use cases and examples of how it would help other users. The more detail you have the better. 
   
   - type: dropdown
     id: idea-category
@@ -33,8 +33,8 @@ body:
   - type: input
     id: duration-of-use
     attributes:
-      label: Duration of Using Kavita
-      description: "How long have you been using Kavita?"
+      label: Duration of Using Fathom
+      description: "How long have you been using Fathom?"
       
   - type: checkboxes
     attributes:
@@ -46,4 +46,4 @@ body:
   - type: markdown
     attributes:
       value: |
-        ### Thank you for contributing to Kavita's future! 🚀
+        ### Thank you for contributing to Fathom's future! 🚀
