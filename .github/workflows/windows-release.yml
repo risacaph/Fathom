@@ -1,0 +1,143 @@
+name: Windows Release (self-contained zip)
+
+# Builds the portable, self-contained Windows (x64) package and publishes it
+# as a GitHub Release. This mirrors build.sh's win-x64 packaging but emits a
+# Fathom-branded .zip (Fathom.exe) instead of the kavita-*.tar.gz.
+#
+# win-x64 self-contained publish works cross-platform, so this runs on Linux
+# (no tests run during publish -> avoids the flaky Windows VSTest runner).
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (default: AssemblyVersion from csproj)'
+        required: false
+        default: ''
+      prerelease:
+        description: 'Mark the GitHub Release as a prerelease'
+        type: boolean
+        default: true
+  push:
+    branches:
+      - claude/funny-brahmagupta-drnf3n
+
+concurrency:
+  group: windows-release-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build win-x64 self-contained zip
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Read version from csproj
+        id: ver
+        uses: kzrnm/get-net-sdk-project-versions-action@v2
+        with:
+          proj-path: Kavita.Common/Kavita.Common.csproj
+
+      - name: Resolve release version
+        id: rel
+        run: |
+          input_ver="${{ github.event.inputs.version }}"
+          asm_ver="${{ steps.ver.outputs.assembly-version }}"
+          if [ -n "$input_ver" ]; then ver="$input_ver"; else ver="$asm_ver"; fi
+          pre="${{ github.event.inputs.prerelease }}"
+          if [ -z "$pre" ]; then pre="true"; fi
+          echo "version=$ver"    >> "$GITHUB_OUTPUT"
+          echo "tag=v$ver"       >> "$GITHUB_OUTPUT"
+          echo "prerelease=$pre" >> "$GITHUB_OUTPUT"
+          echo "Resolved version=$ver tag=v$ver prerelease=$pre"
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build Web UI
+        run: |
+          cd UI/Web
+          echo "Installing web dependencies"
+          npm ci
+          echo "Building UI (production)"
+          npm run prod
+          echo "Copying UI into server wwwroot"
+          rm -rf ../../Kavita.Server/wwwroot/*
+          mkdir -p ../../Kavita.Server/wwwroot
+          cp -R dist/browser/* ../../Kavita.Server/wwwroot/
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Publish self-contained win-x64
+        run: |
+          cd Kavita.Server
+          dotnet publish -c Release --self-contained --runtime win-x64 \
+            -p:TreatWarningsAsErrors=false \
+            -o ../publish/Fathom
+
+      - name: Assemble package
+        run: |
+          out="publish/Fathom"
+          echo "Recopying wwwroot (publish workaround, see build.sh)"
+          mkdir -p "$out/wwwroot"
+          cp -R Kavita.Server/wwwroot/* "$out/wwwroot/"
+          echo "Removing EF Core design-time hosts"
+          rm -rf "$out/BuildHost-net472" "$out/BuildHost-netcore"
+          rm -rf "$out/config/cache-long"
+          echo "Seeding default appsettings template"
+          mkdir -p "$out/config"
+          cp Kavita.Server/config/appsettings.json "$out/config/appsettings-init.json"
+          echo "Bundling docs + license"
+          cp INSTALL.txt "$out/README.txt"
+          cp LICENSE "$out/LICENSE.txt"
+          echo "Renaming apphost Kavita.Server.exe -> Fathom.exe"
+          mv "$out/Kavita.Server.exe" "$out/Fathom.exe"
+          echo "Creating zip"
+          ( cd publish && zip -r -q ../fathom-win-x64.zip Fathom )
+          sha256sum fathom-win-x64.zip | tee fathom-win-x64.zip.sha256
+          echo "=== package contents (top level) ==="
+          ls -la "$out"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.rel.outputs.tag }}
+          name: Fathom ${{ steps.rel.outputs.tag }} — Windows (x64)
+          prerelease: ${{ steps.rel.outputs.prerelease }}
+          make_latest: 'false'
+          fail_on_unmatched_files: true
+          body: |
+            **Fathom ${{ steps.rel.outputs.tag }}** — portable, self-contained Windows build (x64).
+
+            This is the conventional Kavita-style Windows package: no installer, no admin rights, and no separate .NET runtime needed (the runtime is bundled).
+
+            ### Install / run
+            1. Download `fathom-win-x64.zip` below and extract it to a **writable** folder (not `Program Files`).
+            2. Double-click **`Fathom.exe`**.
+            3. Open **http://localhost:5000** and set up your account and libraries.
+
+            ### Update
+            Copy everything **except** the `config/` folder over your existing install, then restart Fathom.
+
+            ### Verify your download
+            Check `fathom-win-x64.zip` against the `fathom-win-x64.zip.sha256` asset.
+
+            ---
+            Built self-contained for `win-x64` on .NET 10. Fathom is a fork of [Kavita](https://github.com/Kareadita/Kavita), licensed under GPL-3.0.
+          files: |
+            fathom-win-x64.zip
+            fathom-win-x64.zip.sha256
