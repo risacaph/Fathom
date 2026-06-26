@@ -3,7 +3,7 @@ export interface Language {
     title: string;
 }
 
-export interface KavitaLocale {
+export interface FathomLocale {
   /**
    * isoCode aka what maps to the file on disk and what transloco loads
    */

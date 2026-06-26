@@ -25,7 +25,7 @@ jobs:
       - run: |
           echo The PR was merged
   build:
-    name: Upload Kavita.Common for Version Bump
+    name: Upload Fathom.Common for Version Bump
     runs-on: ubuntu-24.04
     if: github.event.pull_request.merged == true && contains(github.head_ref, 'release')
     steps:
@@ -37,7 +37,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: csproj
-          path: Kavita.Common/Kavita.Common.csproj
+          path: Fathom.Common/Fathom.Common.csproj
 
   stable:
     name: Build Stable and Nightly Docker if Release
@@ -82,7 +82,7 @@ jobs:
           npm run prod
 
           echo 'Copying back to Kavita wwwroot'
-          rsync -a dist/ ../../Kavita.Server/wwwroot/
+          rsync -a dist/ ../../Fathom.Server/wwwroot/
 
           cd ../ || exit
 
@@ -90,7 +90,7 @@ jobs:
         uses: kzrnm/get-net-sdk-project-versions-action@v2
         id: get-version
         with:
-          proj-path: Kavita.Common/Kavita.Common.csproj
+          proj-path: Fathom.Common/Fathom.Common.csproj
 
       - name: Echo csproj version
         run: echo "${{steps.get-version.outputs.assembly-version}}"

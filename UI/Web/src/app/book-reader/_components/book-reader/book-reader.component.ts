@@ -70,7 +70,7 @@ import afterFrame from "afterframe";
 import {KeyBindService} from "../../../_services/key-bind.service";
 import {KeyBindTarget} from "../../../_models/preferences/preferences";
 import {BreakpointService} from "../../../_services/breakpoint.service";
-import {KavitaTitleStrategy} from "../../../_services/kavita-title.strategy";
+import {FathomTitleStrategy} from "../../../_services/kavita-title.strategy";
 import {EntityTitleService} from "../../../_services/entity-title.service";
 
 
@@ -159,7 +159,7 @@ export class BookReaderComponent implements OnInit, AfterViewInit, OnDestroy {
   protected readonly readerSettingsService = inject(EpubReaderSettingsService);
   private readonly destroyRef = inject(DestroyRef);
   private readonly annotationService = inject(AnnotationService);
-  private readonly kavitaTitleStrategy = inject(KavitaTitleStrategy);
+  private readonly kavitaTitleStrategy = inject(FathomTitleStrategy);
   private readonly document = inject(DOCUMENT);
   private readonly layoutService = inject(LayoutMeasurementService);
   private readonly colorscapeService = inject(ColorscapeService);

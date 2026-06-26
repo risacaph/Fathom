@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, computed, DestroyRef, inject, OnInit, output, signal} from '@angular/core';
 import {filter, shareReplay} from 'rxjs';
-import {KavitaMediaError} from '../_models/media-error';
+import {FathomMediaError} from '../_models/media-error';
 import {ServerService} from 'src/app/_services/server.service';
 import {EVENTS, MessageHubService} from 'src/app/_services/message-hub.service';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
@@ -31,7 +31,7 @@ export class ManageMediaIssuesComponent implements OnInit {
   messageHubUpdate$ = this.messageHub.messages$.pipe(takeUntilDestroyed(this.destroyRef),
     filter(m => m.event === EVENTS.ScanSeries), shareReplay());
 
-  data = signal<KavitaMediaError[]>([]);
+  data = signal<FathomMediaError[]>([]);
   isLoading = signal(true);
   formGroup = new FormGroup({
     filter: new FormControl('', [])
@@ -44,7 +44,7 @@ export class ManageMediaIssuesComponent implements OnInit {
       item.filePath.toLowerCase().indexOf(query) >= 0 ||
       item.details.indexOf(query) >= 0);
   });
-  trackBy = (_: number, item: KavitaMediaError) => `${item.filePath}`
+  trackBy = (_: number, item: FathomMediaError) => `${item.filePath}`
 
   ngOnInit(): void {
     this.loadData();

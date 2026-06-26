@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Upload Kavita.Common for Version Bump
+    name: Upload Fathom.Common for Version Bump
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout Repo
@@ -19,7 +19,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: csproj
-          path: Kavita.Common/Kavita.Common.csproj
+          path: Fathom.Common/Fathom.Common.csproj
 
   version:
     name: Bump version
@@ -38,7 +38,7 @@ jobs:
       - name: Bump versions
         uses: SiqiLu/dotnet-bump-version@2.0.0
         with:
-          version_files: Kavita.Common/Kavita.Common.csproj
+          version_files: Fathom.Common/Fathom.Common.csproj
           github_token: ${{ secrets.REPO_GHA_PAT }}
           version_mask: "0.0.0.1"
 
@@ -76,7 +76,7 @@ jobs:
                 npm run prod
 
                 echo 'Copying back to Kavita wwwroot'
-                rsync -a dist/ ../../Kavita.Server/wwwroot/
+                rsync -a dist/ ../../Fathom.Server/wwwroot/
 
                 cd ../ || exit
 
@@ -84,7 +84,7 @@ jobs:
             uses: kzrnm/get-net-sdk-project-versions-action@v2
             id: get-version
             with:
-                proj-path: Kavita.Common/Kavita.Common.csproj
+                proj-path: Fathom.Common/Fathom.Common.csproj
 
           - name: Parse Version
             run: |

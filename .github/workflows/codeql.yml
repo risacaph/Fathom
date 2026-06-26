@@ -79,7 +79,7 @@ jobs:
 
     - run: |
         echo "Run, Build Application using script"
-        dotnet build Kavita.sln
+        dotnet build Fathom.sln
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3

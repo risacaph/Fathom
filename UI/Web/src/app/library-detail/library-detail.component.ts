@@ -44,7 +44,7 @@ import {debounceTime, ReplaySubject, tap} from "rxjs";
 import {SeriesFilterSettings} from "../metadata-filter/filter-settings";
 import {MetadataService} from "../_services/metadata.service";
 import {ActionResult} from "../_models/actionables/action-result";
-import {KavitaTitleStrategy} from "../_services/kavita-title.strategy";
+import {FathomTitleStrategy} from "../_services/kavita-title.strategy";
 import {getWritableResolvedData} from "../../libs/route-util";
 import {JumpbarService} from "../_services/jumpbar.service";
 import {NotificationProgressEvent} from "../_models/events/notification-progress-event";
@@ -65,7 +65,7 @@ export class LibraryDetailComponent implements OnInit {
   private readonly router = inject(Router);
   private readonly seriesService = inject(SeriesService);
   private readonly libraryService = inject(LibraryService);
-  private readonly kavitaTitleStrategy = inject(KavitaTitleStrategy);
+  private readonly kavitaTitleStrategy = inject(FathomTitleStrategy);
   private readonly actionFactoryService = inject(ActionFactoryService);
   private readonly hubService = inject(MessageHubService);
   private readonly utilityService = inject(UtilityService);

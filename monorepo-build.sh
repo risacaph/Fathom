@@ -19,7 +19,7 @@ Build()
 
     ProgressStart "Build for $RID"
 
-    slnFile=Kavita.sln
+    slnFile=Fathom.sln
 
     dotnet clean $slnFile -c Release
 
@@ -31,13 +31,13 @@ Build()
 Package()
 {
     local runtime="$1"
-    local lOutputFolder=../_output/"$runtime"/Kavita
+    local lOutputFolder=../_output/"$runtime"/Fathom
 
     ProgressStart "Creating $runtime Package"
 
     # TODO: Use no-restore? Because Build should have already done it for us
     echo "Building"
-    cd Kavita.Server
+    cd Fathom.Server
     echo dotnet publish -c Release --no-restore --self-contained --runtime $runtime -o "$lOutputFolder"
     dotnet publish -c Release --no-restore --self-contained --runtime $runtime -o "$lOutputFolder"
 
@@ -61,12 +61,12 @@ Package()
 	mkdir $lOutputFolder/config
     cp config/appsettings.json $lOutputFolder/config/appsettings-init.json
 
-    echo "Renaming Kavita.Server -> Kavita"
-    mv "$lOutputFolder"/Kavita.Server "$lOutputFolder"/Kavita
+    echo "Renaming Fathom.Server -> Fathom"
+    mv "$lOutputFolder"/Fathom.Server "$lOutputFolder"/Fathom
 
     echo "Creating tar"
     cd ../$outputFolder/"$runtime"/
-    tar -czvf ../kavita-$runtime.tar.gz Kavita
+    tar -czvf ../fathom-$runtime.tar.gz Fathom
 
     ProgressEnd "Creating $runtime Package"
 

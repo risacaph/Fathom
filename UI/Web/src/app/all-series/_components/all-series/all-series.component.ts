@@ -37,7 +37,7 @@ import {SeriesFilterField} from "../../../_models/metadata/v2/series-filter-fiel
 import {SeriesFilterSettings} from "../../../metadata-filter/filter-settings";
 import {FilterStatement} from "../../../_models/metadata/v2/filter-statement";
 import {Select2Option} from "ng-select2-component";
-import {KavitaTitleStrategy} from "../../../_services/kavita-title.strategy";
+import {FathomTitleStrategy} from "../../../_services/kavita-title.strategy";
 
 
 @Component({
@@ -53,7 +53,7 @@ export class AllSeriesComponent implements OnInit {
   private readonly destroyRef = inject(DestroyRef);
   private readonly router = inject(Router);
   private readonly seriesService = inject(SeriesService);
-  private readonly kavitaTitleStrategy = inject(KavitaTitleStrategy);
+  private readonly kavitaTitleStrategy = inject(FathomTitleStrategy);
   private readonly hubService = inject(MessageHubService);
   private readonly utilityService = inject(UtilityService);
   private readonly route = inject(ActivatedRoute);

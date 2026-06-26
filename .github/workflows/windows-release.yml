@@ -40,7 +40,7 @@ jobs:
         id: ver
         uses: kzrnm/get-net-sdk-project-versions-action@v2
         with:
-          proj-path: Kavita.Common/Kavita.Common.csproj
+          proj-path: Fathom.Common/Fathom.Common.csproj
 
       - name: Resolve release version
         id: rel
@@ -68,9 +68,9 @@ jobs:
           echo "Building UI (production)"
           npm run prod
           echo "Copying UI into server wwwroot"
-          rm -rf ../../Kavita.Server/wwwroot/*
-          mkdir -p ../../Kavita.Server/wwwroot
-          cp -R dist/browser/* ../../Kavita.Server/wwwroot/
+          rm -rf ../../Fathom.Server/wwwroot/*
+          mkdir -p ../../Fathom.Server/wwwroot
+          cp -R dist/browser/* ../../Fathom.Server/wwwroot/
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -79,7 +79,7 @@ jobs:
 
       - name: Publish self-contained win-x64
         run: |
-          cd Kavita.Server
+          cd Fathom.Server
           dotnet publish -c Release --self-contained --runtime win-x64 \
             -p:TreatWarningsAsErrors=false \
             -o ../publish/Fathom
@@ -89,18 +89,18 @@ jobs:
           out="publish/Fathom"
           echo "Recopying wwwroot (publish workaround, see build.sh)"
           mkdir -p "$out/wwwroot"
-          cp -R Kavita.Server/wwwroot/* "$out/wwwroot/"
+          cp -R Fathom.Server/wwwroot/* "$out/wwwroot/"
           echo "Removing EF Core design-time hosts"
           rm -rf "$out/BuildHost-net472" "$out/BuildHost-netcore"
           rm -rf "$out/config/cache-long"
           echo "Seeding default appsettings template"
           mkdir -p "$out/config"
-          cp Kavita.Server/config/appsettings.json "$out/config/appsettings-init.json"
+          cp Fathom.Server/config/appsettings.json "$out/config/appsettings-init.json"
           echo "Bundling docs + license"
           cp INSTALL.txt "$out/README.txt"
           cp LICENSE "$out/LICENSE.txt"
-          echo "Renaming apphost Kavita.Server.exe -> Fathom.exe"
-          mv "$out/Kavita.Server.exe" "$out/Fathom.exe"
+          echo "Renaming apphost Fathom.Server.exe -> Fathom.exe"
+          mv "$out/Fathom.Server.exe" "$out/Fathom.exe"
           echo "Creating zip"
           ( cd publish && zip -r -q ../fathom-win-x64.zip Fathom )
           sha256sum fathom-win-x64.zip | tee fathom-win-x64.zip.sha256

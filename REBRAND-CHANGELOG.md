@@ -263,3 +263,42 @@ web link) and copies to clipboard.
 - `.gitignore`: selectively un-ignore `.claude/settings.json` + `.claude/hooks/` (kept the rest of `.claude/` local).
 - Purpose: make a network-permissive session turnkey so the backend roadmap (full-text search, academic metadata,
   IMO field) can be built + CI-verified with real `dotnet build` / EF migrations.
+
+## Phase 4 — Full rebrand (deep rename)
+
+Supersedes the "veneer-only" decision in *Known residuals* above: the structural identifiers are now
+Fathom, not just the visible surface. Done in compiling, separately-committed stages (each verified with
+`dotnet build Fathom.sln` + targeted tests, and the UI with `npm run build`).
+
+**Stage 1 — projects / namespaces / assemblies.** All 14 `Kavita.*` projects + the solution → `Fathom.*`
+(`Fathom.sln`); every `namespace` / `using` / `cref` updated via a known-segment match so attribution prose
+and EF index-name strings were never touched; `KavitaException` → `FathomException`; build scripts + CI
+workflows repointed to the new project paths. The Windows release now publishes `Fathom.Server.exe → Fathom.exe`.
+
+**Stage 2 — runtime strings + data migration.** `config/kavita.db` → `config/fathom.db` (connection string,
+backups, install-date migration, `BackupService`); `kavita.log` → `fathom.log`; `BuildInfo.AppName`, outbound
+`User-Agent`, OIDC `DefaultOidcClientId`, JWT `ValidIssuer` (validation disabled, so cosmetic), KOReader device
+label → Fathom; `X-Kavita-Client` → `X-Fathom-Client` and `x-kavita-version` → `x-fathom-version`. Added a
+guarded startup **shim** in `Program.cs` that renames legacy `config/kavita.db(+-wal/-shm)` and `kavita.log`
+to Fathom names before the DB opens, so installs upgrading from Kavita / early Fathom keep their data.
+`TokenKey` is unchanged → existing logins stay valid.
+
+**Stage 3 — UI.** npm package `kavita-webui` → `fathom-webui` (`package.json`, `package-lock.json`,
+`angular.json` project key + build targets); client interceptor now sends `X-Fathom-Client`.
+
+**Stage 4 — packaging / containers.** `/kavita` → `/fathom` container paths and the Linux binary/package
+name (`Kavita` → `Fathom`) and tarball prefix (`kavita-*` → `fathom-*`) across `build.sh`,
+`monorepo-build.sh`, `docker-build.sh`, `entrypoint.sh`, `copy_runtime.sh`, `Dockerfile`, and the README
+Docker example.
+
+### Known residuals after Phase 4 (deliberate)
+
+1. **Legal attribution** — "fork of Kavita", the NOTICE/Attribution section, the GPL copyright line, and the
+   upstream URL/author are kept verbatim (GPL-3.0 requires preserving them).
+2. **`KavitaPlus*` subsystem internals** — ~700 backend identifiers + ~131 UI files for the dormant external
+   metadata/scrobbling integration named after upstream's paid "Kavita+" service. The namespace prefix is
+   already `Fathom.*`; only the leaf `KavitaPlus` identifiers remain, and they are not user-visible. Renaming
+   them is optional and requires a naming decision + care around the entangled strings below (tracked separately).
+3. **Interop / migration-sensitive strings (kept on purpose):** EF index names (`IX_KavitaPlusAuditLog_*`),
+   Hangfire recurring-job ids (`kavita+-*`, renaming orphans existing jobs), the CBL import provider value
+   `"kavita"` (external file-format contract), and the `KavitaVersion` DTO/JSON field consumed by the UI.
