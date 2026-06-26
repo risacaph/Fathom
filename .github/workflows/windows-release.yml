@@ -18,9 +18,6 @@ on:
         description: 'Mark the GitHub Release as a prerelease'
         type: boolean
         default: true
-  push:
-    branches:
-      - claude/funny-brahmagupta-drnf3n
 
 concurrency:
   group: windows-release-${{ github.ref }}
