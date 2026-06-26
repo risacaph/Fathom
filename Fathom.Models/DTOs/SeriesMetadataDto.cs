@@ -62,6 +62,8 @@ public sealed record SeriesMetadataDto
     /// A comma-separated list of Urls
     /// </summary>
     public string WebLinks { get; set; }
+    /// <summary>Digital Object Identifier for academic / research libraries.</summary>
+    public string Doi { get; set; } = string.Empty;
 
     public bool LanguageLocked { get; set; }
     public bool SummaryLocked { get; set; }

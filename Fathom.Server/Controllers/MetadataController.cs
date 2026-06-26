@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Fathom.API.Database;
 using Fathom.API.Repositories;
+using Fathom.API.Services;
 using Fathom.API.Services.Plus;
 using Fathom.Common.Extensions;
 using Fathom.Common.Helpers;
@@ -22,7 +23,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Fathom.Server.Controllers;
 
-public class MetadataController(IUnitOfWork unitOfWork, IExternalMetadataService metadataService) : BaseApiController
+public class MetadataController(IUnitOfWork unitOfWork, IExternalMetadataService metadataService,
+    IDoiMetadataService doiMetadataService) : BaseApiController
 {
     /// <summary>
     /// Fetches genres from the instance
@@ -39,6 +41,20 @@ public class MetadataController(IUnitOfWork unitOfWork, IExternalMetadataService
             .ToList();
 
         return Ok(await unitOfWork.GenreRepository.GetAllGenreDtosForLibrariesAsync(UserId, ids, context));
+    }
+
+    /// <summary>
+    /// Resolves academic metadata for a DOI via the open CrossRef API (no API key required).
+    /// Preview only — does not persist; the UI applies the returned fields onto the Series metadata.
+    /// </summary>
+    /// <param name="doi">A DOI, optionally given as a full https://doi.org/ URL.</param>
+    [HttpGet("doi-lookup")]
+    public async Task<ActionResult<AcademicMetadataDto>> DoiLookup([FromQuery] string doi)
+    {
+        if (string.IsNullOrWhiteSpace(doi)) return BadRequest("A DOI is required");
+        var meta = await doiMetadataService.LookupByDoiAsync(doi);
+        if (meta == null) return NotFound();
+        return Ok(meta);
     }
 
     /// <summary>

@@ -44,6 +44,10 @@ public class SeriesMetadata : IHasConcurrencyToken, IHasKPlusMetadata, IHasTags<
     /// <remarks>This is not populated from Chapters of the Series</remarks>
     public string WebLinks { get; set; } = string.Empty;
     /// <summary>
+    /// Digital Object Identifier (DOI) for academic / research libraries. Empty when not applicable.
+    /// </summary>
+    public string Doi { get; set; } = string.Empty;
+    /// <summary>
     /// Tracks which metadata has been set by K+
     /// </summary>
     public IList<MetadataSettingField> KPlusOverrides { get; set; } = [];

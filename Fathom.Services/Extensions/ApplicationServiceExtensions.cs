@@ -38,6 +38,7 @@ public static class ApplicationServiceExtensions
         services.AddScoped<ICleanupService, CleanupService>();
         services.AddScoped<IBookService, BookService>();
         services.AddScoped<IFullTextSearchService, FullTextSearchService>();
+        services.AddScoped<IDoiMetadataService, DoiMetadataService>();
         services.AddScoped<IVersionUpdaterService, VersionUpdaterService>();
         services.AddScoped<IDownloadService, DownloadService>();
         services.AddScoped<IReaderService, ReaderService>();
