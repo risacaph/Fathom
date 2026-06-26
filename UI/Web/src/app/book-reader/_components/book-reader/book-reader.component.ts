@@ -144,6 +144,7 @@ export class BookReaderComponent implements OnInit, AfterViewInit, OnDestroy {
   private readonly router = inject(Router);
   private readonly seriesService = inject(SeriesService);
   protected readonly ttsService = inject(ReaderTtsService);
+  private readonly _ttsHighlightEffect = effect(() => this.highlightSpokenText(this.ttsService.currentText()));
   private readonly readerService = inject(ReaderService);
   private readonly epubHighlightService = inject(EpubHighlightService);
   private readonly renderer = inject(Renderer2);
@@ -2684,5 +2685,57 @@ export class BookReaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   stopReadAloud() {
     this.ttsService.stop();
+  }
+
+  /** Highlight the sentence currently being read aloud, using the CSS Custom Highlight API (no DOM mutation). */
+  private highlightSpokenText(text: string) {
+    const cssApi = (window as any).CSS;
+    const HighlightCtor = (window as any).Highlight;
+    if (!cssApi?.highlights || typeof HighlightCtor === 'undefined') return; // unsupported browser -> no-op
+    try {
+      cssApi.highlights.delete('fathom-tts');
+      if (!text) return;
+      const root = this.bookContentElemRef()?.nativeElement;
+      if (!root) return;
+      const range = this.findTextRange(root, text);
+      if (!range) return;
+      cssApi.highlights.set('fathom-tts', new HighlightCtor(range));
+      (range.startContainer.parentElement as HTMLElement | null)?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    } catch {
+      // best-effort; never let highlighting interfere with reading
+    }
+  }
+
+  private findTextRange(root: HTMLElement, target: string): Range | null {
+    const walker = this.document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    let flat = '';
+    const map: { node: Text; start: number }[] = [];
+    let node = walker.nextNode();
+    while (node) {
+      const t = node as Text;
+      map.push({ node: t, start: flat.length });
+      flat += t.data;
+      node = walker.nextNode();
+    }
+    const escaped = target.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+');
+    if (!escaped) return null;
+    const match = new RegExp(escaped).exec(flat);
+    if (!match) return null;
+    const startPos = this.locateOffset(map, match.index);
+    const endPos = this.locateOffset(map, match.index + match[0].length);
+    if (!startPos || !endPos) return null;
+    const range = this.document.createRange();
+    range.setStart(startPos.node, startPos.offset);
+    range.setEnd(endPos.node, endPos.offset);
+    return range;
+  }
+
+  private locateOffset(map: { node: Text; start: number }[], idx: number): { node: Text; offset: number } | null {
+    for (let i = map.length - 1; i >= 0; i--) {
+      if (idx >= map[i].start) {
+        return { node: map[i].node, offset: Math.min(idx - map[i].start, map[i].node.data.length) };
+      }
+    }
+    return map.length ? { node: map[0].node, offset: 0 } : null;
   }
 }

@@ -30,6 +30,9 @@ export class ReaderTtsService {
   /** Available system voices (populated asynchronously by the engine). */
   readonly voices = signal<SpeechSynthesisVoice[]>([]);
 
+  /** Text of the chunk currently being spoken ('' when idle) — drives sentence highlighting. */
+  readonly currentText = signal<string>('');
+
   constructor() {
     if (this.synth) {
       const load = () => this.voices.set(this.synth!.getVoices());
@@ -89,6 +92,7 @@ export class ReaderTtsService {
     if (!this.synth) return;
     // Set state first so the in-flight utterance's onend/onerror (fired by cancel) won't auto-advance.
     this.state.set('stopped');
+    this.currentText.set('');
     this.queue = [];
     this.index = 0;
     this.onComplete = undefined;
@@ -99,12 +103,14 @@ export class ReaderTtsService {
     if (!this.synth) return;
     if (this.index >= this.queue.length) {
       this.state.set('stopped');
+      this.currentText.set('');
       const cb = this.onComplete;
       this.onComplete = undefined;
       cb?.();
       return;
     }
 
+    this.currentText.set(this.queue[this.index]);
     const utterance = new SpeechSynthesisUtterance(this.queue[this.index]);
     utterance.rate = this.rate;
     utterance.pitch = this.pitch;

@@ -561,6 +561,18 @@ public class ScannerService(
                     totalFiles, parsedSeries.Count, sw.ElapsedMilliseconds, library.Name);
             }
 
+            // Fathom: notify webhook subscribers that a library finished scanning (delivered off-thread via Hangfire).
+            var webhookPayload = System.Text.Json.JsonSerializer.Serialize(new
+            {
+                @event = "library.scanned",
+                libraryId = library.Id,
+                libraryName = library.Name,
+                seriesCount = parsedSeries.Count,
+                fileCount = totalFiles,
+                elapsedMs = sw.ElapsedMilliseconds
+            });
+            BackgroundJob.Enqueue<IWebhookService>(s => s.DeliverAsync("library.scanned", webhookPayload, default));
+
             logger.LogDebug("[ScannerService] Library {LibraryName} Step 5: Remove Deleted Series", library.Name);
             await RemoveSeriesNotFound(parsedSeries, library);
         }
