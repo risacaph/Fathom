@@ -490,4 +490,13 @@ public class StatsController(
 
     #endregion
 
+
+    /// <summary>
+    /// Returns the user's reading streak (consecutive days with reading activity).
+    /// </summary>
+    [HttpGet("reading-streak")]
+    public async Task<ActionResult<ReadingStreakDto>> GetReadingStreak()
+    {
+        return Ok(await statService.GetReadingStreak(UserId));
+    }
 }

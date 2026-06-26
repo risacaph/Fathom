@@ -1883,4 +1883,43 @@ public class StatisticService(ILogger<StatisticService> logger, IDataContext con
             .ApplyStatsFilter(filter, userId, socialPreferences, requestingUser, isAggregate: true)
             .CountAsync(ct);
     }
+
+    public async Task<ReadingStreakDto> GetReadingStreak(int userId, CancellationToken ct = default)
+    {
+        var dates = (await context.AppUserReadingHistory
+                .Where(h => h.AppUserId == userId)
+                .Select(h => h.DateUtc)
+                .ToListAsync(ct))
+            .Select(d => d.Date)
+            .Distinct()
+            .OrderBy(d => d)
+            .ToList();
+
+        var result = new ReadingStreakDto { TotalDaysRead = dates.Count };
+        if (dates.Count == 0) return result;
+        result.LastReadDateUtc = dates[^1];
+
+        var longest = 1;
+        var run = 1;
+        for (var i = 1; i < dates.Count; i++)
+        {
+            run = dates[i] == dates[i - 1].AddDays(1) ? run + 1 : 1;
+            if (run > longest) longest = run;
+        }
+        result.LongestStreak = longest;
+
+        var today = DateTime.UtcNow.Date;
+        if (dates[^1] == today || dates[^1] == today.AddDays(-1))
+        {
+            var current = 1;
+            for (var i = dates.Count - 2; i >= 0; i--)
+            {
+                if (dates[i] == dates[i + 1].AddDays(-1)) current++;
+                else break;
+            }
+            result.CurrentStreak = current;
+        }
+
+        return result;
+    }
 }
