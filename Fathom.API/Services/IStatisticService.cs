@@ -51,4 +51,5 @@ public interface IStatisticService
     Task<IList<StatCountWithFormat<DateTime>>> GetFilesAddedOverTime(CancellationToken ct = default);
     Task<PagedList<ReadingHistoryItemDto>> GetReadingHistoryItems(StatsFilterDto filter, UserParams userParams, int userId, int requestingUserId, CancellationToken ct = default);
     Task<PagedList<ReadingHistoryItemDto>> GetReadingHistoryItemsForSeries(int userId, int seriesId, string tzId, UserParams userParams, CancellationToken ct = default);
+    Task<ReadingStreakDto> GetReadingStreak(int userId, CancellationToken ct = default);
 }
