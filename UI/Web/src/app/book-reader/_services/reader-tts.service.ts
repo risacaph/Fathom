@@ -27,8 +27,27 @@ export class ReaderTtsService {
   pitch = 1.0;
   voice: SpeechSynthesisVoice | null = null;
 
+  /** Available system voices (populated asynchronously by the engine). */
+  readonly voices = signal<SpeechSynthesisVoice[]>([]);
+
+  constructor() {
+    if (this.synth) {
+      const load = () => this.voices.set(this.synth!.getVoices());
+      load();
+      this.synth.addEventListener('voiceschanged', load);
+    }
+  }
+
   getVoices(): SpeechSynthesisVoice[] {
     return this.synth?.getVoices() ?? [];
+  }
+
+  setRate(rate: number): void {
+    this.rate = Math.min(4, Math.max(0.5, rate || 1));
+  }
+
+  setVoiceByName(name: string): void {
+    this.voice = this.getVoices().find(v => v.name === name) ?? null;
   }
 
   /**

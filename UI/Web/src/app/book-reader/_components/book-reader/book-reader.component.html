@@ -119,6 +119,20 @@
                 <button class="btn btn-secondary btn-icon me-1" (click)="stopReadAloud()" [title]="'Stop read aloud'">
                   <i class="fa-solid fa-stop" aria-hidden="true"></i>
                 </button>
+                <select class="form-select form-select-sm me-1" style="width:auto;display:inline-block" [title]="'Speech rate'"
+                        (change)="ttsService.setRate(+$any($event.target).value)">
+                  @for (r of [0.75, 1, 1.25, 1.5, 1.75, 2]; track r) {
+                    <option [value]="r" [selected]="ttsService.rate === r">{{ r }}&times;</option>
+                  }
+                </select>
+                @if (ttsService.voices().length > 0) {
+                  <select class="form-select form-select-sm me-1" style="width:auto;max-width:150px;display:inline-block" [title]="'Voice'"
+                          (change)="ttsService.setVoiceByName($any($event.target).value)">
+                    @for (v of ttsService.voices(); track v.name) {
+                      <option [value]="v.name" [selected]="ttsService.voice?.name === v.name">{{ v.name }}</option>
+                    }
+                  </select>
+                }
               }
               <button class="btn btn-secondary btn-icon me-1" (click)="viewToCDrawer()">
                 <i class="fa-regular fa-rectangle-list" aria-hidden="true"></i>
