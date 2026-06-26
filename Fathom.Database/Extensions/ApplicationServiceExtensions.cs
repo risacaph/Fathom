@@ -30,7 +30,7 @@ public static class ApplicationServiceExtensions
 
         services.AddDbContextPool<DataContext>(options =>
         {
-            options.UseSqlite("Data source=config/kavita.db", builder =>
+            options.UseSqlite("Data source=config/fathom.db", builder =>
             {
                 builder.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
                 // Must exceed the SQLite busy_timeout (30s) applied by SqlitePragmaInterceptor,

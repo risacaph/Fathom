@@ -13,7 +13,7 @@ namespace Fathom.Server.Logging;
 /// </summary>
 public static class LogLevelOptions
 {
-    public const string LogFile = "config/logs/kavita.log";
+    public const string LogFile = "config/logs/fathom.log";
     public const string OutputTemplate = "[Kavita] [{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} {CorrelationId} {ThreadId}] [{Level}] {SourceContext} {Message:lj}{NewLine}{Exception}";
     public const bool LogRollingEnabled = true;
     /// <summary>

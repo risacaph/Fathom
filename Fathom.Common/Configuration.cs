@@ -16,7 +16,7 @@ public static class Configuration
     public const int DefaultTimeOutSecs = 90;
     public const long DefaultCacheMemory = 75;
     public const string DefaultOidcAuthority = "";
-    public const string DefaultOidcClientId = "kavita";
+    public const string DefaultOidcClientId = "fathom";
     private static readonly string AppSettingsFilename = Path.Join("config", GetAppSettingFilename());
 
     public static readonly string KavitaPlusApiUrl = GetKavitaPlusApiUrl();

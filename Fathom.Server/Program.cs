@@ -54,6 +54,36 @@ public class Program
 
         var directoryService = new DirectoryService(null!, new FileSystem());
 
+        // Fathom: one-time migration of legacy Kavita data files (db/logs) to Fathom names,
+        // so installs upgrading from Kavita / early Fathom keep their existing data. Runs
+        // before the database is opened.
+        try
+        {
+            var fs = directoryService.FileSystem;
+            var cfg = directoryService.ConfigDirectory;
+            foreach (var (oldName, newName) in new[]
+                     {
+                         ("kavita.db", "fathom.db"), ("kavita.db-shm", "fathom.db-shm"),
+                         ("kavita.db-wal", "fathom.db-wal")
+                     })
+            {
+                var oldPath = fs.Path.Join(cfg, oldName);
+                var newPath = fs.Path.Join(cfg, newName);
+                if (fs.File.Exists(oldPath) && !fs.File.Exists(newPath))
+                {
+                    fs.File.Move(oldPath, newPath);
+                    Log.Information("Migrated legacy data file {Old} -> {New}", oldName, newName);
+                }
+            }
+
+            var oldLog = fs.Path.Join(directoryService.LogDirectory, "kavita.log");
+            var newLog = fs.Path.Join(directoryService.LogDirectory, "fathom.log");
+            if (fs.File.Exists(oldLog) && !fs.File.Exists(newLog)) fs.File.Move(oldLog, newLog);
+        }
+        catch (Exception ex)
+        {
+            Log.Warning(ex, "Could not migrate legacy Kavita data files; continuing");
+        }
 
         // Check if this is the first time running and if so, rename appsettings-init.json to appsettings.json
         HandleFirstRunConfiguration();
@@ -79,14 +109,14 @@ public class Program
                 var isDbCreated = await context.Database.CanConnectAsync();
                 if (isDbCreated && pendingMigrations.Any())
                 {
-                    logger.LogInformation("Performing backup as migrations are needed. Backup will be kavita.db in temp folder");
+                    logger.LogInformation("Performing backup as migrations are needed. Backup will be fathom.db in temp folder");
                     var migrationDirectory = await GetMigrationDirectory(context, directoryService);
                     directoryService.ExistOrCreate(migrationDirectory);
 
                     if (!directoryService.FileSystem.File.Exists(
-                            directoryService.FileSystem.Path.Join(migrationDirectory, "kavita.db")))
+                            directoryService.FileSystem.Path.Join(migrationDirectory, "fathom.db")))
                     {
-                        directoryService.CopyFileToDirectory(directoryService.FileSystem.Path.Join(directoryService.ConfigDirectory, "kavita.db"), migrationDirectory);
+                        directoryService.CopyFileToDirectory(directoryService.FileSystem.Path.Join(directoryService.ConfigDirectory, "fathom.db"), migrationDirectory);
                         logger.LogInformation("Database backed up to {MigrationDirectory}", migrationDirectory);
                     }
                 }
@@ -168,7 +198,7 @@ public class Program
                 var migrationDirectory = await GetMigrationDirectory(context, directoryService);
 
                 logger.LogCritical(ex, "A migration failed during startup. Restoring backup from {MigrationDirectory} and exiting", migrationDirectory);
-                directoryService.CopyFileToDirectory(directoryService.FileSystem.Path.Join(migrationDirectory, "kavita.db"), directoryService.ConfigDirectory);
+                directoryService.CopyFileToDirectory(directoryService.FileSystem.Path.Join(migrationDirectory, "fathom.db"), directoryService.ConfigDirectory);
 
                 return;
             }

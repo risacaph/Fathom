@@ -55,11 +55,11 @@ public static class FlurlExtensions
     {
         return request
             .WithHeader(HeaderNames.Accept, "application/json")
-            .WithHeader(HeaderNames.UserAgent, "Kavita")
+            .WithHeader(HeaderNames.UserAgent, "Fathom")
             .WithHeader(Headers.LicenseKey, license)
             .WithHeader(Headers.InstallId, HashUtil.ServerToken())
             .WithHeader(Headers.AnilistToken, anilistToken ?? string.Empty)
-            .WithHeader(Headers.KavitaVersion, BuildInfo.Version)
+            .WithHeader(Headers.FathomVersion, BuildInfo.Version)
             .WithHeader(HeaderNames.ContentType, "application/json")
             .WithTimeout(TimeSpan.FromSeconds(Configuration.DefaultTimeOutSecs));
     }
@@ -68,10 +68,10 @@ public static class FlurlExtensions
     {
         return request
             .WithHeader(HeaderNames.Accept, "application/json")
-            .WithHeader(HeaderNames.UserAgent, "Kavita")
+            .WithHeader(HeaderNames.UserAgent, "Fathom")
             .WithHeader(Headers.ApiKey, apiKey)
             .WithHeader(Headers.InstallId, HashUtil.ServerToken())
-            .WithHeader(Headers.KavitaVersion, BuildInfo.Version)
+            .WithHeader(Headers.FathomVersion, BuildInfo.Version)
             .WithHeader(HeaderNames.ContentType, "application/json")
             .WithTimeout(TimeSpan.FromSeconds(Configuration.DefaultTimeOutSecs));
     }

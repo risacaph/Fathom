@@ -6,7 +6,7 @@ namespace Fathom.API.Services;
 
 public interface IBackupService
 {
-    public const string LogFile = "config/logs/kavita.log";
+    public const string LogFile = "config/logs/fathom.log";
 
     Task BackupDatabase(CancellationToken ct = default);
     /// <summary>

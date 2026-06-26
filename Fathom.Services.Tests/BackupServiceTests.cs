@@ -30,7 +30,7 @@ public class BackupServiceTests(ITestOutputHelper outputHelper): AbstractDbTest(
         var (unitOfWork, context, _) = await CreateDatabase();
 
         var filesystem = CreateFileSystem();
-        filesystem.AddFile($"{LogDirectory}kavita.log", new MockFileData(""));
+        filesystem.AddFile($"{LogDirectory}fathom.log", new MockFileData(""));
         filesystem.AddFile($"{LogDirectory}kavita1.log", new MockFileData(""));
 
         var ds = new DirectoryService(Substitute.For<ILogger<DirectoryService>>(), filesystem);
@@ -38,7 +38,7 @@ public class BackupServiceTests(ITestOutputHelper outputHelper): AbstractDbTest(
 
         var backupLogFiles = backupService.GetLogFiles(false).ToList();
         Assert.Single((IEnumerable)backupLogFiles);
-        Assert.Equal(Parser.NormalizePath($"{LogDirectory}kavita.log"), Parser.NormalizePath(backupLogFiles.First()));
+        Assert.Equal(Parser.NormalizePath($"{LogDirectory}fathom.log"), Parser.NormalizePath(backupLogFiles.First()));
     }
 
     [Fact]
@@ -47,14 +47,14 @@ public class BackupServiceTests(ITestOutputHelper outputHelper): AbstractDbTest(
         var (unitOfWork, context, _) = await CreateDatabase();
 
         var filesystem = CreateFileSystem();
-        filesystem.AddFile($"{LogDirectory}kavita.log", new MockFileData(""));
+        filesystem.AddFile($"{LogDirectory}fathom.log", new MockFileData(""));
         filesystem.AddFile($"{LogDirectory}kavita20200213.log", new MockFileData(""));
 
         var ds = new DirectoryService(Substitute.For<ILogger<DirectoryService>>(), filesystem);
         var backupService = new BackupService(_logger, unitOfWork, ds, _messageHub);
 
         var backupLogFiles = backupService.GetLogFiles().Select(Parser.NormalizePath).ToList();
-        Assert.Contains(backupLogFiles, file => file.Equals(Parser.NormalizePath($"{LogDirectory}kavita.log")) || file.Equals(Parser.NormalizePath($"{LogDirectory}kavita1.log")));
+        Assert.Contains(backupLogFiles, file => file.Equals(Parser.NormalizePath($"{LogDirectory}fathom.log")) || file.Equals(Parser.NormalizePath($"{LogDirectory}kavita1.log")));
     }
 
 
@@ -103,7 +103,7 @@ public class BackupServiceTests(ITestOutputHelper outputHelper): AbstractDbTest(
             await task;
 
             // Assert
-            var backupPath = Path.Combine(tempBackupDir, "kavita.db");
+            var backupPath = Path.Combine(tempBackupDir, "fathom.db");
             Assert.True(File.Exists(backupPath), "Backup file should be created");
 
             // Verify the backup is a valid SQLite database
@@ -191,9 +191,9 @@ public class BackupServiceTests(ITestOutputHelper outputHelper): AbstractDbTest(
         Assert.NotNull(backupFiles);
 
         // Verify that database files are NOT in the backup list (since we now use VACUUM INTO)
-        Assert.DoesNotContain("kavita.db", backupFiles);
-        Assert.DoesNotContain("kavita.db-shm", backupFiles);
-        Assert.DoesNotContain("kavita.db-wal", backupFiles);
+        Assert.DoesNotContain("fathom.db", backupFiles);
+        Assert.DoesNotContain("fathom.db-shm", backupFiles);
+        Assert.DoesNotContain("fathom.db-wal", backupFiles);
 
         // Verify appsettings.json is still in the list
         Assert.Contains("appsettings.json", backupFiles);
@@ -208,8 +208,8 @@ public class BackupServiceTests(ITestOutputHelper outputHelper): AbstractDbTest(
     // public async Task BackupDatabase_ExpectAllFiles()
     // {
     //     var filesystem = CreateFileSystem();
-    //     filesystem.AddFile($"{LogDirectory}kavita.log", new MockFileData(""));
-    //     filesystem.AddFile($"{ConfigDirectory}kavita.db", new MockFileData(""));
+    //     filesystem.AddFile($"{LogDirectory}fathom.log", new MockFileData(""));
+    //     filesystem.AddFile($"{ConfigDirectory}fathom.db", new MockFileData(""));
     //     filesystem.AddFile($"{CoverImageDirectory}1.png", new MockFileData(""));
     //     filesystem.AddFile($"{BookmarkDirectory}1.png", new MockFileData(""));
     //     filesystem.AddFile($"{ConfigDirectory}appsettings.json", new MockFileData(""));
@@ -218,7 +218,7 @@ public class BackupServiceTests(ITestOutputHelper outputHelper): AbstractDbTest(
     //
     //     var ds = new DirectoryService(Substitute.For<ILogger<DirectoryService>>(), filesystem);
     //     var inMemorySettings = new Dictionary<string, string> {
-    //         {"Logging:File:Path", $"{LogDirectory}kavita.log"},
+    //         {"Logging:File:Path", $"{LogDirectory}fathom.log"},
     //         {"Logging:File:MaxRollingFiles", "0"},
     //     };
     //     IConfiguration configuration = new ConfigurationBuilder()

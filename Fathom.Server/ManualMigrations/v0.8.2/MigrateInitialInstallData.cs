@@ -31,7 +31,7 @@ public static class MigrateInitialInstallData
         var settings = await dataContext.ServerSetting.ToListAsync();
 
         // Get the Install Date as Date the DB was written
-        var dbFile = Path.Join(directoryService.ConfigDirectory, "kavita.db");
+        var dbFile = Path.Join(directoryService.ConfigDirectory, "fathom.db");
         if (!string.IsNullOrEmpty(dbFile) && directoryService.FileSystem.File.Exists(dbFile))
         {
             var fi = directoryService.FileSystem.FileInfo.New(dbFile);

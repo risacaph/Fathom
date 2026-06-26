@@ -42,7 +42,7 @@ public class BackupService(
         var files = rollFiles
             ? directoryService.GetFiles(directoryService.LogDirectory,
                 $@"{directoryService.FileSystem.Path.GetFileNameWithoutExtension(fi.Name)}{multipleFileRegex}\.log")
-            : [directoryService.FileSystem.Path.Join(directoryService.LogDirectory, "kavita.log")];
+            : [directoryService.FileSystem.Path.Join(directoryService.LogDirectory, "fathom.log")];
         return files;
     }
 
@@ -142,7 +142,7 @@ public class BackupService(
     /// <param name="tempDirectory">The directory where the backup file will be created</param>
     private async Task BackupDatabaseFile(string tempDirectory)
     {
-        var backupPath = directoryService.FileSystem.Path.Join(tempDirectory, "kavita.db");
+        var backupPath = directoryService.FileSystem.Path.Join(tempDirectory, "fathom.db");
 
         // Validate the backup path to prevent SQL injection
         // The path must not contain single quotes which could break the SQL command

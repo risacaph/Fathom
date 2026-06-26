@@ -122,7 +122,7 @@ public static class IdentityServiceExtensions
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"]!)),
                 ValidateIssuer = false,
                 ValidateAudience = false,
-                ValidIssuer = "Kavita",
+                ValidIssuer = "Fathom",
                 NameClaimType = JwtRegisteredClaimNames.Name,
                 RoleClaimType = ClaimTypes.Role,
             };

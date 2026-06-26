@@ -15,7 +15,7 @@ public class KoreaderBookDtoBuilder : IEntityBuilder<KoreaderBookDto>
         _dto = new KoreaderBookDto()
         {
             document = documentHash,
-            device = "Kavita"
+            device = "Fathom"
         };
     }
 

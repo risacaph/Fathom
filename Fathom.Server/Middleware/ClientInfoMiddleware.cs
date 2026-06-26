@@ -34,7 +34,7 @@ public partial class ClientInfoMiddleware(RequestDelegate next, ILogger<ClientIn
     private ClientInfoData ExtractClientInfo(HttpContext context, IUserContext userContext)
     {
         var userAgent = context.Request.Headers.UserAgent.ToString();
-        var kavitaClient = context.Request.Headers[Headers.KavitaClient].ToString();
+        var kavitaClient = context.Request.Headers[Headers.FathomClient].ToString();
         var ipAddress = GetClientIpAddress(context);
         var authType = userContext.GetAuthenticationType();
         var platform = BrowserHelper.DetectPlatform(userAgent);
@@ -42,7 +42,7 @@ public partial class ClientInfoMiddleware(RequestDelegate next, ILogger<ClientIn
         // If custom Kavita header exists, parse it for rich info
         if (!string.IsNullOrEmpty(kavitaClient))
         {
-            var parsed = ParseKavitaClientHeader(kavitaClient, userAgent);
+            var parsed = ParseFathomClientHeader(kavitaClient, userAgent);
             parsed.IpAddress = ipAddress;
             parsed.AuthType = authType;
             parsed.CapturedAt = DateTime.UtcNow;
@@ -68,7 +68,7 @@ public partial class ClientInfoMiddleware(RequestDelegate next, ILogger<ClientIn
         };
     }
 
-    private ClientInfoData ParseKavitaClientHeader(string header, string fallbackUa)
+    private ClientInfoData ParseFathomClientHeader(string header, string fallbackUa)
     {
         try
         {

@@ -510,7 +510,7 @@ public class ClientInfoMiddlewareTests
 
         if (kavitaClient != null)
         {
-            context.Request.Headers[Headers.KavitaClient] = kavitaClient;
+            context.Request.Headers[Headers.FathomClient] = kavitaClient;
         }
 
         context.Connection.RemoteIpAddress = System.Net.IPAddress.Parse("127.0.0.1");
