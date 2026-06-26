@@ -29,7 +29,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: csproj
-          path: Kavita.Common/Kavita.Common.csproj
+          path: Fathom.Common/Fathom.Common.csproj
 
       - name: Test
         run: dotnet test --no-restore --verbosity normal --filter "Category!=Integration"

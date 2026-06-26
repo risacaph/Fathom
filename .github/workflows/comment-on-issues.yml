@@ -34,7 +34,7 @@ jobs:
         uses: kzrnm/get-net-sdk-project-versions-action@v2
         id: get-version
         with:
-          proj-path: Kavita.Common/Kavita.Common.csproj
+          proj-path: Fathom.Common/Fathom.Common.csproj
 
       - name: Calculate Versions
         id: versions

@@ -19,7 +19,7 @@ Build()
 
     ProgressStart "Build for $RID"
 
-    slnFile=Kavita.sln
+    slnFile=Fathom.sln
 
     dotnet clean $slnFile -c Release
 
@@ -32,15 +32,15 @@ BuildUI()
 {
     ProgressStart 'Building UI'
     echo 'Removing old wwwroot'
-    rm -rf Kavita.Server/wwwroot/*
+    rm -rf Fathom.Server/wwwroot/*
     cd UI/Web/ || exit
     echo 'Installing web dependencies'
     npm install --legacy-peer-deps
     echo 'Building UI'
     npm run prod
     echo 'Copying back to Kavita wwwroot'
-    mkdir -p ../../Kavita.Server/wwwroot
-    cp -R dist/browser/* ../../Kavita.Server/wwwroot
+    mkdir -p ../../Fathom.Server/wwwroot
+    cp -R dist/browser/* ../../Fathom.Server/wwwroot
     cd ../../ || exit
     ProgressEnd 'Building UI'
 }
@@ -54,7 +54,7 @@ Package()
 
     # TODO: Use no-restore? Because Build should have already done it for us
     echo "Building"
-    cd Kavita.Server
+    cd Fathom.Server
     echo dotnet publish -c Release --no-restore --self-contained --runtime $runtime -o "$lOutputFolder"
     dotnet publish -c Release --no-restore --self-contained --runtime $runtime -o "$lOutputFolder"
 
@@ -64,8 +64,8 @@ Package()
     echo "Copying LICENSE"
     cp ../LICENSE "$lOutputFolder"/LICENSE.txt
 
-    echo "Renaming Kavita.Server -> Kavita"
-    mv "$lOutputFolder"/Kavita.Server "$lOutputFolder"/Kavita
+    echo "Renaming Fathom.Server -> Kavita"
+    mv "$lOutputFolder"/Fathom.Server "$lOutputFolder"/Kavita
 
     echo "Creating tar"
     cd ../$outputFolder/"$runtime"/
