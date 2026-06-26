@@ -25,6 +25,7 @@ public interface IDataContext : IDisposable
     DbSet<AppUser> Users { get; }
     DbSet<Library> Library { get; }
     DbSet<Series> Series { get; }
+    DbSet<WebhookSubscription> WebhookSubscription { get; }
     DbSet<Chapter> Chapter { get; }
     DbSet<Volume> Volume { get; }
     DbSet<AppUser> AppUser { get; }
