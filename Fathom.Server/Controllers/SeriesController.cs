@@ -45,7 +45,8 @@ public class SeriesController(
     ILocalizationService localizationService,
     IExternalMetadataService externalMetadataService,
     IHostEnvironment environment,
-    ICitationService citationService)
+    ICitationService citationService,
+    IDocumentVersionService documentVersionService)
     : BaseApiController
 {
     private readonly IEasyCachingProvider _externalSeriesCacheProvider = cachingProviderFactory.GetCachingProvider(EasyCacheProfiles.KavitaPlusExternalSeries);
@@ -63,6 +64,27 @@ public class SeriesController(
         var citation = await citationService.GenerateAsync(UserId, seriesId, format);
         if (citation == null) return NotFound();
         return Content(citation, "text/plain");
+    }
+
+    /// <summary>
+    /// Sets version / supersession / effective-date info on a series (document amendment tracking). Admin only.
+    /// </summary>
+    [Authorize(Policy = PolicyGroups.AdminPolicy)]
+    [HttpPost("version")]
+    public async Task<ActionResult> SetVersion(UpdateSeriesVersionDto dto)
+    {
+        if (!await documentVersionService.SetVersionAsync(dto)) return NotFound();
+        return Ok();
+    }
+
+    /// <summary>
+    /// Returns the full version / amendment chain containing the series, ordered oldest to newest.
+    /// </summary>
+    [HttpGet("version-chain")]
+    public async Task<ActionResult<IList<SeriesVersionNodeDto>>> GetVersionChain([FromQuery] int seriesId)
+    {
+        if (!await unitOfWork.UserRepository.HasAccessToSeries(UserId, seriesId)) return Unauthorized();
+        return Ok(await documentVersionService.GetChainAsync(seriesId));
     }
 
     /// <summary>

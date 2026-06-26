@@ -126,6 +126,22 @@ public class Series : IEntityDate, IHasReadTimeEstimate, IHasCoverImage, IHasMet
     public int CbrId { get; set; }
     #endregion
 
+    #region Versioning
+    /// <summary>
+    /// Free-form version / revision / amendment label (e.g. "2020 Amendments", "Rev. 3"). Empty when not versioned.
+    /// </summary>
+    public string Version { get; set; } = string.Empty;
+    /// <summary>
+    /// The Series that supersedes this one (the newer version / amendment), if any. Plain id (no navigation)
+    /// to keep the self-reference simple; resolved by the application when building a version chain.
+    /// </summary>
+    public int? SupersededBySeriesId { get; set; }
+    /// <summary>
+    /// When this version takes effect (entry-into-force for regulations), if known.
+    /// </summary>
+    public DateTime? EffectiveDate { get; set; }
+    #endregion
+
     public SeriesMetadata Metadata { get; set; } = null!;
     public ExternalSeriesMetadata ExternalSeriesMetadata { get; set; } = null!;
 
