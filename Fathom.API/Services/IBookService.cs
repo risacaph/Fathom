@@ -55,4 +55,9 @@ public interface IBookService
     Task<int> GetWordCountBetweenXPaths(string bookFilePath, string startXpath, int startPage, string endXpath, int endPage, CancellationToken ct = default);
     Task<string> CopyImageToTempFromBook(int chapterId, BookmarkDto bookmarkDto, string cachedBookPath, CancellationToken ct = default);
     Task<BookResourceResultDto> GetResourceAsync(string bookFilePath, string requestedKey, CancellationToken ct = default);
+
+    /// <summary>
+    /// Extracts the full plain-text content of a book file (EPUB or PDF) for the full-text search index.
+    /// </summary>
+    Task<string> ExtractPlainTextAsync(string bookFilePath, CancellationToken ct = default);
 }
