@@ -44,13 +44,26 @@ public class SeriesController(
     IEasyCachingProviderFactory cachingProviderFactory,
     ILocalizationService localizationService,
     IExternalMetadataService externalMetadataService,
-    IHostEnvironment environment)
+    IHostEnvironment environment,
+    ICitationService citationService)
     : BaseApiController
 {
     private readonly IEasyCachingProvider _externalSeriesCacheProvider = cachingProviderFactory.GetCachingProvider(EasyCacheProfiles.KavitaPlusExternalSeries);
     private readonly IEasyCachingProvider _matchSeriesCacheProvider = cachingProviderFactory.GetCachingProvider(EasyCacheProfiles.KavitaPlusMatchSeries);
     private const string CacheKey = "externalSeriesData_";
     private const string MatchSeriesCacheKey = "matchSeries_";
+
+    /// <summary>
+    /// Returns a formatted citation (BibTeX / RIS / APA / MLA) for a series, as text/plain.
+    /// Useful for Research / Regulations libraries; builds from title, writers, year, publisher and DOI.
+    /// </summary>
+    [HttpGet("citation")]
+    public async Task<ActionResult> GetCitation([FromQuery] int seriesId, [FromQuery] CitationFormat format = CitationFormat.BibTeX)
+    {
+        var citation = await citationService.GenerateAsync(UserId, seriesId, format);
+        if (citation == null) return NotFound();
+        return Content(citation, "text/plain");
+    }
 
     /// <summary>
     /// Gets series with the applied Filter
