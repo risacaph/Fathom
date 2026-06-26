@@ -161,3 +161,12 @@ body {
 .kplus-offcanvas {
   --bs-offcanvas-width: 28rem;
 }
+
+
+/* iOS/Android: respect display-cutout (notch) safe areas. No-op on devices without a cutout. */
+@supports (padding: env(safe-area-inset-left)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}

@@ -1,20 +1,18 @@
 {
     "name": "Fathom",
     "short_name": "Fathom",
-    "icons": [
-        {
-            "src": "/assets/icons/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/assets/icons/android-chrome-256x256.png",
-            "sizes": "256x256",
-            "type": "image/png"
-        }
-    ],
+    "description": "Fathom \u2014 your self-hosted reading and document library.",
+    "id": "/",
+    "scope": "/",
     "start_url": "/",
+    "display": "standalone",
+    "orientation": "any",
     "theme_color": "#0B1F3A",
     "background_color": "#0B1F3A",
-    "display": "standalone"
+    "categories": ["books", "education", "productivity"],
+    "icons": [
+        { "src": "/assets/icons/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+        { "src": "/assets/icons/android-chrome-256x256.png", "sizes": "256x256", "type": "image/png", "purpose": "any maskable" },
+        { "src": "/assets/icons/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any" }
+    ]
 }

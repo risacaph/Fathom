@@ -451,3 +451,11 @@ $pagination-opacity: 0;
 .page-progress-slider {
   margin: 0;
 }
+
+
+/* Read Aloud controls: prevent action-bar overflow on small screens */
+@media (max-width: 576px) {
+  .top-action-bar select.form-select {
+    max-width: 92px;
+  }
+}
