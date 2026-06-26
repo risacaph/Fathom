@@ -111,6 +111,15 @@
               <button class="btn btn-secondary btn-icon me-1" (click)="viewAnnotations()">
                 <i class="fa-solid fa-highlighter" aria-hidden="true"></i>
               </button>
+              <button class="btn btn-secondary btn-icon me-1" (click)="toggleReadAloud()"
+                      [title]="ttsService.state() === 'playing' ? 'Pause read aloud' : (ttsService.state() === 'paused' ? 'Resume read aloud' : 'Read aloud')">
+                <i class="fa-solid" [class.fa-volume-high]="ttsService.state() !== 'playing'" [class.fa-pause]="ttsService.state() === 'playing'" aria-hidden="true"></i>
+              </button>
+              @if (ttsService.state() !== 'stopped') {
+                <button class="btn btn-secondary btn-icon me-1" (click)="stopReadAloud()" [title]="'Stop read aloud'">
+                  <i class="fa-solid fa-stop" aria-hidden="true"></i>
+                </button>
+              }
               <button class="btn btn-secondary btn-icon me-1" (click)="viewToCDrawer()">
                 <i class="fa-regular fa-rectangle-list" aria-hidden="true"></i>
               </button>

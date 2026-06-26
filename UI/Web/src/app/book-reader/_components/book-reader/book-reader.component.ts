@@ -1,3 +1,4 @@
+import { ReaderTtsService } from '../../_services/reader-tts.service';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -142,6 +143,7 @@ export class BookReaderComponent implements OnInit, AfterViewInit, OnDestroy {
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly seriesService = inject(SeriesService);
+  protected readonly ttsService = inject(ReaderTtsService);
   private readonly readerService = inject(ReaderService);
   private readonly epubHighlightService = inject(EpubHighlightService);
   private readonly renderer = inject(Renderer2);
@@ -849,6 +851,7 @@ export class BookReaderComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.ttsService.stop();
     this.clearTimeout(this.clickToPaginateVisualOverlayTimeout);
     this.clearTimeout(this.clickToPaginateVisualOverlayTimeout2);
     this.clearTimeout(this.delayedScrollEventTimeout);
@@ -2660,4 +2663,26 @@ export class BookReaderComponent implements OnInit, AfterViewInit, OnDestroy {
   protected readonly environment = environment;
   protected readonly ReadingDirection = ReadingDirection;
   protected readonly PAGING_DIRECTION = PAGING_DIRECTION;
+
+  toggleReadAloud() {
+    const state = this.ttsService.state();
+    if (state === 'playing') { this.ttsService.pause(); return; }
+    if (state === 'paused') { this.ttsService.resume(); return; }
+    this.readCurrentPageAloud();
+  }
+
+  private readCurrentPageAloud() {
+    const text = this.bookContentElemRef()?.nativeElement?.innerText ?? '';
+    this.ttsService.speak(text, () => {
+      // Finished the page: auto-advance and keep reading until the end of the book.
+      if (this.pageNum() < this.maxPages() - 1) {
+        this.nextPage();
+        setTimeout(() => this.readCurrentPageAloud(), 600);
+      }
+    });
+  }
+
+  stopReadAloud() {
+    this.ttsService.stop();
+  }
 }
