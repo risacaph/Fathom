@@ -40,6 +40,7 @@ public static class ApplicationServiceExtensions
         services.AddScoped<IFullTextSearchService, FullTextSearchService>();
         services.AddScoped<IDoiMetadataService, DoiMetadataService>();
         services.AddScoped<ICitationService, CitationService>();
+        services.AddScoped<IDocumentVersionService, DocumentVersionService>();
         services.AddScoped<IVersionUpdaterService, VersionUpdaterService>();
         services.AddScoped<IDownloadService, DownloadService>();
         services.AddScoped<IReaderService, ReaderService>();
