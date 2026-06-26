@@ -483,71 +483,71 @@ Thumbs.db
 ssl/
 
 # App specific
-/Kavita.Server/kavita.db
-/Kavita.Server/kavita.db-shm
-/Kavita.Server/kavita.db-wal
-/Kavita.Server/Hangfire.db
-/Kavita.Server/Hangfire-log.db
-Kavita.Server/cache/
-/Kavita.Server/wwwroot/
-/Kavita.Server/cache/
-/Kavita.Server/temp/
+/Fathom.Server/fathom.db
+/Fathom.Server/fathom.db-shm
+/Fathom.Server/fathom.db-wal
+/Fathom.Server/Hangfire.db
+/Fathom.Server/Hangfire-log.db
+Fathom.Server/cache/
+/Fathom.Server/wwwroot/
+/Fathom.Server/cache/
+/Fathom.Server/temp/
 _temp/
 _output/
-Kavita.Server/stats/
+Fathom.Server/stats/
 UI/Web/dist/
-/Kavita.Services.Tests/Extensions/Test Data/modified on run.txt
+/Fathom.Services.Tests/Extensions/Test Data/modified on run.txt
 
 # All config files/folders in config except appsettings.json
-/Kavita.Server/config-bak/
-/Kavita.Server/config-bak/*.*
-/Kavita.Server/config-bak/**/
-/Kavita.Server/config/covers/
-/Kavita.Server/config/logs/
-/Kavita.Server/config/backups/
-/Kavita.Server/config/cache/
-/Kavita.Server/config/fonts/
-/Kavita.Server/config/temp/
-/Kavita.Server/config/themes/
-/Kavita.Server/config/stats/
-/Kavita.Server/config/bookmarks/
-/Kavita.Server/config/favicons/
-/Kavita.Server/config/cache-long/
-/Kavita.Server/config/*.db-shm
-/Kavita.Server/config/*.db-wal
-/Kavita.Server/config/*.db-journal
-/Kavita.Server/config/*.db
-/Kavita.Server/config/*.bak
-/Kavita.Server/config/*.backup
-/Kavita.Server/config/*.csv
-/Kavita.Server/config/Hangfire.db
-/Kavita.Server/config/Hangfire-log.db
-Kavita.Server/config/covers/
-Kavita.Server/config/images/*
-Kavita.Server/config/stats/*
-Kavita.Server/config/stats/app_stats.json
-Kavita.Server/config/pre-metadata/
-Kavita.Server/config/post-metadata/
-Kavita.Server/config/*.csv
-Kavita.Services.Tests/TestResults/
+/Fathom.Server/config-bak/
+/Fathom.Server/config-bak/*.*
+/Fathom.Server/config-bak/**/
+/Fathom.Server/config/covers/
+/Fathom.Server/config/logs/
+/Fathom.Server/config/backups/
+/Fathom.Server/config/cache/
+/Fathom.Server/config/fonts/
+/Fathom.Server/config/temp/
+/Fathom.Server/config/themes/
+/Fathom.Server/config/stats/
+/Fathom.Server/config/bookmarks/
+/Fathom.Server/config/favicons/
+/Fathom.Server/config/cache-long/
+/Fathom.Server/config/*.db-shm
+/Fathom.Server/config/*.db-wal
+/Fathom.Server/config/*.db-journal
+/Fathom.Server/config/*.db
+/Fathom.Server/config/*.bak
+/Fathom.Server/config/*.backup
+/Fathom.Server/config/*.csv
+/Fathom.Server/config/Hangfire.db
+/Fathom.Server/config/Hangfire-log.db
+Fathom.Server/config/covers/
+Fathom.Server/config/images/*
+Fathom.Server/config/stats/*
+Fathom.Server/config/stats/app_stats.json
+Fathom.Server/config/pre-metadata/
+Fathom.Server/config/post-metadata/
+Fathom.Server/config/*.csv
+Fathom.Services.Tests/TestResults/
 UI/Web/.vscode/settings.json
-/Kavita.Services.Tests/Test Data/ArchiveService/CoverImages/output/*
+/Fathom.Services.Tests/Test Data/ArchiveService/CoverImages/output/*
 UI/Web/.angular/
 BenchmarkDotNet.Artifacts
 .claude/*
 !.claude/settings.json
 !.claude/hooks/
-Kavita.Server/config/*backup.zip
+Fathom.Server/config/*backup.zip
 CLAUDE.md
 
 
-Kavita.Services.Tests/Test Data/ImageService/**/*_output*.*
-Kavita.Services.Tests/Test Data/ImageService/**/*_baseline*
-Kavita.Services.Tests/Test Data/ImageService/**/*.html
-Kavita.Services.Tests/Test Data/ScannerService/ScanTests/**/*
+Fathom.Services.Tests/Test Data/ImageService/**/*_output*.*
+Fathom.Services.Tests/Test Data/ImageService/**/*_baseline*
+Fathom.Services.Tests/Test Data/ImageService/**/*.html
+Fathom.Services.Tests/Test Data/ScannerService/ScanTests/**/*
 
 
-Kavita.Server/config/appsettings.*.json
+Fathom.Server/config/appsettings.*.json
 
 # Old installs might have this as a default location
 API/config/bookmarks/
