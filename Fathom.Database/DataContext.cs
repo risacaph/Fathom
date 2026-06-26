@@ -40,6 +40,7 @@ public sealed class DataContext : IdentityDbContext<AppUser, AppRole, int,
 
     public DbSet<Library> Library { get; set; } = null!;
     public DbSet<Series> Series { get; set; } = null!;
+    public DbSet<WebhookSubscription> WebhookSubscription { get; set; } = null!;
     public DbSet<Chapter> Chapter { get; set; } = null!;
     public DbSet<Volume> Volume { get; set; } = null!;
     public DbSet<AppUser> AppUser { get; set; } = null!;
