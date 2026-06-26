@@ -9,6 +9,8 @@ using Fathom.Models.DTOs;
 using Fathom.Models.DTOs.Search;
 using Fathom.Server.Attributes;
 using Fathom.Services.Scanner;
+using Hangfire;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Fathom.Server.Controllers;
@@ -17,7 +19,7 @@ namespace Fathom.Server.Controllers;
 /// Responsible for the Search interface from the UI
 /// </summary>
 public class SearchController(IUnitOfWork unitOfWork, ILocalizationService localizationService,
-    IEntityNamingService namingService) : BaseApiController
+    IEntityNamingService namingService, IFullTextSearchService fullTextSearchService) : BaseApiController
 {
     /// <summary>
     /// Returns the series for the MangaFile id. If the user does not have access (shouldn't happen by the UI),
@@ -70,6 +72,31 @@ public class SearchController(IUnitOfWork unitOfWork, ILocalizationService local
             libraries, queryString, includeChapterAndFiles);
 
         return Ok(series);
+    }
+
+    /// <summary>
+    /// Full-text content search inside book/PDF text (FTS5), scoped to the libraries the user can access.
+    /// </summary>
+    /// <param name="query">Free-text query.</param>
+    /// <param name="limit">Maximum number of results (default 50).</param>
+    [HttpGet("full-text")]
+    public async Task<ActionResult<IList<FullTextSearchResultDto>>> FullTextSearch([FromQuery] string query, [FromQuery] int limit = 50)
+    {
+        var libraries = await unitOfWork.LibraryRepository.GetLibraryIdsForUserIdAsync(UserId, QueryContext.Search);
+        if (libraries.Count == 0) return Ok(new List<FullTextSearchResultDto>());
+
+        return Ok(await fullTextSearchService.SearchAsync(UserId, query, libraries, limit));
+    }
+
+    /// <summary>
+    /// Rebuilds the full-text content index for all text-based libraries. Admin only; runs in the background.
+    /// </summary>
+    [Authorize(Policy = PolicyGroups.AdminPolicy)]
+    [HttpPost("full-text/reindex")]
+    public ActionResult ReindexFullText()
+    {
+        BackgroundJob.Enqueue<IFullTextSearchService>(s => s.ReindexAllAsync(default));
+        return Ok();
     }
 
     /// <summary>
