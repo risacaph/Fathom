@@ -6,14 +6,14 @@ namespace Fathom.Common;
 /// The user does not exist (aka unauthorized). This will be caught by middleware and Unauthorized() returned to UI
 /// </summary>
 /// <remarks>This will always log to Security Log</remarks>
-public class KavitaUnauthenticatedUserException : Exception
+public class FathomUnauthenticatedUserException : Exception
 {
-    public KavitaUnauthenticatedUserException()
+    public FathomUnauthenticatedUserException()
     { }
 
-    public KavitaUnauthenticatedUserException(string message) : base(message)
+    public FathomUnauthenticatedUserException(string message) : base(message)
     { }
 
-    public KavitaUnauthenticatedUserException(string message, Exception inner)
+    public FathomUnauthenticatedUserException(string message, Exception inner)
         : base(message, inner) { }
 }

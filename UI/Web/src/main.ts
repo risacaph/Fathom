@@ -33,7 +33,7 @@ import {
   withNavigationErrorHandler,
   withPreloading
 } from "@angular/router";
-import {KavitaTitleStrategy} from "./app/_services/kavita-title.strategy";
+import {FathomTitleStrategy} from "./app/_services/kavita-title.strategy";
 import {routingErrorHandler} from "./app/_interceptors/routing-error.handler";
 import {NgbModalConfig, NgbRatingConfig} from "@ng-bootstrap/ng-bootstrap";
 import {DefaultModalOptions} from "./app/_models/modal/modal-options";
@@ -190,7 +190,7 @@ bootstrapApplication(AppComponent, {
           ttl: environment.production ? 129600 : 0 // 1.5 days in seconds for prod
         }),
         Title,
-        { provide: TitleStrategy, useClass: KavitaTitleStrategy },
+        { provide: TitleStrategy, useClass: FathomTitleStrategy },
         { provide: SAVER, useFactory: getSaver },
         {
           provide: APP_BASE_HREF,

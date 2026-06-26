@@ -4,7 +4,7 @@ import {environment} from 'src/environments/environment';
 import {ServerInfoSlim} from '../admin/_models/server-info';
 import {UpdateVersionEvent} from '../_models/events/update-version-event';
 import {Job} from '../_models/job/job';
-import {KavitaMediaError} from '../admin/_models/media-error';
+import {FathomMediaError} from '../admin/_models/media-error';
 import {TextResonse} from "../_types/text-response";
 import {map} from "rxjs/operators";
 
@@ -71,7 +71,7 @@ export class ServerService {
   }
 
   getMediaErrors() {
-    return this.http.get<KavitaMediaError[]>(this.baseUrl + 'server/media-errors');
+    return this.http.get<FathomMediaError[]>(this.baseUrl + 'server/media-errors');
   }
 
   clearMediaAlerts() {

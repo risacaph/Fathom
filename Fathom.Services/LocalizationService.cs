@@ -142,9 +142,9 @@ public class LocalizationService : ILocalizationService
     /// Returns all available locales that exist on both the Frontend and the Backend
     /// </summary>
     /// <returns></returns>
-    public IEnumerable<KavitaLocale> GetLocales()
+    public IEnumerable<FathomLocale> GetLocales()
     {
-        if (_cache.TryGetValue(LocaleCacheKey, out List<KavitaLocale>? cachedLocales) && cachedLocales != null)
+        if (_cache.TryGetValue(LocaleCacheKey, out List<FathomLocale>? cachedLocales) && cachedLocales != null)
         {
             return cachedLocales;
         }
@@ -154,7 +154,7 @@ public class LocalizationService : ILocalizationService
         var backendLanguages = _directoryService
             .GetFilesWithExtension(_directoryService.LocalizationDirectory, @"\.json");
 
-        var locales = new Dictionary<string, KavitaLocale>();
+        var locales = new Dictionary<string, FathomLocale>();
         var localeCounts = new Dictionary<string, Tuple<int, int>>();  // fileName -> (nonEmptyValues, totalKeys)
 
         // First pass: collect all files and count non-empty strings
@@ -184,7 +184,7 @@ public class LocalizationService : ILocalizationService
 
             if (!locales.TryGetValue(fileName, out var locale))
             {
-                locales[fileName] = new KavitaLocale
+                locales[fileName] = new FathomLocale
                 {
                     FileName = fileName,
                     RenderName = GetDisplayName(fileName),
@@ -225,7 +225,7 @@ public class LocalizationService : ILocalizationService
 
             if (!locales.TryGetValue(fileName, out var locale))
             {
-                locales[fileName] = new KavitaLocale
+                locales[fileName] = new FathomLocale
                 {
                     FileName = fileName,
                     RenderName = GetDisplayName(fileName),

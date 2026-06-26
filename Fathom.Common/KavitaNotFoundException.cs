@@ -5,18 +5,18 @@ namespace Fathom.Common;
 /// <summary>
 /// Exception that is caught by the exception middleware, and returns NotFound
 /// </summary>
-public class KavitaNotFoundException: Exception
+public class FathomNotFoundException: Exception
 {
 
-    public KavitaNotFoundException()
+    public FathomNotFoundException()
     {
     }
 
-    public KavitaNotFoundException(string message) : base(message)
+    public FathomNotFoundException(string message) : base(message)
     {
     }
 
-    public KavitaNotFoundException(string message, Exception innerException) : base(message, innerException)
+    public FathomNotFoundException(string message, Exception innerException) : base(message, innerException)
     {
     }
 }

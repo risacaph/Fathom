@@ -31,7 +31,7 @@ public class SecurityEventMiddleware(RequestDelegate next)
         {
             await next(context);
         }
-        catch (KavitaUnauthenticatedUserException ex)
+        catch (FathomUnauthenticatedUserException ex)
         {
             var ipAddress = context.Request.Headers[Headers.ForwardedFor].FirstOrDefault() ?? context.Connection.RemoteIpAddress?.ToString();
             var requestMethod = context.Request.Method;

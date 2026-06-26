@@ -107,7 +107,7 @@ public sealed class ReadingSessionService : IReadingSessionService, IDisposable,
         var mapper = scope.ServiceProvider.GetRequiredService<IMapper>();
 
         var series = await context.Series.FirstOrDefaultAsync(s => s.Id == seriesId, ct);
-        if (series == null) throw new KavitaNotFoundException();
+        if (series == null) throw new FathomNotFoundException();
 
         var chapterIds = chaptersMap.Keys.ToList();
 

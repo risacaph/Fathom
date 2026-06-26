@@ -4,7 +4,7 @@ import {RouterStateSnapshot, TitleStrategy} from '@angular/router';
 import {TranslocoService} from '@jsverse/transloco';
 
 @Injectable({providedIn: 'root'})
-export class KavitaTitleStrategy extends TitleStrategy {
+export class FathomTitleStrategy extends TitleStrategy {
   private readonly title = inject(Title);
   private readonly translocoService = inject(TranslocoService);
 

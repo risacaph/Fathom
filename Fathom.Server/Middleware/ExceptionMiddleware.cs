@@ -22,12 +22,12 @@ public class ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddlewa
         {
             await next(context); // downstream middlewares or http call
         }
-        catch (Exception ex) when (ex is KavitaUnauthenticatedUserException or UnauthorizedAccessException)
+        catch (Exception ex) when (ex is FathomUnauthenticatedUserException or UnauthorizedAccessException)
         {
             context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
             await context.Response.CompleteAsync();
         }
-        catch (Exception ex) when (ex is KavitaNotFoundException)
+        catch (Exception ex) when (ex is FathomNotFoundException)
         {
             context.Response.StatusCode = (int)HttpStatusCode.NotFound;
             await context.Response.CompleteAsync();

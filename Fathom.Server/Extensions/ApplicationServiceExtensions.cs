@@ -25,8 +25,8 @@ public static class ApplicationServiceExtensions
         services.AddScoped<UserContext>();
         services.AddScoped<IUserContext>(sp => sp.GetRequiredService<UserContext>());
 
-        services.AddKavitaDatabases();
-        services.AddKavitaServices();
+        services.AddFathomDatabases();
+        services.AddFathomServices();
 
         services.AddSignalR(opt => opt.EnableDetailedErrors = true);
 

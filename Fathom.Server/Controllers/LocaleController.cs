@@ -28,9 +28,9 @@ public class LocaleController(
     /// <returns></returns>
     [HttpGet]
     [AllowAnonymous]
-    public async Task<ActionResult<IEnumerable<KavitaLocale>>> GetAllLocales()
+    public async Task<ActionResult<IEnumerable<FathomLocale>>> GetAllLocales()
     {
-        var result = await _localeCacheProvider.GetAsync<IEnumerable<KavitaLocale>>(CacheKey);
+        var result = await _localeCacheProvider.GetAsync<IEnumerable<FathomLocale>>(CacheKey);
         if (result.HasValue)
         {
             return Ok(result.Value);

@@ -34,7 +34,7 @@ import {TimeDurationPipe} from "../../../_pipes/time-duration.pipe";
 import {NavTabUrlDirective} from "../../../_directives/nav-tab-url.directive";
 import {AccountService} from "../../../_services/account.service";
 import {ProfileActivityComponent} from "../profile-activity/profile-activity.component";
-import {KavitaTitleStrategy} from "../../../_services/kavita-title.strategy";
+import {FathomTitleStrategy} from "../../../_services/kavita-title.strategy";
 import {Tabs} from "../../../_models/tabs";
 import {TabTitlePipe} from "../../../_pipes/tab-title.pipe";
 
@@ -79,7 +79,7 @@ export class ProfileComponent {
   protected readonly imageService = inject(ImageService);
   private readonly statsService = inject(StatisticsService);
   protected readonly licenseService = inject(LicenseService);
-  private readonly kavitaTitleStrategy = inject(KavitaTitleStrategy);
+  private readonly kavitaTitleStrategy = inject(FathomTitleStrategy);
   protected readonly accountService = inject(AccountService);
   private readonly cdRef = inject(ChangeDetectorRef);
 

@@ -548,7 +548,7 @@ public class ReaderService(IUnitOfWork unitOfWork, ILogger<ReaderService> logger
     {
         if (volumeChapters.Count <= 0)
         {
-            throw new KavitaNotFoundException();
+            throw new FathomNotFoundException();
         }
 
         var chaptersWithProgress = volumeChapters.Where(c => c.PagesRead > 0).ToList();

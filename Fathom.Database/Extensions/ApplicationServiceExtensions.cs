@@ -11,7 +11,7 @@ namespace Fathom.Database.Extensions;
 
 public static class ApplicationServiceExtensions
 {
-    public static void AddKavitaDatabases(this IServiceCollection services)
+    public static void AddFathomDatabases(this IServiceCollection services)
     {
         services.AddSqLite();
 

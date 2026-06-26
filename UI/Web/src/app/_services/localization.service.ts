@@ -1,7 +1,7 @@
 import {inject, Injectable} from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
-import {KavitaLocale} from "../_models/metadata/language";
+import {FathomLocale} from "../_models/metadata/language";
 import {ReplaySubject, tap} from "rxjs";
 import {TranslocoService} from "@jsverse/transloco";
 
@@ -16,11 +16,11 @@ export class LocalizationService {
 
   baseUrl = environment.apiUrl;
 
-  private readonly localeSubject = new ReplaySubject<KavitaLocale[]>(1);
+  private readonly localeSubject = new ReplaySubject<FathomLocale[]>(1);
   public readonly locales$ = this.localeSubject.asObservable();
 
   getLocales() {
-    return this.httpClient.get<KavitaLocale[]>(this.baseUrl + 'locale').pipe(tap(locales => {
+    return this.httpClient.get<FathomLocale[]>(this.baseUrl + 'locale').pipe(tap(locales => {
       this.localeSubject.next(locales);
     }));
   }

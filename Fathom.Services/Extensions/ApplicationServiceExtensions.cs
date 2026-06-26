@@ -24,7 +24,7 @@ namespace Fathom.Services.Extensions;
 public static class ApplicationServiceExtensions
 {
 
-    public static void AddKavitaServices(this IServiceCollection services)
+    public static void AddFathomServices(this IServiceCollection services)
     {
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IFileService, FileService>();

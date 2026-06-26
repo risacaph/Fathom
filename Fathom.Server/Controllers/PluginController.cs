@@ -48,7 +48,7 @@ public class PluginController(IUnitOfWork unitOfWork, ITokenService tokenService
                 UserAgent = userAgent,
                 ApiKey = apiKey
             });
-            throw new KavitaUnauthenticatedUserException();
+            throw new FathomUnauthenticatedUserException();
         }
         var user = await unitOfWork.UserRepository.GetUserByIdAsync(userId);
         logger.LogInformation("Plugin {PluginName} has authenticated with {UserName} ({AppUserId})'s API Key", pluginName.Replace(Environment.NewLine, string.Empty), user!.UserName, userId);
@@ -74,7 +74,7 @@ public class PluginController(IUnitOfWork unitOfWork, ITokenService tokenService
     public async Task<ActionResult<string>> GetVersion([Required] string apiKey)
     {
         var userId = await unitOfWork.UserRepository.GetUserIdByAuthKeyAsync(apiKey);
-        if (userId <= 0) throw new KavitaUnauthenticatedUserException();
+        if (userId <= 0) throw new FathomUnauthenticatedUserException();
         return Ok((await unitOfWork.SettingsRepository.GetSettingAsync(ServerSettingKey.InstallVersion)).Value);
     }
 

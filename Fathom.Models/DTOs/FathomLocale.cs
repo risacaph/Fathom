@@ -1,6 +1,6 @@
 ﻿namespace Fathom.Models.DTOs;
 
-public sealed record KavitaLocale
+public sealed record FathomLocale
 {
     public string FileName { get; set; } // Key
     public string RenderName { get; set; }

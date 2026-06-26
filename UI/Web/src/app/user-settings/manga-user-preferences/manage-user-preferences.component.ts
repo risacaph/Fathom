@@ -11,7 +11,7 @@ import {
   ReactiveFormsModule,
   Validators
 } from "@angular/forms";
-import {KavitaLocale} from "../../_models/metadata/language";
+import {FathomLocale} from "../../_models/metadata/language";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {debounceTime, distinctUntilChanged, filter, forkJoin, of, switchMap} from "rxjs";
 import {AsyncPipe, DecimalPipe, TitleCasePipe} from "@angular/common";
@@ -96,7 +96,7 @@ export class ManageUserPreferencesComponent implements OnInit {
   loading = signal(true);
   ageRatings = signal<AgeRatingDto[]>([]);
   libraries = signal<Library[]>([]);
-  locales = signal<KavitaLocale[]>([]);
+  locales = signal<FathomLocale[]>([]);
   libraryTypeAheadSettings = signal(new TypeaheadSettings<Library>());
 
   settingsForm!: UserPreferencesForm;

@@ -23,5 +23,5 @@ public interface ILocalizationService
     /// <param name="args"></param>
     /// <returns></returns>
     Task<string> TranslateAsync(int userId, string key, params object[] args);
-    IEnumerable<KavitaLocale> GetLocales();
+    IEnumerable<FathomLocale> GetLocales();
 }
