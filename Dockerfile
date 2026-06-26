@@ -13,13 +13,13 @@ COPY copy_runtime.sh /copy_runtime.sh
 
 RUN chmod +x /copy_runtime.sh
 RUN /copy_runtime.sh
-RUN chmod +x /Kavita/Kavita
+RUN chmod +x /Fathom/Fathom
 
 #Production image
 FROM ubuntu:noble
 
-COPY --from=copytask /Kavita /kavita
-COPY --from=copytask /files/wwwroot /kavita/wwwroot
+COPY --from=copytask /Fathom /fathom
+COPY --from=copytask /files/wwwroot /fathom/wwwroot
 COPY Fathom.Server/config/appsettings.json /tmp/config/appsettings.json
 
 #Installs program dependencies
@@ -34,7 +34,7 @@ RUN chmod +x /entrypoint.sh
 
 EXPOSE 5000
 
-WORKDIR /kavita
+WORKDIR /fathom
 
 HEALTHCHECK --interval=30s --timeout=15s --start-period=30s --retries=3 CMD curl -fsS http://localhost:5000/api/health || exit 1
 

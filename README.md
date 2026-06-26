@@ -25,7 +25,7 @@ classmates, or crew — and keep it useful even when connectivity is patchy or a
 docker run -d \
   --name fathom \
   -p 5000:5000 \
-  -v /path/to/config:/kavita/config \
+  -v /path/to/config:/fathom/config \
   -v /path/to/library:/library \
   --restart unless-stopped \
   fathomreader/fathom:latest
@@ -37,7 +37,7 @@ Then open <http://localhost:5000> and set up your account and libraries.
 
 ## Build from source
 See [CONTRIBUTING.md](CONTRIBUTING.md). In short: build the Angular UI under `UI/Web`, then build and
-run `Kavita.Server` with the .NET SDK. (Project/namespace names remain `Kavita.*` upstream — see below.)
+run `Fathom.Server` with the .NET SDK.
 
 ## Attribution / NOTICE
 Fathom is a **fork of [Kavita](https://github.com/Kareadita/Kavita)**, created and maintained by

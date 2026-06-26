@@ -1,5 +1,5 @@
 {
-  "name": "kavita-webui",
+  "name": "fathom-webui",
   "version": "0.7.12.1",
   "scripts": {
     "ng": "ng",

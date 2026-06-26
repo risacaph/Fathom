@@ -31,7 +31,7 @@ Build()
 Package()
 {
     local runtime="$1"
-    local lOutputFolder=../_output/"$runtime"/Kavita
+    local lOutputFolder=../_output/"$runtime"/Fathom
 
     ProgressStart "Creating $runtime Package"
 
@@ -61,12 +61,12 @@ Package()
 	mkdir $lOutputFolder/config
     cp config/appsettings.json $lOutputFolder/config/appsettings-init.json
 
-    echo "Renaming Fathom.Server -> Kavita"
-    mv "$lOutputFolder"/Fathom.Server "$lOutputFolder"/Kavita
+    echo "Renaming Fathom.Server -> Fathom"
+    mv "$lOutputFolder"/Fathom.Server "$lOutputFolder"/Fathom
 
     echo "Creating tar"
     cd ../$outputFolder/"$runtime"/
-    tar -czvf ../kavita-$runtime.tar.gz Kavita
+    tar -czvf ../fathom-$runtime.tar.gz Fathom
 
     ProgressEnd "Creating $runtime Package"
 

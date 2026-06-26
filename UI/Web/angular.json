@@ -9,7 +9,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "kavita-webui": {
+    "fathom-webui": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -110,21 +110,21 @@
             "sslKey": "./ssl/server.key",
             "sslCert": "./ssl/server.crt",
             "ssl": false,
-            "buildTarget": "kavita-webui:build"
+            "buildTarget": "fathom-webui:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "kavita-webui:build:production"
+              "buildTarget": "fathom-webui:build:production"
             },
             "proxy": {
-              "buildTarget": "kavita-webui:build:proxy"
+              "buildTarget": "fathom-webui:build:proxy"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n",
           "options": {
-            "buildTarget": "kavita-webui:build"
+            "buildTarget": "fathom-webui:build"
           }
         },
         "lint": {

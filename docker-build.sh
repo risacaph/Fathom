@@ -38,7 +38,7 @@ BuildUI()
     npm install --legacy-peer-deps
     echo 'Building UI'
     npm run prod
-    echo 'Copying back to Kavita wwwroot'
+    echo 'Copying back to Fathom wwwroot'
     mkdir -p ../../Fathom.Server/wwwroot
     cp -R dist/browser/* ../../Fathom.Server/wwwroot
     cd ../../ || exit
@@ -48,7 +48,7 @@ BuildUI()
 Package()
 {
     local runtime="$1"
-    local lOutputFolder=../_output/"$runtime"/Kavita
+    local lOutputFolder=../_output/"$runtime"/Fathom
 
     ProgressStart "Creating $runtime Package"
 
@@ -64,12 +64,12 @@ Package()
     echo "Copying LICENSE"
     cp ../LICENSE "$lOutputFolder"/LICENSE.txt
 
-    echo "Renaming Fathom.Server -> Kavita"
-    mv "$lOutputFolder"/Fathom.Server "$lOutputFolder"/Kavita
+    echo "Renaming Fathom.Server -> Fathom"
+    mv "$lOutputFolder"/Fathom.Server "$lOutputFolder"/Fathom
 
     echo "Creating tar"
     cd ../$outputFolder/"$runtime"/
-    tar -czvf ../kavita-$runtime.tar.gz Kavita
+    tar -czvf ../fathom-$runtime.tar.gz Fathom
 
     ProgressEnd "Creating $runtime Package"
 
