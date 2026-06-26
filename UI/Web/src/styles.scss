@@ -170,3 +170,9 @@ body {
     padding-right: env(safe-area-inset-right);
   }
 }
+
+/* Read Aloud: highlight the sentence currently being spoken (CSS Custom Highlight API) */
+::highlight(fathom-tts) {
+  background-color: rgba(26, 199, 188, 0.35);
+  color: inherit;
+}
