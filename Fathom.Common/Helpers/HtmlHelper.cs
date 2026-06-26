@@ -50,4 +50,28 @@ public static class HtmlHelper
 
         return plainText + "…";
     }
+
+    /// <summary>
+    /// Returns the full, decoded plain text of an HTML fragment (whitespace collapsed, script/style removed).
+    /// Used to feed the full-text search index — unlike <see cref="GetCharacters"/> it does not truncate.
+    /// </summary>
+    public static string GetPlainText(string? body)
+    {
+        if (string.IsNullOrEmpty(body)) return string.Empty;
+
+        var doc = new HtmlDocument();
+        doc.LoadHtml(body);
+
+        var textNodes = doc.DocumentNode.SelectNodes("//text()[not(ancestor::script) and not(ancestor::style)]");
+        if (textNodes == null) return string.Empty;
+
+        var plainText = string.Join(" ", textNodes
+            .Select(node => node.InnerText)
+            .Where(s => !string.IsNullOrWhiteSpace(s)));
+
+        plainText = System.Net.WebUtility.HtmlDecode(plainText);
+        plainText = Regex.Replace(plainText, @"\s+", " ").Trim();
+
+        return plainText;
+    }
 }
