@@ -17,6 +17,10 @@
           </ng-container>
         </app-side-nav-item>
 
+        @if (aiAvailable()) {
+          <app-side-nav-item cdkDrag cdkDragDisabled icon="fa-wand-magic-sparkles" [title]="t('ask-library')" link="/ask/" />
+        }
+
         @if (navStreams$ | async; as streams) {
           @if (showAll) {
             <app-side-nav-item cdkDrag cdkDragDisabled icon="fa fa-chevron-left"

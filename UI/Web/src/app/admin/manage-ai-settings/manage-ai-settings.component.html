@@ -1,0 +1,122 @@
+<ng-container *transloco="let t; prefix: 'manage-ai-settings'">
+
+  <p>{{t('description')}}</p>
+
+  @switch (statusKind()) {
+    @case ('active') {
+      <p class="alert alert-success"><i class="fa-solid fa-circle-check me-2"></i>{{t('status-active')}}</p>
+    }
+    @case ('partial') {
+      <p class="alert alert-warning"><i class="fa-solid fa-triangle-exclamation me-2"></i>{{t('status-partial')}}</p>
+    }
+    @default {
+      <p class="alert alert-secondary"><i class="fa-solid fa-circle-info me-2"></i>{{t('status-off')}}</p>
+    }
+  }
+
+  <form [formGroup]="settingsForm">
+
+    <div class="row g-0 mt-2">
+      @if (settingsForm.get('enabled'); as formControl) {
+        <app-setting-switch labelId="setting-ai-enabled" [title]="t('enabled-label')" [subtitle]="t('enabled-tooltip')">
+          <ng-template #switch>
+            <div class="form-check form-switch float-end">
+              <input id="setting-ai-enabled" type="checkbox" class="form-check-input" formControlName="enabled">
+            </div>
+          </ng-template>
+        </app-setting-switch>
+      }
+    </div>
+
+    <div class="row g-0 mt-2">
+      @if (settingsForm.get('apiBaseUrl'); as formControl) {
+        <app-setting-item [title]="t('base-url-label')" [subtitle]="t('base-url-tooltip')" [control]="formControl">
+          <ng-template #view>{{formControl.value | defaultValue}}</ng-template>
+          <ng-template #edit>
+            <input type="text" class="form-control" formControlName="apiBaseUrl" id="setting-ai-base-url"
+                   [class.is-invalid]="formControl.invalid && !formControl.untouched" appEnterBlur />
+            @if (formControl.errors?.required && !formControl.untouched) {
+              <div class="invalid-feedback" style="display:inline-block">{{t('base-url-required')}}</div>
+            }
+          </ng-template>
+        </app-setting-item>
+      }
+    </div>
+
+    <div class="row g-0 mt-2">
+      @if (settingsForm.get('apiKey'); as formControl) {
+        <app-setting-item [title]="t('api-key-label')" [subtitle]="t('api-key-tooltip')">
+          <ng-template #view>{{(formControl.value ? '••••••••' : null) | defaultValue}}</ng-template>
+          <ng-template #edit>
+            <input type="password" autocomplete="off" class="form-control" formControlName="apiKey" id="setting-ai-key" appEnterBlur />
+          </ng-template>
+        </app-setting-item>
+      }
+    </div>
+
+    <div class="row g-0 mt-2">
+      @if (settingsForm.get('chatModel'); as formControl) {
+        <app-setting-item [title]="t('chat-model-label')" [subtitle]="t('chat-model-tooltip')" [control]="formControl">
+          <ng-template #view>{{formControl.value | defaultValue}}</ng-template>
+          <ng-template #edit>
+            <input type="text" class="form-control" formControlName="chatModel" id="setting-ai-chat-model"
+                   [class.is-invalid]="formControl.invalid && !formControl.untouched" appEnterBlur />
+            @if (formControl.errors?.required && !formControl.untouched) {
+              <div class="invalid-feedback" style="display:inline-block">{{t('chat-model-required')}}</div>
+            }
+          </ng-template>
+        </app-setting-item>
+      }
+    </div>
+
+    <div class="row g-0 mt-2">
+      @if (settingsForm.get('embeddingModel'); as formControl) {
+        <app-setting-item [title]="t('embedding-model-label')" [subtitle]="t('embedding-model-tooltip')">
+          <ng-template #view>{{formControl.value | defaultValue}}</ng-template>
+          <ng-template #edit>
+            <input type="text" class="form-control" formControlName="embeddingModel" id="setting-ai-embedding-model" appEnterBlur />
+          </ng-template>
+        </app-setting-item>
+      }
+    </div>
+
+    <div class="row g-0 mt-2">
+      @if (settingsForm.get('temperature'); as formControl) {
+        <app-setting-item [title]="t('temperature-label')" [subtitle]="t('temperature-tooltip')">
+          <ng-template #view>{{formControl.value | defaultValue}}</ng-template>
+          <ng-template #edit>
+            <input type="number" inputmode="decimal" min="0" max="2" step="0.1" class="form-control"
+                   formControlName="temperature" id="setting-ai-temperature" appEnterBlur />
+          </ng-template>
+        </app-setting-item>
+      }
+    </div>
+
+    <div class="row g-0 mt-2">
+      @if (settingsForm.get('maxContextChars'); as formControl) {
+        <app-setting-item [title]="t('context-budget-label')" [subtitle]="t('context-budget-tooltip')">
+          <ng-template #view>{{formControl.value | defaultValue}}</ng-template>
+          <ng-template #edit>
+            <input type="number" inputmode="numeric" min="500" step="500" class="form-control"
+                   formControlName="maxContextChars" id="setting-ai-context" appEnterBlur />
+          </ng-template>
+        </app-setting-item>
+      }
+    </div>
+
+    <div class="row g-0 mt-4">
+      <div class="d-flex align-items-center gap-2">
+        <button type="button" class="btn btn-outline-primary" (click)="reindex()"
+                [disabled]="isReindexing() || statusKind() !== 'active'">
+          @if (isReindexing()) {
+            <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
+          }
+          {{t('reindex-label')}}
+        </button>
+        <small class="text-muted">{{t('reindex-tooltip')}}</small>
+      </div>
+    </div>
+
+  </form>
+
+</ng-container>

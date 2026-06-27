@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, effect, inject} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
 import {NgbTooltip} from '@ng-bootstrap/ng-bootstrap';
-import {distinctUntilChanged, filter, map, tap} from 'rxjs/operators';
+import {catchError, distinctUntilChanged, filter, map, tap} from 'rxjs/operators';
 import {ImageService} from 'src/app/_services/image.service';
 import {EVENTS, MessageHubService} from 'src/app/_services/message-hub.service';
 import {UtilityService} from '../../../shared/_services/utility.service';
@@ -9,7 +9,7 @@ import {Library, LibraryType} from '../../../_models/library/library';
 import {AccountService} from '../../../_services/account.service';
 import {ActionFactoryService} from '../../../_services/action-factory.service';
 import {NavService} from '../../../_services/nav.service';
-import {takeUntilDestroyed, toObservable} from "@angular/core/rxjs-interop";
+import {takeUntilDestroyed, toObservable, toSignal} from "@angular/core/rxjs-interop";
 import {BehaviorSubject, merge, Observable, of, ReplaySubject, startWith, switchMap} from "rxjs";
 import {AsyncPipe} from "@angular/common";
 import {SideNavItemComponent} from "../side-nav-item/side-nav-item.component";
@@ -22,6 +22,7 @@ import {SideNavStreamType} from "../../../_models/sidenav/sidenav-stream-type.en
 import {WikiLink} from "../../../_models/wiki";
 import {SettingsTabId} from "../../preference-nav/preference-nav.component";
 import {LicenseService} from "../../../_services/license.service";
+import {AiService} from "../../../_services/ai.service";
 import {CdkDrag, CdkDragDrop, CdkDropList} from "@angular/cdk/drag-drop";
 import {ToastrService} from "ngx-toastr";
 import {KeyBindService} from "../../../_services/key-bind.service";
@@ -54,6 +55,16 @@ export class SideNavComponent {
   private readonly toastr = inject(ToastrService);
   private readonly keyBindService = inject(KeyBindService);
   protected readonly breakpointService = inject(BreakpointService);
+  private readonly aiService = inject(AiService);
+
+  /** Whether the AI "Ask Your Library" surface should be offered in the nav. */
+  protected readonly aiAvailable = toSignal(
+    this.aiService.getStatus().pipe(
+      map(s => s.enabled || s.canEmbed),
+      catchError(() => of(false))
+    ),
+    {initialValue: false}
+  );
 
 
   cachedData: SideNavStream[] | null = null;

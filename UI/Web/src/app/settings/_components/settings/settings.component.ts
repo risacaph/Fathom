@@ -14,6 +14,7 @@ import {SettingsTabId} from "../../../sidenav/preference-nav/preference-nav.comp
 import {AccountService} from "../../../_services/account.service";
 import {WikiLink} from "../../../_models/wiki";
 import {ManageEmailSettingsComponent} from "../../../admin/manage-email-settings/manage-email-settings.component";
+import {ManageAiSettingsComponent} from "../../../admin/manage-ai-settings/manage-ai-settings.component";
 import {ManageLibraryComponent} from "../../../admin/manage-library/manage-library.component";
 import {ManageMediaSettingsComponent} from "../../../admin/manage-media-settings/manage-media-settings.component";
 import {ManageSettingsComponent} from "../../../admin/manage-settings/manage-settings.component";
@@ -76,6 +77,7 @@ import {
     TranslocoDirective,
     LicenseComponent,
     ManageEmailSettingsComponent,
+    ManageAiSettingsComponent,
     ManageLibraryComponent,
     ManageMediaSettingsComponent,
     ManageSettingsComponent,

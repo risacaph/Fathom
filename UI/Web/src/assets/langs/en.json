@@ -1,6 +1,7 @@
 {
     "title": {
         "reading-list": "Reading Lists",
+        "ask-library": "Ask Your Library",
         "home": "Home",
         "bookmarks": "Bookmarks",
         "collections": "Collections",
@@ -865,6 +866,26 @@
         "save": "{{common.save}}"
     },
 
+    "ask-library": {
+        "title": "Ask Your Library",
+        "subtitle": "Search by meaning or ask a question — answered from your own library.",
+        "loading": "Loading…",
+        "disabled": "AI features aren't enabled on this server yet.",
+        "go-to-settings": "Open AI settings",
+        "mode-label": "Choose a mode",
+        "mode-ask": "Ask",
+        "mode-search": "Search",
+        "placeholder-search": "Search your library by meaning…",
+        "placeholder-ask": "Ask a question about your library…",
+        "search-needs-embeddings": "Semantic search needs an embedding model configured. Ask still works.",
+        "sources": "Sources",
+        "relevance": "Relevance",
+        "error": "Something went wrong. Please try again.",
+        "no-results": "No matches found. Try rephrasing, or reindex your libraries in AI settings.",
+        "no-answer": "I couldn't find an answer in your library for that.",
+        "hint-search": "Type a phrase and search by meaning — not just exact words.",
+        "hint-ask": "Ask anything; answers are grounded in your library with sources."
+    },
     "all-series": {
         "title": "All Series",
         "series-count": "{{common.series-count}}"
@@ -1857,6 +1878,7 @@
 
     "side-nav": {
         "home": "Home",
+        "ask-library": "Ask Your Library",
         "want-to-read": "Want To Read",
         "collections": "Collections",
         "reading-lists": "Reading Lists",
@@ -2224,6 +2246,32 @@
         "no-data": "{{common.no-data}}"
     },
 
+    "manage-ai-settings": {
+        "description": "Connect an OpenAI-compatible AI provider to enable semantic search, Ask Your Library (RAG), and AI metadata suggestions. Works with OpenAI, Azure OpenAI, OpenRouter, and self-hosted models (Ollama, LM Studio, LocalAI). Everything stays off until you enable it here.",
+        "status-active": "AI is active — chat and embeddings are configured. Semantic search and Ask Your Library are available.",
+        "status-partial": "Chat is configured, but no embedding model is set — Ask Your Library answers work, semantic search does not. Add an embedding model to enable it.",
+        "status-off": "AI is currently off. Enable it and fill in the provider details below to get started.",
+        "enabled-label": "Enable AI features",
+        "enabled-tooltip": "Master switch for all AI features. When off, nothing is sent to the provider.",
+        "base-url-label": "API base URL",
+        "base-url-tooltip": "Base URL of the OpenAI-compatible API, including any version segment (e.g. https://api.openai.com/v1, or http://localhost:11434/v1 for Ollama).",
+        "base-url-required": "A base URL is required.",
+        "api-key-label": "API key",
+        "api-key-tooltip": "Bearer token for the provider. Optional for keyless local providers such as Ollama.",
+        "chat-model-label": "Chat model",
+        "chat-model-tooltip": "Model used for Ask Your Library answers and metadata enrichment (e.g. gpt-4o-mini).",
+        "chat-model-required": "A chat model is required.",
+        "embedding-model-label": "Embedding model",
+        "embedding-model-tooltip": "Model used to index and search document text (e.g. text-embedding-3-small). Required for semantic search.",
+        "temperature-label": "Temperature",
+        "temperature-tooltip": "Sampling temperature for chat completions (0 = deterministic, 2 = most creative).",
+        "context-budget-label": "Context budget (characters)",
+        "context-budget-tooltip": "Upper bound on retrieved text fed into an Ask Your Library prompt.",
+        "reindex-label": "Reindex semantic search",
+        "reindex-tooltip": "Embeds all text libraries in the background. Run this after enabling AI or adding new content.",
+        "reindex-started": "Semantic reindex started in the background.",
+        "save-error": "Could not save AI settings."
+    },
     "manage-email-settings": {
         "description": "In order to use some functions of Fathom like Send To Device an email provider must be setup. Other features like Forgot Password require admin intervention without Email setup.",
         "setting-description": "You must fill out both Host Name and SMTP settings to use email-based functionality within Fathom.",
@@ -2570,6 +2618,7 @@
         "admin-media-issues": "Media Issues",
         "admin-logs": "Logs",
         "admin-email": "Email",
+        "admin-ai": "AI",
         "admin-tasks": "Tasks",
         "admin-statistics": "Statistics",
         "admin-system": "System",
