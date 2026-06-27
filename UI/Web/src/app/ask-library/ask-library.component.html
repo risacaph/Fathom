@@ -1,0 +1,120 @@
+<ng-container *transloco="let t; prefix: 'ask-library'">
+  <div class="ask-container container">
+
+    <header class="ask-header">
+      <h1 class="ask-title"><i class="fa-solid fa-wand-magic-sparkles me-2"></i>{{t('title')}}</h1>
+      <p class="ask-subtitle">{{t('subtitle')}}</p>
+    </header>
+
+    @if (!statusLoaded()) {
+      <div class="d-flex justify-content-center py-5">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">{{t('loading')}}</span>
+        </div>
+      </div>
+    } @else if (!anyAi()) {
+      <div class="alert alert-secondary d-flex align-items-start gap-2" role="alert">
+        <i class="fa-solid fa-circle-info mt-1"></i>
+        <div>
+          <div>{{t('disabled')}}</div>
+          @if (accountService.hasAdminRole()) {
+            <a routerLink="/settings" fragment="admin-ai" class="btn btn-sm btn-outline-primary mt-2">{{t('go-to-settings')}}</a>
+          }
+        </div>
+      </div>
+    } @else {
+
+      <!-- Mode toggle -->
+      <div class="btn-group ask-mode-toggle" role="group" [attr.aria-label]="t('mode-label')">
+        @if (canAsk()) {
+          <button type="button" class="btn" [class.btn-primary]="mode() === 'ask'"
+                  [class.btn-outline-primary]="mode() !== 'ask'" (click)="setMode('ask')">
+            <i class="fa-solid fa-comments me-1"></i>{{t('mode-ask')}}
+          </button>
+        }
+        @if (canSearch()) {
+          <button type="button" class="btn" [class.btn-primary]="mode() === 'search'"
+                  [class.btn-outline-primary]="mode() !== 'search'" (click)="setMode('search')">
+            <i class="fa-solid fa-magnifying-glass me-1"></i>{{t('mode-search')}}
+          </button>
+        }
+      </div>
+
+      <!-- Query box -->
+      <form class="ask-input-row" (ngSubmit)="run()">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control" [formControl]="queryControl" [attr.aria-label]="t('title')"
+                 [placeholder]="mode() === 'search' ? t('placeholder-search') : t('placeholder-ask')">
+          <button class="btn btn-primary px-4" type="submit" [disabled]="isLoading() || queryControl.invalid">
+            @if (isLoading()) {
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            } @else {
+              <i class="fa-solid fa-arrow-right"></i>
+            }
+          </button>
+        </div>
+        @if (mode() === 'search' && !canSearch()) {
+          <small class="text-warning d-block mt-2">{{t('search-needs-embeddings')}}</small>
+        }
+      </form>
+
+      <!-- Results -->
+      @if (isLoading()) {
+        <div class="d-flex justify-content-center py-5">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">{{t('loading')}}</span>
+          </div>
+        </div>
+      } @else if (errored()) {
+        <div class="alert alert-danger mt-4">{{t('error')}}</div>
+      } @else if (mode() === 'ask' && answer(); as a) {
+        @if (a.hasContext) {
+          <article class="answer-card">
+            <div class="answer-body">{{a.answer}}</div>
+          </article>
+          @if (a.sources.length > 0) {
+            <h2 class="sources-heading">{{t('sources')}}</h2>
+            <div class="results-list">
+              @for (s of a.sources; track s.chapterId + '-' + s.chunkIndex) {
+                <a class="result-card" [routerLink]="['/library', s.libraryId, 'series', s.seriesId, 'chapter', s.chapterId]">
+                  <span class="result-tag">S{{s.seriesId}}/C{{s.chapterId}}</span>
+                  <span class="result-snippet">{{s.snippet}}</span>
+                </a>
+              }
+            </div>
+          }
+        } @else {
+          <div class="empty-state">
+            <i class="fa-solid fa-circle-question"></i>
+            <p>{{t('no-answer')}}</p>
+          </div>
+        }
+      } @else if (mode() === 'search' && hasRun()) {
+        @if (results().length > 0) {
+          <div class="results-list">
+            @for (r of results(); track r.chapterId + '-' + r.chunkIndex) {
+              <a class="result-card" [routerLink]="['/library', r.libraryId, 'series', r.seriesId, 'chapter', r.chapterId]">
+                <div class="result-meta">
+                  <span class="result-tag">S{{r.seriesId}}/C{{r.chapterId}}</span>
+                  <span class="relevance-badge" [title]="t('relevance')">{{relevance(r.score)}}%</span>
+                </div>
+                <span class="result-snippet">{{r.snippet}}</span>
+              </a>
+            }
+          </div>
+        } @else {
+          <div class="empty-state">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <p>{{t('no-results')}}</p>
+          </div>
+        }
+      } @else {
+        <div class="empty-state hint">
+          <i class="fa-solid fa-lightbulb"></i>
+          <p>{{mode() === 'search' ? t('hint-search') : t('hint-ask')}}</p>
+        </div>
+      }
+
+    }
+  </div>
+</ng-container>

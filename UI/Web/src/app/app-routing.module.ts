@@ -64,6 +64,12 @@ export const routes: Routes = [
         loadChildren: () => import('./_routes/browse-routing.module').then(m => m.routes)
       },
       {
+        path: 'ask',
+        pathMatch: 'full',
+        title: 'title.ask-library',
+        loadComponent: () => import('./ask-library/ask-library.component').then(c => c.AskLibraryComponent)
+      },
+      {
         path: 'profile',
         loadChildren: () => import('./_routes/profile-routing.module').then(m => m.routes)
       },

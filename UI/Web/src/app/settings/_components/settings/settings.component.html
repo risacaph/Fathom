@@ -61,6 +61,15 @@
               }
             }
           }
+          @case (SettingsTabId.Ai) {
+            @if (accountService.hasAdminRole()) {
+              @defer (prefetch on idle) {
+                <div class="col-xxl-6 col-12">
+                  <app-manage-ai-settings />
+                </div>
+              }
+            }
+          }
 
           @case (SettingsTabId.Media) {
             @if (accountService.hasAdminRole()) {
