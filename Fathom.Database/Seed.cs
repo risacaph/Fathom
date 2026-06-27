@@ -185,6 +185,7 @@ public static class Seed
                     Key = ServerSettingKey.CacheSize, Value = Configuration.DefaultCacheMemory + string.Empty
                 }, // Not used from DB, but DB is sync with appSettings.json
                 new() { Key = ServerSettingKey.OidcConfiguration, Value = JsonSerializer.Serialize(new OidcConfigDto())},
+                new() { Key = ServerSettingKey.AiConfiguration, Value = JsonSerializer.Serialize(new AiProviderConfigDto())},
 
                 new() {Key = ServerSettingKey.EmailHost, Value = string.Empty},
                 new() {Key = ServerSettingKey.EmailPort, Value = string.Empty},

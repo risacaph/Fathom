@@ -196,5 +196,11 @@ public enum ServerSettingKey
     /// When the CBL Sync task should run
     /// </summary>
     [Description("TaskCblSync")]
-    TaskCblSync = 43
+    TaskCblSync = 43,
+    /// <summary>
+    /// A Json object of type <see cref="Fathom.Models.DTOs.Settings.AiProviderConfigDto"/>. Configures the
+    /// optional OpenAI-compatible AI provider used for semantic search/RAG (F6) and metadata enrichment (F8).
+    /// </summary>
+    [Description("AiConfiguration")]
+    AiConfiguration = 44
 }

@@ -42,6 +42,9 @@ public static class ApplicationServiceExtensions
         services.AddScoped<ICitationService, CitationService>();
         services.AddScoped<IDocumentVersionService, DocumentVersionService>();
         services.AddScoped<IWebhookService, WebhookService>();
+        services.AddScoped<IAiProviderService, AiProviderService>();
+        services.AddScoped<IAiMetadataService, AiMetadataService>();
+        services.AddScoped<ISemanticSearchService, SemanticSearchService>();
         services.AddScoped<IVersionUpdaterService, VersionUpdaterService>();
         services.AddScoped<IDownloadService, DownloadService>();
         services.AddScoped<IReaderService, ReaderService>();
