@@ -14,7 +14,7 @@
 #
 # By default Fathom is BUILT FROM SOURCE (the fork has no published release
 # tarball yet). Once you publish a release, point FATHOM_TARBALL_URL at the
-# kavita-linux-x64.tar.gz asset for a fast, lightweight install.
+# fathom-linux-x64.tar.gz asset for a fast, lightweight install.
 #
 # Usage (on a Proxmox VE host shell):
 #   bash fathom-lxc.sh
@@ -23,7 +23,7 @@
 #   BRIDGE=vmbr0 STORAGE=local-lvm bash fathom-lxc.sh
 #
 #   # fast path using a prebuilt release tarball:
-#   FATHOM_TARBALL_URL=https://github.com/<you>/Fathom/releases/download/vX/kavita-linux-x64.tar.gz \
+#   FATHOM_TARBALL_URL=https://github.com/<you>/Fathom/releases/download/vX/fathom-linux-x64.tar.gz \
 #   bash fathom-lxc.sh
 #
 #   # install directly into the current Debian/Ubuntu machine:
@@ -126,15 +126,21 @@ else
 
     say "Building Angular UI (this can take several minutes)..."
     ( cd UI/Web && npm ci && npm run prod )
-    mkdir -p Kavita.Server/wwwroot
-    cp -R UI/Web/dist/browser/* Kavita.Server/wwwroot/
+    rm -rf Fathom.Server/wwwroot
+    mkdir -p Fathom.Server/wwwroot
+    cp -R UI/Web/dist/browser/* Fathom.Server/wwwroot/
 
     say "Publishing .NET server (self-contained linux-x64)..."
-    ( cd Kavita.Server && dotnet publish -c Release --self-contained --runtime linux-x64 -o "$APP_DIR" )
+    ( cd Fathom.Server && dotnet publish -c Release --self-contained --runtime linux-x64 -o "$APP_DIR" )
+    # Re-copy wwwroot (dotnet publish can miss it) and ship the first-run config template.
     mkdir -p "$APP_DIR/wwwroot"
-    cp -R Kavita.Server/wwwroot/* "$APP_DIR/wwwroot/" 2>/dev/null || true
+    cp -R Fathom.Server/wwwroot/* "$APP_DIR/wwwroot/" 2>/dev/null || true
     mkdir -p "$APP_DIR/config"
-    cp Kavita.Server/config/appsettings.json "$APP_DIR/config/appsettings-init.json"
+    if [[ -f Fathom.Server/config/appsettings.json ]]; then
+        cp Fathom.Server/config/appsettings.json "$APP_DIR/config/appsettings-init.json"
+    fi
+    # Trim EF Core design-time host folders that publish leaves behind.
+    rm -rf "$APP_DIR"/BuildHost-net472 "$APP_DIR"/BuildHost-netcore
 
     cd /
     if [[ "$SLIM" == "yes" ]]; then
@@ -145,31 +151,31 @@ else
     fi
 fi
 
-# Normalise the server binary name to "Fathom".
-[[ -f "$APP_DIR/Kavita.Server" ]] && mv -f "$APP_DIR/Kavita.Server" "$APP_DIR/Fathom"
-[[ -f "$APP_DIR/Kavita" ]]        && mv -f "$APP_DIR/Kavita" "$APP_DIR/Fathom"
+# Normalise the server binary name to "Fathom" (the published apphost is "Fathom.Server";
+# a prebuilt release tarball already ships it renamed to "Fathom").
+if [[ -f "$APP_DIR/Fathom.Server" ]]; then
+    mv -f "$APP_DIR/Fathom.Server" "$APP_DIR/Fathom"
+fi
 [[ -f "$APP_DIR/Fathom" ]] || { echo "ERROR: server binary not found in $APP_DIR" >&2; exit 1; }
 chmod +x "$APP_DIR/Fathom"
 
-# Ensure a runtime config exists with the desired port.
+# Config: on first run Fathom renames config/appsettings-init.json -> config/appsettings.json
+# and generates a TokenKey. Make sure a template exists and carries the chosen port.
 mkdir -p "$APP_DIR/config"
-if [[ ! -f "$APP_DIR/config/appsettings.json" ]]; then
-    if [[ -f "$APP_DIR/config/appsettings-init.json" ]]; then
-        cp "$APP_DIR/config/appsettings-init.json" "$APP_DIR/config/appsettings.json"
-    else
-        cat > "$APP_DIR/config/appsettings.json" <<JSON
+if [[ ! -f "$APP_DIR/config/appsettings-init.json" && ! -f "$APP_DIR/config/appsettings.json" ]]; then
+    cat > "$APP_DIR/config/appsettings-init.json" <<JSON
 {
   "TokenKey": "$(head -c 48 /dev/urandom | base64 | tr -d '\n')",
   "Port": $PORT,
   "IpAddresses": "",
-  "BaseUrl": "/",
-  "Cache": 75
+  "BaseUrl": "/"
 }
 JSON
-    fi
 fi
 if [[ "$PORT" != "5000" ]]; then
-    sed -i -E "s/\"Port\":[[:space:]]*[0-9]+/\"Port\": $PORT/" "$APP_DIR/config/appsettings.json"
+    for f in "$APP_DIR/config/appsettings-init.json" "$APP_DIR/config/appsettings.json"; do
+        [[ -f "$f" ]] && sed -i -E "s/\"Port\":[[:space:]]*[0-9]+/\"Port\": $PORT/" "$f"
+    done
 fi
 
 # Dedicated unprivileged service account.
