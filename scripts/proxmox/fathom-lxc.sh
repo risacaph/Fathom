@@ -199,7 +199,10 @@ WorkingDirectory=$APP_DIR
 ExecStart=$APP_DIR/Fathom
 Restart=on-failure
 RestartSec=5
-Environment=DOTNET_RUNNING_IN_CONTAINER=true
+# NOTE: deliberately NOT setting DOTNET_RUNNING_IN_CONTAINER here. This is an LXC,
+# not Docker: that flag makes OsInfo.IsDocker true, which forces the app to ignore
+# the configured Port and always bind 5000. Leaving it unset lets Fathom honor the
+# Port in config/appsettings.json (and it still binds 0.0.0.0 since IpAddresses is empty).
 Environment=TZ=UTC
 
 [Install]
@@ -246,7 +249,12 @@ fi
 # ===========================================================================
 command -v pveversion >/dev/null 2>&1 || die "This does not look like a Proxmox VE host."
 
-CTID="${CTID:-$(pvesh get /cluster/nextid 2>/dev/null)}"
+# Split the assignment from the command so a pvesh failure degrades to the die
+# guard below instead of aborting via set -e before the friendly message runs.
+CTID="${CTID:-}"
+if [[ -z "$CTID" ]]; then
+    CTID="$(pvesh get /cluster/nextid 2>/dev/null || true)"
+fi
 [[ -n "$CTID" ]] || die "Could not determine a container ID; set CTID=<n>."
 if pct status "$CTID" >/dev/null 2>&1; then
     die "CTID $CTID already exists. Set CTID=<n> to a free id."
@@ -254,18 +262,18 @@ fi
 
 # Pick storages if not provided.
 if [[ -z "${STORAGE:-}" ]]; then
-    STORAGE="$(pvesm status -content rootdir 2>/dev/null | awk 'NR>1{print $1; exit}')"
+    STORAGE="$(pvesm status -content rootdir 2>/dev/null | awk 'NR>1{print $1; exit}' || true)"
     STORAGE="${STORAGE:-local-lvm}"
 fi
 if [[ -z "${TEMPLATE_STORAGE:-}" ]]; then
-    TEMPLATE_STORAGE="$(pvesm status -content vztmpl 2>/dev/null | awk 'NR>1{print $1; exit}')"
+    TEMPLATE_STORAGE="$(pvesm status -content vztmpl 2>/dev/null | awk 'NR>1{print $1; exit}' || true)"
     TEMPLATE_STORAGE="${TEMPLATE_STORAGE:-local}"
 fi
 
 # Resolve / download the Debian 12 template.
 info "Resolving Debian 12 LXC template..."
 pveam update >/dev/null 2>&1 || true
-TEMPLATE="$(pveam available --section system 2>/dev/null | awk '/debian-12-standard/{print $2}' | sort -V | tail -n1)"
+TEMPLATE="$(pveam available --section system 2>/dev/null | awk '/debian-12-standard/{print $2}' | sort -V | tail -n1 || true)"
 [[ -n "$TEMPLATE" ]] || die "Could not find a debian-12-standard template via 'pveam available'."
 if ! pveam list "$TEMPLATE_STORAGE" 2>/dev/null | grep -q "$TEMPLATE"; then
     info "Downloading template $TEMPLATE to $TEMPLATE_STORAGE..."
