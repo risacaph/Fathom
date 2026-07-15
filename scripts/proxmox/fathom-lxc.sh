@@ -78,6 +78,15 @@ read -r -d '' INSTALL_PAYLOAD <<'PAYLOAD' || true
 set -Eeuo pipefail
 export DEBIAN_FRONTEND=noninteractive
 
+# Fresh LXC templates inherit the host's LANG but haven't generated it, and often lack an
+# /etc/hosts entry for their own hostname. Both emit harmless but noisy warnings ("cannot set
+# locale", "unable to resolve host"). Normalise both up front so the install output stays clean.
+export LANG=C.UTF-8 LC_ALL=C.UTF-8
+_hn="$(hostname 2>/dev/null || true)"
+if [[ -n "$_hn" ]] && ! getent hosts "$_hn" >/dev/null 2>&1; then
+    echo "127.0.1.1 $_hn" >> /etc/hosts 2>/dev/null || true
+fi
+
 REPO_URL="${REPO_URL:-https://github.com/risacaph/Fathom}"
 BRANCH="${BRANCH:-develop}"
 PORT="${PORT:-5000}"
@@ -235,7 +244,8 @@ if [[ "${INSTALL_HERE:-0}" == "1" ]] || ! command -v pct >/dev/null 2>&1; then
     command -v apt-get >/dev/null 2>&1 || die "This installer targets Debian/Ubuntu (apt-get not found)."
     info "Installing Fathom on the current machine..."
     tmpf="$(mktemp)"; printf '%s\n' "$INSTALL_PAYLOAD" > "$tmpf"
-    REPO_URL="$REPO_URL" BRANCH="$BRANCH" PORT="$PORT" \
+    LANG=C.UTF-8 LC_ALL=C.UTF-8 \
+        REPO_URL="$REPO_URL" BRANCH="$BRANCH" PORT="$PORT" \
         FATHOM_TARBALL_URL="$FATHOM_TARBALL_URL" SLIM="$SLIM" \
         bash "$tmpf"
     rm -f "$tmpf"
@@ -337,6 +347,7 @@ printf '%s\n' "$INSTALL_PAYLOAD" > "$PAYLOAD_FILE"
 pct push "$CTID" "$PAYLOAD_FILE" /root/fathom-install.sh --perms 0755
 rm -f "$PAYLOAD_FILE"
 pct exec "$CTID" -- env \
+    LANG=C.UTF-8 LC_ALL=C.UTF-8 \
     REPO_URL="$REPO_URL" BRANCH="$BRANCH" PORT="$PORT" \
     FATHOM_TARBALL_URL="$FATHOM_TARBALL_URL" SLIM="$SLIM" \
     bash /root/fathom-install.sh
