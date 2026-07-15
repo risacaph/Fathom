@@ -306,20 +306,6 @@ export class PreferenceNavComponent implements AfterViewInit {
           new SideNavItem(SettingsTabId.MediaIssues, [Role.Admin], this.mediaIssuesBadgeCount),
           new SideNavItem(SettingsTabId.EmailHistory, [Role.Admin]),
         ]
-      },
-      {
-        title: SettingSectionId.KavitaPlusSection,
-        children: [
-          new SideNavItem(SettingsTabId.KavitaPlusLicense, [Role.Admin]),
-          SideNavItem.kPlusOnly(SettingsTabId.ManageUserTokens, [Role.Admin]),
-          SideNavItem.kPlusOnly(SettingsTabId.Metadata, [Role.Admin]),
-          SideNavItem.kPlusOnly(SettingsTabId.MatchedMetadata, [Role.Admin], this.matchedMetadataBadgeCount),
-          SideNavItem.kPlusOnly(SettingsTabId.ScrobblingHolds),
-          SideNavItem.kPlusOnly(SettingsTabId.ManageKavitaPlusActivity),
-          SideNavItem.kPlusOnly(SettingsTabId.MyActivity, [], this.scrobblingFailuresBadgeCount),
-          SideNavItem.kPlusOnly(SettingsTabId.ScrobbleSettings),
-          SideNavItem.kPlusOnly(SettingsTabId.Scrobbling, [], this.scrobblingErrorBadgeCount),
-        ]
       }
     ];
 

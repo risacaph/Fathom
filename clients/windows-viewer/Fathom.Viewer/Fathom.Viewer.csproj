@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Fathom.Viewer</RootNamespace>
+    <AssemblyName>FathomViewer</AssemblyName>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Version>0.1.0</Version>
+    <Product>Fathom Secure Viewer</Product>
+    <Company>Fathom</Company>
+    <!-- No source content is ever written to disk by this client; it only renders server-provided,
+         watermarked page images that are held in memory. -->
+  </PropertyGroup>
+
+</Project>

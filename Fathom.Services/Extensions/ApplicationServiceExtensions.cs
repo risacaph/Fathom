@@ -48,6 +48,7 @@ public static class ApplicationServiceExtensions
         services.AddScoped<IVersionUpdaterService, VersionUpdaterService>();
         services.AddScoped<IDownloadService, DownloadService>();
         services.AddScoped<IReaderService, ReaderService>();
+        services.AddScoped<IProtectedReaderService, ProtectedReaderService>();
         services.AddScoped<IReadingItemService, ReadingItemService>();
         services.AddScoped<IAccountService, AccountService>();
         services.AddScoped<IEmailService, EmailService>();

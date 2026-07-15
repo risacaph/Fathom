@@ -7,7 +7,7 @@
         @if (!showLibraryTypeahead()) {
           <h4 class="mb-0 lib-selector" (click)="showLibraryTypeahead.set(true)">
             @if (allLibraries().length === control?.value?.length) {
-              Kavita
+              Fathom
             } @else {
               @for (lib of (control?.value ?? []); track lib) {
                 {{libraryName(lib)}}

@@ -1,0 +1,64 @@
+name: Windows Secure Viewer (MSI)
+
+# Builds the Fathom Secure Viewer WPF app and packages it as an MSI. Manual trigger only.
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release tag (e.g. viewer-v0.1.0)"
+        required: true
+        default: "viewer-v0.1.0"
+
+permissions:
+  contents: write
+
+jobs:
+  build-msi:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Publish viewer (self-contained, win-x64)
+        run: >
+          dotnet publish clients/windows-viewer/Fathom.Viewer/Fathom.Viewer.csproj
+          -c Release -r win-x64 --self-contained true -o publish
+
+      - name: Install WiX
+        run: dotnet tool install --global wix
+
+      - name: Build MSI
+        run: >
+          wix build clients/windows-viewer/installer/Package.wxs
+          -bindpath PublishDir=publish
+          -o FathomSecureViewer.msi
+
+      - name: Upload MSI as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: FathomSecureViewer-msi
+          path: FathomSecureViewer.msi
+          if-no-files-found: error
+
+      - name: Publish draft GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.version }}
+          name: Fathom Secure Viewer ${{ github.event.inputs.version }}
+          draft: true
+          files: FathomSecureViewer.msi
+          body: |
+            **Fathom Secure Viewer** — a protected, watermarked document viewer for your Fathom server.
+
+            - Blocks screenshots / screen-recording of the window (Windows `WDA_EXCLUDEFROMCAPTURE`).
+            - Streams per-page images watermarked with the signed-in user; the source file never leaves the server.
+            - Disables copy / print / save shortcuts and holds pages in memory only.
+
+            Per-user install (no admin required). Double-click the MSI, then sign in with your Fathom account.
+
+            > Copy-protection is a strong deterrent, not absolute — a camera photo of the screen is always possible
+            > (the watermark makes such leaks traceable).
