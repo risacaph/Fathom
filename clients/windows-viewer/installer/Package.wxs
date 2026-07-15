@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  WiX v5 authoring for the Fathom Secure Viewer MSI.
+  Per-user install (no admin/UAC needed). The whole self-contained publish folder is harvested via <Files>.
+  Build (in CI): wix build Package.wxs -bindpath PublishDir=<publishDir> -o FathomSecureViewer.msi
+-->
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package Name="Fathom Secure Viewer"
+           Manufacturer="Fathom"
+           Version="0.1.0.0"
+           UpgradeCode="A7F3C2E1-9B4D-4E6A-8C1F-2D5B7A9E4C60"
+           Scope="perUser">
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of Fathom Secure Viewer is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <Feature Id="Main" Title="Fathom Secure Viewer" Level="1">
+      <ComponentGroupRef Id="AppFiles" />
+      <ComponentRef Id="AppShortcuts" />
+    </Feature>
+
+    <StandardDirectory Id="LocalAppDataFolder">
+      <Directory Id="INSTALLFOLDER" Name="Fathom Secure Viewer" />
+    </StandardDirectory>
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Directory Id="AppProgramMenuDir" Name="Fathom" />
+    </StandardDirectory>
+  </Package>
+
+  <Fragment>
+    <!-- Harvest every file produced by `dotnet publish` (the self-contained app + runtime). -->
+    <ComponentGroup Id="AppFiles" Directory="INSTALLFOLDER">
+      <Files Include="!(bindpath.PublishDir)\**" />
+    </ComponentGroup>
+
+    <Component Id="AppShortcuts" Directory="AppProgramMenuDir" Guid="C1D2E3F4-5A6B-7C8D-9E0F-1A2B3C4D5E6F">
+      <Shortcut Id="StartMenuShortcut"
+                Name="Fathom Secure Viewer"
+                Target="[INSTALLFOLDER]FathomViewer.exe"
+                WorkingDirectory="INSTALLFOLDER" />
+      <RemoveFolder Id="RemoveProgramMenuDir" Directory="AppProgramMenuDir" On="uninstall" />
+      <RegistryValue Root="HKCU" Key="Software\Fathom\SecureViewer" Name="installed"
+                     Type="integer" Value="1" KeyPath="yes" />
+    </Component>
+  </Fragment>
+</Wix>
